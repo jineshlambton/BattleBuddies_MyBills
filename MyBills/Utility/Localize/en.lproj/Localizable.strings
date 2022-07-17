@@ -12,3 +12,12 @@
 "BTN_LOGIN" = "Login";
 "BTN_FORGOT_PASSWORD" = "Request password";
 "BTN_SIGNUP" = "Sign up";
+
+/// Sign up
+"LBL_ENTER_YOUR_DETAILS" = "Please Enter Your Details";
+"TXT_PLACEHOLDER_FIRSTNAME" = "Enter your first name";
+"TXT_PLACEHOLDER_LASTNAME" = "Enter your last name";
+"TXT_PLACEHOLDER_EMAIL" = "Enter your email address";
+"TXT_PLACEHOLDER_PWD" = "Enter your password";
+"TXT_PLACEHOLDER_CONFIRM_PWD" = "Enter your password again";
+"NAV_TITLE_REGISTER" = "Register";

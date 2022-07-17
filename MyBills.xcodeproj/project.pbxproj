@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		AC460ABF288480FD00EA55D2 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460ABD288480FD00EA55D2 /* SignUpVC.swift */; };
 		AC460AC0288480FD00EA55D2 /* SignUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC460ABE288480FD00EA55D2 /* SignUpVC.xib */; };
+		AC460AC328848A5B00EA55D2 /* MyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460AC228848A5B00EA55D2 /* MyLabel.swift */; };
+		AC460AC628848F8800EA55D2 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460AC528848F8800EA55D2 /* BaseVC.swift */; };
+		AC460AC928849C8200EA55D2 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460AC828849C8200EA55D2 /* Enums.swift */; };
 		AC55D3BF28821C20000CF810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3BE28821C20000CF810 /* AppDelegate.swift */; };
 		AC55D3C128821C20000CF810 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3C028821C20000CF810 /* SceneDelegate.swift */; };
 		AC55D3C328821C20000CF810 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3C228821C20000CF810 /* ViewController.swift */; };
@@ -46,6 +49,9 @@
 /* Begin PBXFileReference section */
 		AC460ABD288480FD00EA55D2 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		AC460ABE288480FD00EA55D2 /* SignUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpVC.xib; sourceTree = "<group>"; };
+		AC460AC228848A5B00EA55D2 /* MyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLabel.swift; sourceTree = "<group>"; };
+		AC460AC528848F8800EA55D2 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		AC460AC828849C8200EA55D2 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		AC55D3BB28821C20000CF810 /* MyBills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBills.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC55D3BE28821C20000CF810 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC55D3C028821C20000CF810 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +99,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC460AC12884869100EA55D2 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				AC460ABD288480FD00EA55D2 /* SignUpVC.swift */,
+				AC460ABE288480FD00EA55D2 /* SignUpVC.xib */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		AC460AC428848F7A00EA55D2 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				AC460AC528848F8800EA55D2 /* BaseVC.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		AC460AC728849C7700EA55D2 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				AC460AC828849C8200EA55D2 /* Enums.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
 		AC55D3B228821C20000CF810 = {
 			isa = PBXGroup;
 			children = (
@@ -128,9 +159,9 @@
 		AC55D3D228846BC7000CF810 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				AC460AC428848F7A00EA55D2 /* Base */,
+				AC460AC12884869100EA55D2 /* Signup */,
 				AC55D3D628846CFA000CF810 /* Login */,
-				AC460ABD288480FD00EA55D2 /* SignUpVC.swift */,
-				AC460ABE288480FD00EA55D2 /* SignUpVC.xib */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -146,6 +177,7 @@
 		AC55D3D928846EAC000CF810 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				AC460AC728849C7700EA55D2 /* General */,
 				AC55D40928847901000CF810 /* Localize */,
 				AC55D40428847770000CF810 /* Color */,
 				AC55D3DD288473BA000CF810 /* Fonts */,
@@ -161,6 +193,7 @@
 				AC55D3E228847533000CF810 /* MyFont.swift */,
 				AC55D40F28847967000CF810 /* MyString.swift */,
 				AC55D411288479FB000CF810 /* MyButton.swift */,
+				AC460AC228848A5B00EA55D2 /* MyLabel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -306,9 +339,12 @@
 				AC55D3C128821C20000CF810 /* SceneDelegate.swift in Sources */,
 				AC55D412288479FB000CF810 /* MyButton.swift in Sources */,
 				AC55D3E328847533000CF810 /* MyFont.swift in Sources */,
+				AC460AC928849C8200EA55D2 /* Enums.swift in Sources */,
+				AC460AC628848F8800EA55D2 /* BaseVC.swift in Sources */,
 				AC55D41028847967000CF810 /* MyString.swift in Sources */,
 				AC460ABF288480FD00EA55D2 /* SignUpVC.swift in Sources */,
 				AC55D3DC28846EE1000CF810 /* MyTextfield.swift in Sources */,
+				AC460AC328848A5B00EA55D2 /* MyLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

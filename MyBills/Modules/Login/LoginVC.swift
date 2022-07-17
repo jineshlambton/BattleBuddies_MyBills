@@ -25,6 +25,10 @@ class LoginVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        btnLogin.reloadControl()
+        btnSignUp.reloadControl()
+    }
     //MARK: - Custom methods
     
     private func setUpUI() {
@@ -34,17 +38,20 @@ class LoginVC: UIViewController {
         btnLogin.setTitle("BTN_LOGIN".localizedLanguage(), for: .normal)
         btnSignUp.setTitle("BTN_SIGNUP".localizedLanguage(), for: .normal)
         btnForgotPwd.setTitle("BTN_FORGOT_PASSWORD".localizedLanguage(), for: .normal)
-        
     }
     
     //MARK: - Button tap methods
     
     @IBAction func btnLoginTapped(_ sender: Any) {
+        btnLogin.reloadControl()
     }
     
     @IBAction func btnForgotPwdTapped(_ sender: Any) {
     }
     
     @IBAction func btnSignUpTapped(_ sender: Any) {
+        btnSignUp.reloadControl()
+        let objSignupVC = SignUpVC(nibName: "SignUpVC", bundle: nil)
+        self.navigationController?.pushViewController(objSignupVC, animated: true)
     }
 }

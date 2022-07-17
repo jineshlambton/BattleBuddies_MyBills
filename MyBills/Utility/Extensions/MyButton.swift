@@ -37,4 +37,11 @@ class MyButton: UIButton {
             self.setNeedsDisplay()
         }
     }
+    
+    func reloadControl() {
+        DispatchQueue.main.async {
+            self.titleLabel?.font = UIFont.BTN_NORAML
+            self.setNeedsDisplay()
+        }
+    }
 }

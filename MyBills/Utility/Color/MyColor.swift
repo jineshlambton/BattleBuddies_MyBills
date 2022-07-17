@@ -11,6 +11,7 @@ import UIKit
 enum MyColor: String {
     case textFieldBorder
     case btnBackground
+    case theme
     
     var color: UIColor {
         return UIColor(named: self.rawValue) ?? .clear
