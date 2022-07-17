@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  MyBills
+
+  Created by Vraj Patel on 17/07/22.
+  
+*/
+/// Login screen
+
+"TXT_PLACEHOLDER_USERNAME" = "Please enter username";
+"TXT_PLACEHOLDER_PASSWORD" = "Please enter password";
+"BTN_LOGIN" = "Login";
+"BTN_FORGOT_PASSWORD" = "Request password";
+"BTN_SIGNUP" = "Sign up";
