@@ -31,4 +31,7 @@ extension UIFont {
     
     static let TXT_TEXT = UIFont(name: FONT_SEMI_BOLD, size: 12.0)!
     static let BTN_NORAML = UIFont(name: FONT_BOLD, size: 14.0)!
+    
+    static let LBL_TITLE = UIFont(name: FONT_SEMI_BOLD, size: 20.0)!
+    static let LBL_SUB_TITLE = UIFont(name: FONT_SEMI_BOLD, size: 16.0)!
 }
