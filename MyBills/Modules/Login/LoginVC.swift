@@ -44,6 +44,8 @@ class LoginVC: UIViewController {
     
     @IBAction func btnLoginTapped(_ sender: Any) {
         btnLogin.reloadControl()
+        let objHomeVC = HomeVC(nibName: "HomeVC", bundle: nil)
+        self.navigationController?.pushViewController(objHomeVC, animated: true)
     }
     
     @IBAction func btnForgotPwdTapped(_ sender: Any) {

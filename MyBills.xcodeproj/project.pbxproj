@@ -12,6 +12,10 @@
 		AC460AC328848A5B00EA55D2 /* MyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460AC228848A5B00EA55D2 /* MyLabel.swift */; };
 		AC460AC628848F8800EA55D2 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460AC528848F8800EA55D2 /* BaseVC.swift */; };
 		AC460AC928849C8200EA55D2 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460AC828849C8200EA55D2 /* Enums.swift */; };
+		AC460ACD28849F4700EA55D2 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460ACB28849F4700EA55D2 /* HomeVC.swift */; };
+		AC460ACE28849F4700EA55D2 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC460ACC28849F4700EA55D2 /* HomeVC.xib */; };
+		AC460AD12884C53400EA55D2 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460ACF2884C53400EA55D2 /* HomeCell.swift */; };
+		AC460AD22884C53400EA55D2 /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC460AD02884C53400EA55D2 /* HomeCell.xib */; };
 		AC55D3BF28821C20000CF810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3BE28821C20000CF810 /* AppDelegate.swift */; };
 		AC55D3C128821C20000CF810 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3C028821C20000CF810 /* SceneDelegate.swift */; };
 		AC55D3C328821C20000CF810 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3C228821C20000CF810 /* ViewController.swift */; };
@@ -52,6 +56,10 @@
 		AC460AC228848A5B00EA55D2 /* MyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLabel.swift; sourceTree = "<group>"; };
 		AC460AC528848F8800EA55D2 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		AC460AC828849C8200EA55D2 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		AC460ACB28849F4700EA55D2 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		AC460ACC28849F4700EA55D2 /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
+		AC460ACF2884C53400EA55D2 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		AC460AD02884C53400EA55D2 /* HomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
 		AC55D3BB28821C20000CF810 /* MyBills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBills.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC55D3BE28821C20000CF810 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC55D3C028821C20000CF810 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +132,17 @@
 			path = General;
 			sourceTree = "<group>";
 		};
+		AC460ACA28849F3B00EA55D2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AC460ACB28849F4700EA55D2 /* HomeVC.swift */,
+				AC460ACC28849F4700EA55D2 /* HomeVC.xib */,
+				AC460ACF2884C53400EA55D2 /* HomeCell.swift */,
+				AC460AD02884C53400EA55D2 /* HomeCell.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		AC55D3B228821C20000CF810 = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +178,7 @@
 		AC55D3D228846BC7000CF810 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				AC460ACA28849F3B00EA55D2 /* Home */,
 				AC460AC428848F7A00EA55D2 /* Base */,
 				AC460AC12884869100EA55D2 /* Signup */,
 				AC55D3D628846CFA000CF810 /* Login */,
@@ -304,6 +324,7 @@
 				AC55D4002884758D000CF810 /* Poppins-Light.ttf in Resources */,
 				AC55D3FF2884758D000CF810 /* Poppins-ExtraLight.ttf in Resources */,
 				AC55D3FE2884758D000CF810 /* Poppins-ThinItalic.ttf in Resources */,
+				AC460AD22884C53400EA55D2 /* HomeCell.xib in Resources */,
 				AC55D4012884758D000CF810 /* Poppins-BoldItalic.ttf in Resources */,
 				AC55D4022884758D000CF810 /* Poppins-SemiBoldItalic.ttf in Resources */,
 				AC55D3FC2884758D000CF810 /* Poppins-SemiBold.ttf in Resources */,
@@ -320,6 +341,7 @@
 				AC55D3C828821C23000CF810 /* Assets.xcassets in Resources */,
 				AC55D4062884777C000CF810 /* ColorAssets.xcassets in Resources */,
 				AC55D3C628821C20000CF810 /* Main.storyboard in Resources */,
+				AC460ACE28849F4700EA55D2 /* HomeVC.xib in Resources */,
 				AC55D3F62884758D000CF810 /* Poppins-Regular.ttf in Resources */,
 				AC55D3F82884758D000CF810 /* Poppins-MediumItalic.ttf in Resources */,
 			);
@@ -333,8 +355,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC55D3C328821C20000CF810 /* ViewController.swift in Sources */,
+				AC460ACD28849F4700EA55D2 /* HomeVC.swift in Sources */,
 				AC55D3BF28821C20000CF810 /* AppDelegate.swift in Sources */,
 				AC55D3D828846D10000CF810 /* LoginVC.swift in Sources */,
+				AC460AD12884C53400EA55D2 /* HomeCell.swift in Sources */,
 				AC55D408288477F9000CF810 /* MyColor.swift in Sources */,
 				AC55D3C128821C20000CF810 /* SceneDelegate.swift in Sources */,
 				AC55D412288479FB000CF810 /* MyButton.swift in Sources */,

@@ -21,3 +21,6 @@
 "TXT_PLACEHOLDER_PWD" = "Enter your password";
 "TXT_PLACEHOLDER_CONFIRM_PWD" = "Enter your password again";
 "NAV_TITLE_REGISTER" = "Register";
+
+/// Home
+"NAV_TITLE_HOME" = "Home";

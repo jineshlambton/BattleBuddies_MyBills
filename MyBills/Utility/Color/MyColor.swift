@@ -12,6 +12,7 @@ enum MyColor: String {
     case textFieldBorder
     case btnBackground
     case theme
+    case cardView
     
     var color: UIColor {
         return UIColor(named: self.rawValue) ?? .clear
