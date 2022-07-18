@@ -24,3 +24,9 @@
 
 /// Home
 "NAV_TITLE_HOME" = "Home";
+
+/// Filter
+"NAV_TITLE_FILTER" = "Filter";
+"BTN_RESET" = "RESET";
+"LBL_PRICE" = "Price";
+
