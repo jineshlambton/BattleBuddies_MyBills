@@ -60,7 +60,7 @@ class HomeVC: BaseVC {
 
 extension HomeVC : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -71,7 +71,8 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let objHomeDetailVC = HomeDetailVC(nibName: "HomeDetailVC", bundle: nil)
+        self.navigationController?.pushViewController(objHomeDetailVC, animated: true)
     }
     
 }

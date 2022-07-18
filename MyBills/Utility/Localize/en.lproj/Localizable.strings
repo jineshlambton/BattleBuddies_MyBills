@@ -24,6 +24,8 @@
 
 /// Home
 "NAV_TITLE_HOME" = "Home";
+"NAV_TITLE_HOME_DETAIL" = "Item Detail";
+"BTN_DELETE" = "Delete";
 
 /// Filter
 "NAV_TITLE_FILTER" = "Filter";
