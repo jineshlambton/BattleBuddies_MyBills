@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeVC: UIViewController {
+class HomeVC: BaseVC {
     
     @IBOutlet weak var imgSetting: UIImageView!
     
@@ -49,6 +49,8 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func btnFilterTapped(_ sender: Any) {
+        let objFilterVC = FilterVC(nibName: "FilterVC", bundle: nil)
+        self.navigationController?.pushViewController(objFilterVC, animated: true)
     }
     
     @IBAction func btnFlotingTapped(_ sender: Any) {
