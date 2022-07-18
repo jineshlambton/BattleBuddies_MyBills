@@ -21,6 +21,8 @@
 		AC460AD92884D4C900EA55D2 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460AD82884D4C900EA55D2 /* DatePickerViewController.swift */; };
 		AC460ADB2884D5A200EA55D2 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460ADA2884D5A200EA55D2 /* Util.swift */; };
 		AC460ADD2884DA7F00EA55D2 /* MyDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460ADC2884DA7F00EA55D2 /* MyDate.swift */; };
+		AC460AE12884DFFB00EA55D2 /* HomeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460ADF2884DFFB00EA55D2 /* HomeDetailVC.swift */; };
+		AC460AE22884DFFB00EA55D2 /* HomeDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC460AE02884DFFB00EA55D2 /* HomeDetailVC.xib */; };
 		AC55D3BF28821C20000CF810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3BE28821C20000CF810 /* AppDelegate.swift */; };
 		AC55D3C128821C20000CF810 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3C028821C20000CF810 /* SceneDelegate.swift */; };
 		AC55D3C328821C20000CF810 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3C228821C20000CF810 /* ViewController.swift */; };
@@ -70,6 +72,8 @@
 		AC460AD82884D4C900EA55D2 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		AC460ADA2884D5A200EA55D2 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		AC460ADC2884DA7F00EA55D2 /* MyDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDate.swift; sourceTree = "<group>"; };
+		AC460ADF2884DFFB00EA55D2 /* HomeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailVC.swift; sourceTree = "<group>"; };
+		AC460AE02884DFFB00EA55D2 /* HomeDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeDetailVC.xib; sourceTree = "<group>"; };
 		AC55D3BB28821C20000CF810 /* MyBills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBills.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC55D3BE28821C20000CF810 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC55D3C028821C20000CF810 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +168,15 @@
 			path = Filter;
 			sourceTree = "<group>";
 		};
+		AC460ADE2884DFEB00EA55D2 /* Home Detail */ = {
+			isa = PBXGroup;
+			children = (
+				AC460ADF2884DFFB00EA55D2 /* HomeDetailVC.swift */,
+				AC460AE02884DFFB00EA55D2 /* HomeDetailVC.xib */,
+			);
+			path = "Home Detail";
+			sourceTree = "<group>";
+		};
 		AC55D3B228821C20000CF810 = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +212,7 @@
 		AC55D3D228846BC7000CF810 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				AC460ADE2884DFEB00EA55D2 /* Home Detail */,
 				AC460AD32884D0D300EA55D2 /* Filter */,
 				AC460ACA28849F3B00EA55D2 /* Home */,
 				AC460AC428848F7A00EA55D2 /* Base */,
@@ -359,6 +373,7 @@
 				AC55D3CB28821C23000CF810 /* LaunchScreen.storyboard in Resources */,
 				AC55D3F52884758D000CF810 /* Poppins-ExtraBoldItalic.ttf in Resources */,
 				AC55D3E12884742E000CF810 /* Poppins-Bold.ttf in Resources */,
+				AC460AE22884DFFB00EA55D2 /* HomeDetailVC.xib in Resources */,
 				AC55D3FA2884758D000CF810 /* Poppins-LightItalic.ttf in Resources */,
 				AC55D3FD2884758D000CF810 /* Poppins-Thin.ttf in Resources */,
 				AC55D3FB2884758D000CF810 /* Poppins-ExtraLightItalic.ttf in Resources */,
@@ -388,6 +403,7 @@
 				AC55D408288477F9000CF810 /* MyColor.swift in Sources */,
 				AC55D3C128821C20000CF810 /* SceneDelegate.swift in Sources */,
 				AC55D412288479FB000CF810 /* MyButton.swift in Sources */,
+				AC460AE12884DFFB00EA55D2 /* HomeDetailVC.swift in Sources */,
 				AC460AD62884D0E500EA55D2 /* FilterVC.swift in Sources */,
 				AC55D3E328847533000CF810 /* MyFont.swift in Sources */,
 				AC460AC928849C8200EA55D2 /* Enums.swift in Sources */,
