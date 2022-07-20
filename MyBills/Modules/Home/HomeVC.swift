@@ -46,6 +46,8 @@ class HomeVC: BaseVC {
     //MARK: - Button tap methods
     
     @IBAction func btnSettingTapped(_ sender: Any) {
+        let objSettingVC = SettingsVC(nibName: "SettingsVC", bundle: nil)
+        self.navigationController?.pushViewController(objSettingVC, animated: true)
     }
     
     @IBAction func btnFilterTapped(_ sender: Any) {

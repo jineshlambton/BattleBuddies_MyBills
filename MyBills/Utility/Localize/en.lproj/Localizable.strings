@@ -32,3 +32,6 @@
 "BTN_RESET" = "RESET";
 "LBL_PRICE" = "Price";
 
+/// Settings
+"NAV_TITLE_SETTINGS" = "Settings";
+"BTN_LOGOUT" = "Logout";
