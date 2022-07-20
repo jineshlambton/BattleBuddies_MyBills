@@ -256,6 +256,11 @@
             <point key="canvasLocation" x="132" y="66"/>
         </view>
     </objects>
+    <designables>
+        <designable name="Qfm-Sw-mTV">
+            <size key="intrinsicContentSize" width="67" height="31"/>
+        </designable>
+    </designables>
     <resources>
         <image name="backArrow" width="37" height="22"/>
         <image name="doneIcon" width="68" height="60"/>

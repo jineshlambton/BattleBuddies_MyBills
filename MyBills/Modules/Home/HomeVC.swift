@@ -56,6 +56,8 @@ class HomeVC: BaseVC {
     }
     
     @IBAction func btnFlotingTapped(_ sender: Any) {
+        let objAddItemVC = AddItemVC(nibName: "AddItemVC", bundle: nil)
+        self.navigationController?.pushViewController(objAddItemVC, animated: true)
     }
     
 }

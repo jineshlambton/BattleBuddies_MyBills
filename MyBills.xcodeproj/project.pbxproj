@@ -29,6 +29,8 @@
 		AC460AEB28864DA400EA55D2 /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC460AE928864DA400EA55D2 /* SettingsCell.xib */; };
 		AC460AEF2887B61F00EA55D2 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460AED2887B61F00EA55D2 /* ChangePasswordVC.swift */; };
 		AC460AF02887B61F00EA55D2 /* ChangePasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC460AEE2887B61F00EA55D2 /* ChangePasswordVC.xib */; };
+		AC460AF42887BBEB00EA55D2 /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460AF22887BBEB00EA55D2 /* AddItemVC.swift */; };
+		AC460AF52887BBEB00EA55D2 /* AddItemVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC460AF32887BBEB00EA55D2 /* AddItemVC.xib */; };
 		AC55D3BF28821C20000CF810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3BE28821C20000CF810 /* AppDelegate.swift */; };
 		AC55D3C128821C20000CF810 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3C028821C20000CF810 /* SceneDelegate.swift */; };
 		AC55D3C328821C20000CF810 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3C228821C20000CF810 /* ViewController.swift */; };
@@ -86,6 +88,8 @@
 		AC460AE928864DA400EA55D2 /* SettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
 		AC460AED2887B61F00EA55D2 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		AC460AEE2887B61F00EA55D2 /* ChangePasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordVC.xib; sourceTree = "<group>"; };
+		AC460AF22887BBEB00EA55D2 /* AddItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
+		AC460AF32887BBEB00EA55D2 /* AddItemVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddItemVC.xib; sourceTree = "<group>"; };
 		AC55D3BB28821C20000CF810 /* MyBills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBills.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC55D3BE28821C20000CF810 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC55D3C028821C20000CF810 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -209,6 +213,15 @@
 			path = "Change Password";
 			sourceTree = "<group>";
 		};
+		AC460AF12887BBD900EA55D2 /* Add Item */ = {
+			isa = PBXGroup;
+			children = (
+				AC460AF22887BBEB00EA55D2 /* AddItemVC.swift */,
+				AC460AF32887BBEB00EA55D2 /* AddItemVC.xib */,
+			);
+			path = "Add Item";
+			sourceTree = "<group>";
+		};
 		AC55D3B228821C20000CF810 = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +257,7 @@
 		AC55D3D228846BC7000CF810 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				AC460AF12887BBD900EA55D2 /* Add Item */,
 				AC460AEC2887B60500EA55D2 /* Change Password */,
 				AC460AE328864C7700EA55D2 /* Settings */,
 				AC460ADE2884DFEB00EA55D2 /* Home Detail */,
@@ -404,6 +418,7 @@
 				AC55D3F72884758D000CF810 /* Poppins-ExtraBold.ttf in Resources */,
 				AC55D3F92884758D000CF810 /* Poppins-Medium.ttf in Resources */,
 				AC55D3DF288473C9000CF810 /* Poppins-Black.ttf in Resources */,
+				AC460AF52887BBEB00EA55D2 /* AddItemVC.xib in Resources */,
 				AC460AC0288480FD00EA55D2 /* SignUpVC.xib in Resources */,
 				AC55D3CB28821C23000CF810 /* LaunchScreen.storyboard in Resources */,
 				AC55D3F52884758D000CF810 /* Poppins-ExtraBoldItalic.ttf in Resources */,
@@ -449,6 +464,7 @@
 				AC460AC628848F8800EA55D2 /* BaseVC.swift in Sources */,
 				AC460AD92884D4C900EA55D2 /* DatePickerViewController.swift in Sources */,
 				AC55D41028847967000CF810 /* MyString.swift in Sources */,
+				AC460AF42887BBEB00EA55D2 /* AddItemVC.swift in Sources */,
 				AC460ABF288480FD00EA55D2 /* SignUpVC.swift in Sources */,
 				AC55D3DC28846EE1000CF810 /* MyTextfield.swift in Sources */,
 				AC460AC328848A5B00EA55D2 /* MyLabel.swift in Sources */,
