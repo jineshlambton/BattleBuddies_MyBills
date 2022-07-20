@@ -27,6 +27,8 @@
 		AC460AE728864C8900EA55D2 /* SettingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC460AE528864C8900EA55D2 /* SettingsVC.xib */; };
 		AC460AEA28864DA400EA55D2 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460AE828864DA400EA55D2 /* SettingsCell.swift */; };
 		AC460AEB28864DA400EA55D2 /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC460AE928864DA400EA55D2 /* SettingsCell.xib */; };
+		AC460AEF2887B61F00EA55D2 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460AED2887B61F00EA55D2 /* ChangePasswordVC.swift */; };
+		AC460AF02887B61F00EA55D2 /* ChangePasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC460AEE2887B61F00EA55D2 /* ChangePasswordVC.xib */; };
 		AC55D3BF28821C20000CF810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3BE28821C20000CF810 /* AppDelegate.swift */; };
 		AC55D3C128821C20000CF810 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3C028821C20000CF810 /* SceneDelegate.swift */; };
 		AC55D3C328821C20000CF810 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3C228821C20000CF810 /* ViewController.swift */; };
@@ -82,6 +84,8 @@
 		AC460AE528864C8900EA55D2 /* SettingsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsVC.xib; sourceTree = "<group>"; };
 		AC460AE828864DA400EA55D2 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		AC460AE928864DA400EA55D2 /* SettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
+		AC460AED2887B61F00EA55D2 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
+		AC460AEE2887B61F00EA55D2 /* ChangePasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordVC.xib; sourceTree = "<group>"; };
 		AC55D3BB28821C20000CF810 /* MyBills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBills.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC55D3BE28821C20000CF810 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC55D3C028821C20000CF810 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +200,15 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		AC460AEC2887B60500EA55D2 /* Change Password */ = {
+			isa = PBXGroup;
+			children = (
+				AC460AED2887B61F00EA55D2 /* ChangePasswordVC.swift */,
+				AC460AEE2887B61F00EA55D2 /* ChangePasswordVC.xib */,
+			);
+			path = "Change Password";
+			sourceTree = "<group>";
+		};
 		AC55D3B228821C20000CF810 = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +244,7 @@
 		AC55D3D228846BC7000CF810 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				AC460AEC2887B60500EA55D2 /* Change Password */,
 				AC460AE328864C7700EA55D2 /* Settings */,
 				AC460ADE2884DFEB00EA55D2 /* Home Detail */,
 				AC460AD32884D0D300EA55D2 /* Filter */,
@@ -395,6 +409,7 @@
 				AC55D3F52884758D000CF810 /* Poppins-ExtraBoldItalic.ttf in Resources */,
 				AC55D3E12884742E000CF810 /* Poppins-Bold.ttf in Resources */,
 				AC460AE22884DFFB00EA55D2 /* HomeDetailVC.xib in Resources */,
+				AC460AF02887B61F00EA55D2 /* ChangePasswordVC.xib in Resources */,
 				AC55D3FA2884758D000CF810 /* Poppins-LightItalic.ttf in Resources */,
 				AC55D3FD2884758D000CF810 /* Poppins-Thin.ttf in Resources */,
 				AC55D3FB2884758D000CF810 /* Poppins-ExtraLightItalic.ttf in Resources */,
@@ -429,6 +444,7 @@
 				AC460AE12884DFFB00EA55D2 /* HomeDetailVC.swift in Sources */,
 				AC460AD62884D0E500EA55D2 /* FilterVC.swift in Sources */,
 				AC55D3E328847533000CF810 /* MyFont.swift in Sources */,
+				AC460AEF2887B61F00EA55D2 /* ChangePasswordVC.swift in Sources */,
 				AC460AC928849C8200EA55D2 /* Enums.swift in Sources */,
 				AC460AC628848F8800EA55D2 /* BaseVC.swift in Sources */,
 				AC460AD92884D4C900EA55D2 /* DatePickerViewController.swift in Sources */,
