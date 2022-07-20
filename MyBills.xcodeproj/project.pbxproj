@@ -23,6 +23,10 @@
 		AC460ADD2884DA7F00EA55D2 /* MyDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460ADC2884DA7F00EA55D2 /* MyDate.swift */; };
 		AC460AE12884DFFB00EA55D2 /* HomeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460ADF2884DFFB00EA55D2 /* HomeDetailVC.swift */; };
 		AC460AE22884DFFB00EA55D2 /* HomeDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC460AE02884DFFB00EA55D2 /* HomeDetailVC.xib */; };
+		AC460AE628864C8900EA55D2 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460AE428864C8900EA55D2 /* SettingsVC.swift */; };
+		AC460AE728864C8900EA55D2 /* SettingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC460AE528864C8900EA55D2 /* SettingsVC.xib */; };
+		AC460AEA28864DA400EA55D2 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460AE828864DA400EA55D2 /* SettingsCell.swift */; };
+		AC460AEB28864DA400EA55D2 /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC460AE928864DA400EA55D2 /* SettingsCell.xib */; };
 		AC55D3BF28821C20000CF810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3BE28821C20000CF810 /* AppDelegate.swift */; };
 		AC55D3C128821C20000CF810 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3C028821C20000CF810 /* SceneDelegate.swift */; };
 		AC55D3C328821C20000CF810 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3C228821C20000CF810 /* ViewController.swift */; };
@@ -74,6 +78,10 @@
 		AC460ADC2884DA7F00EA55D2 /* MyDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDate.swift; sourceTree = "<group>"; };
 		AC460ADF2884DFFB00EA55D2 /* HomeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailVC.swift; sourceTree = "<group>"; };
 		AC460AE02884DFFB00EA55D2 /* HomeDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeDetailVC.xib; sourceTree = "<group>"; };
+		AC460AE428864C8900EA55D2 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		AC460AE528864C8900EA55D2 /* SettingsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsVC.xib; sourceTree = "<group>"; };
+		AC460AE828864DA400EA55D2 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		AC460AE928864DA400EA55D2 /* SettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
 		AC55D3BB28821C20000CF810 /* MyBills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBills.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC55D3BE28821C20000CF810 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC55D3C028821C20000CF810 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +185,17 @@
 			path = "Home Detail";
 			sourceTree = "<group>";
 		};
+		AC460AE328864C7700EA55D2 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				AC460AE428864C8900EA55D2 /* SettingsVC.swift */,
+				AC460AE528864C8900EA55D2 /* SettingsVC.xib */,
+				AC460AE828864DA400EA55D2 /* SettingsCell.swift */,
+				AC460AE928864DA400EA55D2 /* SettingsCell.xib */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		AC55D3B228821C20000CF810 = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +231,7 @@
 		AC55D3D228846BC7000CF810 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				AC460AE328864C7700EA55D2 /* Settings */,
 				AC460ADE2884DFEB00EA55D2 /* Home Detail */,
 				AC460AD32884D0D300EA55D2 /* Filter */,
 				AC460ACA28849F3B00EA55D2 /* Home */,
@@ -355,6 +375,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC460AE728864C8900EA55D2 /* SettingsVC.xib in Resources */,
 				AC55D3F42884758D000CF810 /* Poppins-Italic.ttf in Resources */,
 				AC55D4032884758D000CF810 /* Poppins-BlackItalic.ttf in Resources */,
 				AC55D40C28847916000CF810 /* Localizable.strings in Resources */,
@@ -378,6 +399,7 @@
 				AC55D3FD2884758D000CF810 /* Poppins-Thin.ttf in Resources */,
 				AC55D3FB2884758D000CF810 /* Poppins-ExtraLightItalic.ttf in Resources */,
 				AC55D3C828821C23000CF810 /* Assets.xcassets in Resources */,
+				AC460AEB28864DA400EA55D2 /* SettingsCell.xib in Resources */,
 				AC55D4062884777C000CF810 /* ColorAssets.xcassets in Resources */,
 				AC55D3C628821C20000CF810 /* Main.storyboard in Resources */,
 				AC460ACE28849F4700EA55D2 /* HomeVC.xib in Resources */,
@@ -403,6 +425,7 @@
 				AC55D408288477F9000CF810 /* MyColor.swift in Sources */,
 				AC55D3C128821C20000CF810 /* SceneDelegate.swift in Sources */,
 				AC55D412288479FB000CF810 /* MyButton.swift in Sources */,
+				AC460AEA28864DA400EA55D2 /* SettingsCell.swift in Sources */,
 				AC460AE12884DFFB00EA55D2 /* HomeDetailVC.swift in Sources */,
 				AC460AD62884D0E500EA55D2 /* FilterVC.swift in Sources */,
 				AC55D3E328847533000CF810 /* MyFont.swift in Sources */,
@@ -413,6 +436,7 @@
 				AC460ABF288480FD00EA55D2 /* SignUpVC.swift in Sources */,
 				AC55D3DC28846EE1000CF810 /* MyTextfield.swift in Sources */,
 				AC460AC328848A5B00EA55D2 /* MyLabel.swift in Sources */,
+				AC460AE628864C8900EA55D2 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

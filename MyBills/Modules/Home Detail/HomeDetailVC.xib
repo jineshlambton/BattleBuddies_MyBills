@@ -198,7 +198,10 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meg-dw-I7m" customClass="MyButton" customModule="MyBills" customModuleProvider="target">
-                                    <rect key="frame" x="103.5" y="256" width="207" height="31"/>
+                                    <rect key="frame" x="103.5" y="256" width="207" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="yNv-BO-9xV"/>
+                                    </constraints>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                     <connections>
