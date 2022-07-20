@@ -17,7 +17,7 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var viewNavBar: UIView!
     @IBOutlet weak var tblView: UITableView!
     
-    var arrSettingsOptions = ["Change Password", "How to use?", "About us", "Expiry Alert"]
+    var arrSettingsOptions = ["Change Password", "How to use?", "Expiry Alert", "About us"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,12 +56,30 @@ extension SettingsVC : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell") as! SettingsCell
         cell.setUpUI()
+        cell.selectionStyle = .none
         cell.lblTitle.text = arrSettingsOptions[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            let objChangePwdVC = ChangePasswordVC(nibName: "ChangePasswordVC", bundle: nil)
+            self.navigationController?.pushViewController(objChangePwdVC, animated: true)
+        case 1:
+            print("")
+        case 2:
+            print("")
+        case 3:
+            print("")
+        default:
+            print("")
+            
+        }
     }
     
 }

@@ -35,3 +35,10 @@
 /// Settings
 "NAV_TITLE_SETTINGS" = "Settings";
 "BTN_LOGOUT" = "Logout";
+
+/// Change password
+"NAV_TITLE_CHANGE_PASSWORD" = "Change password";
+"BTN_SAVE" = "Save";
+"TXT_PLACEHOLDER_OLD_PWD" = "Old password";
+"TXT_PLACEHOLDER_NEW_PWD" = "New password";
+"TXT_PLACEHOLDER_CONFIRM_PWD" = "Confirm password";
