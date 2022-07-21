@@ -57,3 +57,6 @@
 "LBL_FROM_GALLARY" = "Gallery";
 "LBL_REMOVE_PHOTO" = "Remove photo";
 "LBL_CANCEL" = "Cancel";
+
+/// Expiry Alert
+"NAV_TITLE_EXPIRY_ALERT" = "Expiry Alert";

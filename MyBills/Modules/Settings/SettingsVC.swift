@@ -73,7 +73,8 @@ extension SettingsVC : UITableViewDataSource, UITableViewDelegate {
         case 1:
             print("")
         case 2:
-            print("")
+            let objExpiryAlertVC = ExpiryAlertVC(nibName: "ExpiryAlertVC", bundle: nil)
+            self.navigationController?.pushViewController(objExpiryAlertVC, animated: true)
         case 3:
             print("")
         default:

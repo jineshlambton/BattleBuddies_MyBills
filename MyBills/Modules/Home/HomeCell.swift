@@ -38,6 +38,7 @@ class HomeCell: UITableViewCell {
         lblCategory.setLBL(text: "Category : Work", font: .LBL_SUB_DATE, textcolor: .black)
         viewCard.backgroundColor = MyColor.cardView.color
         viewCard.layer.cornerRadius = 15.0
+        imgBill.image = UIImage(named: "placeholder")
         
     }
     
