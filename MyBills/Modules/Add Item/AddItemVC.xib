@@ -11,11 +11,30 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddItemVC" customModule="MyBills" customModuleProvider="target">
             <connections>
+                <outlet property="btnAdd" destination="ofe-Pl-Gfc" id="lhA-mo-DmW"/>
                 <outlet property="btnBack" destination="1J5-8k-tsw" id="c9G-xt-j2d"/>
+                <outlet property="btnCategory" destination="JDn-Jl-ayr" id="02e-lf-cHd"/>
+                <outlet property="btnExpirtyDate" destination="3wF-yn-43x" id="DxM-Eu-0A2"/>
+                <outlet property="btnPurchaseDate" destination="6SH-0o-nN7" id="V2Q-xC-AR3"/>
+                <outlet property="btnReplacementDate" destination="5Yj-oy-sYM" id="tgX-FB-RP7"/>
                 <outlet property="imgBack" destination="My0-6H-4r1" id="uLs-8e-m5f"/>
+                <outlet property="imgBill" destination="Z4S-bH-jeI" id="ODP-7E-fno"/>
+                <outlet property="lblCategory" destination="ub7-P4-L2D" id="qQp-V8-xzF"/>
+                <outlet property="lblExpiryDate" destination="Cv6-t2-AOp" id="30n-EN-SWd"/>
+                <outlet property="lblPurchaseDate" destination="sVj-UI-I3M" id="9ll-wi-eS1"/>
+                <outlet property="lblReplacementDate" destination="5Mf-6H-KxS" id="jw9-sC-aPh"/>
                 <outlet property="lblTitle" destination="byT-r7-ub5" id="Hzq-VM-PRB"/>
+                <outlet property="txtItemName" destination="MKv-iM-a9O" id="Myy-Ws-umg"/>
+                <outlet property="txtPrice" destination="cJ2-J3-0RQ" id="Oc5-yK-Sle"/>
+                <outlet property="txtViewDescription" destination="mbv-5K-hvq" id="FAN-yp-Imv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewBill" destination="yyG-9B-lBP" id="Dfr-cp-2S8"/>
+                <outlet property="viewCategory" destination="BOq-kg-WXg" id="GNn-gm-ToY"/>
+                <outlet property="viewDescription" destination="8Gj-JM-bAX" id="8Eo-GB-gnm"/>
+                <outlet property="viewExpiryDate" destination="HVr-r3-Vec" id="QAc-ZD-Yyg"/>
                 <outlet property="viewNavBar" destination="fu6-m1-foW" id="jjR-BK-I3b"/>
+                <outlet property="viewPurchaseDate" destination="dT7-Mi-XgE" id="yKO-tZ-ulg"/>
+                <outlet property="viewReplacementDate" destination="hM5-EO-Zqt" id="SP9-iI-jUq"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -40,6 +59,9 @@
                             </constraints>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain"/>
+                            <connections>
+                                <action selector="btnBackTapped:" destination="-1" eventType="touchUpInside" id="UL1-ft-E1t"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byT-r7-ub5">
                             <rect key="frame" x="52" y="0.0" width="310.5" height="44"/>
@@ -80,10 +102,20 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calender" translatesAutoresizingMaskIntoConstraints="NO" id="gz0-zE-i3g">
+                            <rect key="frame" x="334" y="5" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="Bgv-Y3-9SF"/>
+                                <constraint firstAttribute="width" constant="25" id="JSC-6Y-1Lb"/>
+                            </constraints>
+                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6SH-0o-nN7">
                             <rect key="frame" x="0.0" y="0.0" width="374" height="35"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain"/>
+                            <connections>
+                                <action selector="btnPurchaseDateTapped:" destination="-1" eventType="touchUpInside" id="duh-8u-dD1"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -93,7 +125,9 @@
                         <constraint firstAttribute="bottom" secondItem="sVj-UI-I3M" secondAttribute="bottom" id="BBZ-E9-wFD"/>
                         <constraint firstItem="sVj-UI-I3M" firstAttribute="top" secondItem="dT7-Mi-XgE" secondAttribute="top" id="SAd-e3-bNS"/>
                         <constraint firstAttribute="height" constant="35" id="ScZ-Lh-M27"/>
+                        <constraint firstItem="gz0-zE-i3g" firstAttribute="centerY" secondItem="dT7-Mi-XgE" secondAttribute="centerY" id="TeT-TY-1fM"/>
                         <constraint firstAttribute="trailing" secondItem="sVj-UI-I3M" secondAttribute="trailing" id="VD5-ug-FF1"/>
+                        <constraint firstAttribute="trailing" secondItem="gz0-zE-i3g" secondAttribute="trailing" constant="15" id="ZKu-vJ-Dbh"/>
                         <constraint firstItem="6SH-0o-nN7" firstAttribute="leading" secondItem="dT7-Mi-XgE" secondAttribute="leading" id="jDY-2M-I0m"/>
                         <constraint firstAttribute="bottom" secondItem="6SH-0o-nN7" secondAttribute="bottom" id="mcj-ui-CZI"/>
                         <constraint firstAttribute="trailing" secondItem="6SH-0o-nN7" secondAttribute="trailing" id="sL2-ph-kDP"/>
@@ -108,20 +142,32 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calender" translatesAutoresizingMaskIntoConstraints="NO" id="jLr-BW-5Yr">
+                            <rect key="frame" x="334" y="5" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="geY-kO-8zt"/>
+                                <constraint firstAttribute="width" constant="25" id="yV9-9m-evw"/>
+                            </constraints>
+                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wF-yn-43x">
                             <rect key="frame" x="0.0" y="0.0" width="374" height="35"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain"/>
+                            <connections>
+                                <action selector="btnExpirtyDateTapped:" destination="-1" eventType="touchUpInside" id="uSu-k4-Pr1"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="3wF-yn-43x" firstAttribute="top" secondItem="HVr-r3-Vec" secondAttribute="top" id="5wl-OJ-lba"/>
+                        <constraint firstItem="jLr-BW-5Yr" firstAttribute="centerY" secondItem="HVr-r3-Vec" secondAttribute="centerY" id="7ef-oh-eOg"/>
                         <constraint firstAttribute="bottom" secondItem="Cv6-t2-AOp" secondAttribute="bottom" id="9aq-ok-LNy"/>
                         <constraint firstAttribute="height" constant="35" id="Es6-4W-DAC"/>
                         <constraint firstAttribute="trailing" secondItem="3wF-yn-43x" secondAttribute="trailing" id="Jx2-YG-f5B"/>
                         <constraint firstAttribute="trailing" secondItem="Cv6-t2-AOp" secondAttribute="trailing" id="R5j-yf-0Eu"/>
                         <constraint firstItem="Cv6-t2-AOp" firstAttribute="top" secondItem="HVr-r3-Vec" secondAttribute="top" id="T0h-Rp-CUY"/>
+                        <constraint firstAttribute="trailing" secondItem="jLr-BW-5Yr" secondAttribute="trailing" constant="15" id="Z4z-OL-vQk"/>
                         <constraint firstAttribute="bottom" secondItem="3wF-yn-43x" secondAttribute="bottom" id="hrE-gn-5AN"/>
                         <constraint firstItem="Cv6-t2-AOp" firstAttribute="leading" secondItem="HVr-r3-Vec" secondAttribute="leading" constant="15" id="lqZ-gH-iq1"/>
                         <constraint firstItem="3wF-yn-43x" firstAttribute="leading" secondItem="HVr-r3-Vec" secondAttribute="leading" id="t4R-LW-ed8"/>
@@ -136,15 +182,27 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calender" translatesAutoresizingMaskIntoConstraints="NO" id="otV-gV-V7j">
+                            <rect key="frame" x="334" y="5" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="pgP-vs-Wv8"/>
+                                <constraint firstAttribute="height" constant="25" id="rE3-Hg-gps"/>
+                            </constraints>
+                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Yj-oy-sYM">
                             <rect key="frame" x="0.0" y="0.0" width="374" height="35"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain"/>
+                            <connections>
+                                <action selector="btnReplacementDateTapped:" destination="-1" eventType="touchUpInside" id="Uas-V0-wTT"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstItem="otV-gV-V7j" firstAttribute="centerY" secondItem="hM5-EO-Zqt" secondAttribute="centerY" id="56Q-f0-1uj"/>
                         <constraint firstItem="5Yj-oy-sYM" firstAttribute="leading" secondItem="hM5-EO-Zqt" secondAttribute="leading" id="CpE-IY-K37"/>
+                        <constraint firstAttribute="trailing" secondItem="otV-gV-V7j" secondAttribute="trailing" constant="15" id="Jcj-XE-Ob3"/>
                         <constraint firstItem="5Mf-6H-KxS" firstAttribute="leading" secondItem="hM5-EO-Zqt" secondAttribute="leading" constant="15" id="Lc9-eM-PQX"/>
                         <constraint firstAttribute="height" constant="35" id="Qca-TM-UkH"/>
                         <constraint firstItem="5Mf-6H-KxS" firstAttribute="top" secondItem="hM5-EO-Zqt" secondAttribute="top" id="aUE-K5-W1h"/>
@@ -158,15 +216,37 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BOq-kg-WXg" userLabel="View category">
                     <rect key="frame" x="20" y="328" width="374" height="35"/>
                     <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ub7-P4-L2D">
+                            <rect key="frame" x="15" y="0.0" width="359" height="35"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dropdown" translatesAutoresizingMaskIntoConstraints="NO" id="ELm-wv-bXf">
+                            <rect key="frame" x="334" y="5" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="WNc-cN-FXP"/>
+                                <constraint firstAttribute="width" constant="25" id="XM4-di-CxK"/>
+                            </constraints>
+                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDn-Jl-ayr">
                             <rect key="frame" x="0.0" y="0.0" width="374" height="35"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain"/>
+                            <connections>
+                                <action selector="btnCategoryTapped:" destination="-1" eventType="touchUpInside" id="g63-dz-q8S"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="ub7-P4-L2D" secondAttribute="trailing" id="2n3-wL-jIa"/>
+                        <constraint firstAttribute="trailing" secondItem="ELm-wv-bXf" secondAttribute="trailing" constant="15" id="3gI-zl-pGo"/>
+                        <constraint firstItem="ub7-P4-L2D" firstAttribute="top" secondItem="BOq-kg-WXg" secondAttribute="top" id="BoJ-GW-1Bl"/>
                         <constraint firstItem="JDn-Jl-ayr" firstAttribute="top" secondItem="BOq-kg-WXg" secondAttribute="top" id="E9N-zg-Oo9"/>
+                        <constraint firstItem="ub7-P4-L2D" firstAttribute="leading" secondItem="BOq-kg-WXg" secondAttribute="leading" constant="15" id="Hjf-Cu-i8S"/>
+                        <constraint firstItem="ELm-wv-bXf" firstAttribute="centerY" secondItem="BOq-kg-WXg" secondAttribute="centerY" id="Irr-Lk-Kyc"/>
+                        <constraint firstAttribute="bottom" secondItem="ub7-P4-L2D" secondAttribute="bottom" id="SfS-2L-9bb"/>
                         <constraint firstAttribute="bottom" secondItem="JDn-Jl-ayr" secondAttribute="bottom" id="Y0H-0I-K03"/>
                         <constraint firstAttribute="trailing" secondItem="JDn-Jl-ayr" secondAttribute="trailing" id="e4r-Kd-HdM"/>
                         <constraint firstItem="JDn-Jl-ayr" firstAttribute="leading" secondItem="BOq-kg-WXg" secondAttribute="leading" id="iT7-Z6-Nxh"/>
@@ -187,7 +267,6 @@
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mbv-5K-hvq">
                             <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                             <color key="textColor" systemColor="labelColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -218,7 +297,7 @@
                         <constraint firstItem="Z4S-bH-jeI" firstAttribute="leading" secondItem="yyG-9B-lBP" secondAttribute="leading" id="ujj-nH-A0Z"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofe-Pl-Gfc">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofe-Pl-Gfc" customClass="MyButton" customModule="MyBills" customModuleProvider="target">
                     <rect key="frame" x="103.5" y="792" width="207" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="gFh-Jv-RDI"/>
@@ -226,7 +305,7 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Button"/>
                     <connections>
-                        <action selector="btnBackTapped:" destination="-1" eventType="touchUpInside" id="FgY-8x-wbw"/>
+                        <action selector="btnAddTapped:" destination="-1" eventType="touchUpInside" id="abR-gC-bBO"/>
                     </connections>
                 </button>
             </subviews>
@@ -269,6 +348,8 @@
     </objects>
     <resources>
         <image name="backArrow" width="37" height="22"/>
+        <image name="calender" width="256" height="256"/>
+        <image name="dropdown" width="384" height="384"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

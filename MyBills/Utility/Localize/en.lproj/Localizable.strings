@@ -42,3 +42,10 @@
 "TXT_PLACEHOLDER_OLD_PWD" = "Old password";
 "TXT_PLACEHOLDER_NEW_PWD" = "New password";
 "TXT_PLACEHOLDER_CONFIRM_PWD" = "Confirm password";
+
+/// Add item
+"NAV_TITLE_ITEM" = "Add item";
+"BTN_ADD" = "Add";
+"BTN_UPDATE" = "Update";
+"TXT_PLACEHOLDER_ITEM_NAME" = "Please enter item name";
+"TXT_PLACEHOLDER_ITEM_PRICE" = "Please enter price";
