@@ -7,6 +7,7 @@ target 'MyBills' do
 
   
   pod 'SwiftyMenu', '~> 1.0.1'
+  pod 'RangeSeekSlider'
   # Pods for MyBills
 
 end

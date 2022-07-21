@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddItemVC" customModule="MyBills" customModuleProvider="target">
             <connections>
                 <outlet property="btnAdd" destination="ofe-Pl-Gfc" id="lhA-mo-DmW"/>
+                <outlet property="btnAddBill" destination="hDf-Lq-QxR" id="JAO-Mc-VmF"/>
                 <outlet property="btnBack" destination="1J5-8k-tsw" id="c9G-xt-j2d"/>
                 <outlet property="btnCategory" destination="JDn-Jl-ayr" id="02e-lf-cHd"/>
                 <outlet property="btnExpirtyDate" destination="3wF-yn-43x" id="DxM-Eu-0A2"/>
@@ -288,16 +289,28 @@
                     <rect key="frame" x="20" y="528" width="374" height="100"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z4S-bH-jeI">
-                            <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                            <rect key="frame" x="93.5" y="10" width="187" height="80"/>
                         </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDf-Lq-QxR">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain"/>
+                            <connections>
+                                <action selector="btnAddImageTapped:" destination="-1" eventType="touchUpInside" id="G1L-Vl-slm"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="Z4S-bH-jeI" firstAttribute="top" secondItem="yyG-9B-lBP" secondAttribute="top" id="9db-af-azp"/>
-                        <constraint firstAttribute="bottom" secondItem="Z4S-bH-jeI" secondAttribute="bottom" id="CPX-6w-EHc"/>
-                        <constraint firstAttribute="trailing" secondItem="Z4S-bH-jeI" secondAttribute="trailing" id="W8e-gk-wTS"/>
+                        <constraint firstItem="Z4S-bH-jeI" firstAttribute="height" secondItem="yyG-9B-lBP" secondAttribute="height" multiplier="0.8" id="FFs-IZ-hAG"/>
+                        <constraint firstAttribute="trailing" secondItem="hDf-Lq-QxR" secondAttribute="trailing" id="N3M-V7-EFn"/>
+                        <constraint firstItem="hDf-Lq-QxR" firstAttribute="leading" secondItem="yyG-9B-lBP" secondAttribute="leading" id="QBx-Ps-4Ie"/>
+                        <constraint firstItem="Z4S-bH-jeI" firstAttribute="centerY" secondItem="yyG-9B-lBP" secondAttribute="centerY" id="TJb-We-Q8h"/>
+                        <constraint firstAttribute="bottom" secondItem="hDf-Lq-QxR" secondAttribute="bottom" id="eY0-jh-Jcp"/>
+                        <constraint firstItem="Z4S-bH-jeI" firstAttribute="width" secondItem="yyG-9B-lBP" secondAttribute="width" multiplier="0.5" id="gQV-ie-mSu"/>
+                        <constraint firstItem="Z4S-bH-jeI" firstAttribute="centerX" secondItem="yyG-9B-lBP" secondAttribute="centerX" id="m5i-FF-Rjn"/>
+                        <constraint firstItem="hDf-Lq-QxR" firstAttribute="top" secondItem="yyG-9B-lBP" secondAttribute="top" id="nIK-jy-r06"/>
                         <constraint firstAttribute="height" constant="100" id="ruO-2j-kIp"/>
-                        <constraint firstItem="Z4S-bH-jeI" firstAttribute="leading" secondItem="yyG-9B-lBP" secondAttribute="leading" id="ujj-nH-A0Z"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofe-Pl-Gfc" customClass="MyButton" customModule="MyBills" customModuleProvider="target">

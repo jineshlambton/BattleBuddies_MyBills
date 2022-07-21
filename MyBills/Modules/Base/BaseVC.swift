@@ -15,12 +15,70 @@ class BaseVC: UIViewController {
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
-
+    public func openActionSheetToPickImage(isImagePicked : Bool = false)
+    {
+        let getPhotoActionSheet = UIAlertController(title: "LBL_GET_PHOTO".localizedLanguage(), message: "LBL_SELECT_IMG_FOR_PROFILE".localizedLanguage(), preferredStyle: .actionSheet)
+        
+        let takePhotoAction = UIAlertAction(title: "LBL_TAKE_PHOTO".localizedLanguage(), style: .default){(ACTION) in
+            let image = UIImagePickerController()
+            image.delegate = self
+            image.sourceType = UIImagePickerController.SourceType.camera
+            image.allowsEditing = false
+            self.present(image, animated: true, completion: nil)
+        }
+        let choosePhotoAction = UIAlertAction(title: "LBL_FROM_GALLARY".localizedLanguage(), style: .default)
+        {(ACTION) in
+            let image = UIImagePickerController()
+            image.delegate = self
+            image.sourceType = UIImagePickerController.SourceType.photoLibrary
+            image.allowsEditing = false
+            self.present(image, animated: true, completion: nil)
+        }
+        let removePhotoAction = UIAlertAction(title: "LBL_REMOVE_PHOTO".localizedLanguage(), style: .default)
+        {(ACTION) in
+            self.removePhotoTapped()
+        }
+        
+        let cancelPhotoAction = UIAlertAction(title: "LBL_CANCEL".localizedLanguage(), style: .cancel) { (cancelAction) in
+            print("Cancel tapped")
+        }
+        
+        getPhotoActionSheet.addAction(takePhotoAction)
+        getPhotoActionSheet.addAction(choosePhotoAction)
+        if isImagePicked == true {
+            getPhotoActionSheet.addAction(removePhotoAction)
+        }
+        getPhotoActionSheet.addAction(cancelPhotoAction)
+        
+        present(getPhotoActionSheet, animated: true, completion: nil)
+    }
+    
+    func getPickedImage(img : UIImage) {
+        print("Image picked at basevc")
+    }
+    
+    func removePhotoTapped() {
+        print("Remove photo tapped at basevc")
+    }
 }
 
 
 extension BaseVC:UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
+    }
+}
+
+extension BaseVC : UIImagePickerControllerDelegate , UINavigationControllerDelegate {
+    // MARK: - Image picker delegate methods
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let selectedPhoto = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        
+        getPickedImage(img: selectedPhoto)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

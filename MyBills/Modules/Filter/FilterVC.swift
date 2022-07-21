@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import SwiftyMenu
+import RangeSeekSlider
 
 class FilterVC: BaseVC {
+    
     
     @IBOutlet weak var navBarView: UIView!
     @IBOutlet weak var lblTitle: UILabel!
@@ -31,7 +34,11 @@ class FilterVC: BaseVC {
     @IBOutlet weak var btnDate2: UIButton!
     @IBOutlet weak var btnCategory: UIButton!
     
+    @IBOutlet weak var viewCategory: SwiftyMenu!
+    @IBOutlet weak var priceRange: RangeSeekSlider!
     
+    @IBOutlet weak var lblMinValue: UILabel!
+    @IBOutlet weak var lblMaxValue: UILabel!
     
     
     
@@ -50,6 +57,8 @@ class FilterVC: BaseVC {
         btnBack.setTitle("", for: .normal)
         btnDone.setTitle("", for: .normal)
         lblPriceTitle.setLBL(text: "LBL_PRICE".localizedLanguage(), font: .LBL_SUB_TITLE, textcolor: .black)
+        lblMinValue.setLBL(text: "", font: .LBL_SUB_TITLE, textcolor: .black)
+        lblMaxValue.setLBL(text: "", font: .LBL_SUB_TITLE, textcolor: .black)
         lblDate1.setLBL(text: "Purchase Date : -", font: .LBL_SUB_TITLE, textcolor: .black)
         lblDate2.setLBL(text: "Expiry Date : -", font: .LBL_SUB_TITLE, textcolor: .black)
         btnDate1.setTitle("", for: .normal)
@@ -57,6 +66,12 @@ class FilterVC: BaseVC {
         btnCategory.setTitle("", for: .normal)
         curveView(view: viewDate1)
         curveView(view: viewDate2)
+        
+        setUpDropdown()
+        DispatchQueue.main.async {
+            self.setUpPriceRange()
+        }
+        
     }
     
     func curveView(view : UIView) {
@@ -84,7 +99,41 @@ class FilterVC: BaseVC {
         alert.addAction(title: "Done", color: MyColor.theme.color, style: .cancel)
         self.present(alert, animated: true, completion: nil)
     }
-
+    
+    private func setUpDropdown() {
+        var codeMenuAttributes = SwiftyMenuAttributes()
+        codeMenuAttributes.multiSelect = .disabled
+        codeMenuAttributes.separatorStyle = .value(color: .white, isBlured: false, style: .none)
+        codeMenuAttributes.border = .value(color: MyColor.textFieldBorder.color, width: 1.0)
+        codeMenuAttributes.roundCorners = .all(radius: 10)
+        codeMenuAttributes.arrowStyle = .value(isEnabled: true, image: UIImage(named: "dropdown"))
+        
+        self.viewCategory.delegate = self
+        self.viewCategory.configure(with: codeMenuAttributes)
+        let obj1 = MyCategory(id: 1, name: "Category 1")
+        let obj2 = MyCategory(id: 2, name: "Category 2")
+        self.viewCategory.items = [obj1, obj2]
+//        DispatchQueue.main.async {
+//            self.viewCategory1.selectedIndex = 1
+//        }
+    }
+    
+    private func setUpPriceRange() {
+        priceRange.delegate = self
+        priceRange.minValue = 10
+        priceRange.maxValue = 100
+        priceRange.selectedMinValue = 20
+        priceRange.selectedMaxValue = 80
+        priceRange.hideLabels = false
+        priceRange.labelsFixed = false
+        priceRange.minLabelFont = .LBL_TITLE
+        priceRange.maxLabelFont = .LBL_TITLE
+        priceRange.disableRange = false
+        lblMinValue.text = "Min : \(Int(priceRange.selectedMinValue))"
+        lblMaxValue.text = "Max : \(Int(priceRange.selectedMaxValue))"
+        
+    }
+    
     //MARK: - Button tap methods
     
     @IBAction func btnBackTapped(_ sender: Any) {
@@ -108,5 +157,51 @@ class FilterVC: BaseVC {
     }
     
     @IBAction func btnCategoryTapped(_ sender: Any) {
+    }
+}
+
+extension FilterVC : SwiftyMenuDelegate {
+    func swiftyMenu(_ swiftyMenu: SwiftyMenu, didSelectItem item: SwiftyMenuDisplayable, atIndex index: Int) {
+        print("didSelectItem : \(item.displayableValue), index : \(index)")
+    }
+    
+    func swiftyMenu(willExpand swiftyMenu: SwiftyMenu) {
+        print("willExpand")
+    }
+    
+    func swiftyMenu(didExpand swiftyMenu: SwiftyMenu) {
+        print("didExpand")
+    }
+    
+    func swiftyMenu(willCollapse swiftyMenu: SwiftyMenu) {
+        print("willCollapse")
+    }
+    
+    func swiftyMenu(didCollapse swiftyMenu: SwiftyMenu) {
+        print("didCollapse")
+    }
+}
+
+extension FilterVC : RangeSeekSliderDelegate {
+    func rangeSeekSlider(_ slider: RangeSeekSlider, didChange minValue: CGFloat, maxValue: CGFloat) {
+        print("didChange : \(minValue), : \(maxValue)")
+        lblMinValue.text = "Min : \(Int(minValue))"
+        lblMaxValue.text = "Max : \(Int(maxValue))"
+    }
+    
+    func didStartTouches(in slider: RangeSeekSlider) {
+//        print("didStartTouches: \(slider.minValue) : \(slider.maxValue)")
+    }
+    
+    func didEndTouches(in slider: RangeSeekSlider) {
+//        print("didEndTouches : \(slider.minValue) : \(slider.maxValue)")
+    }
+    
+    func rangeSeekSlider(_ slider: RangeSeekSlider, stringForMinValue minValue: CGFloat) -> String? {
+        return ""
+    }
+    
+    func rangeSeekSlider(_ slider: RangeSeekSlider, stringForMaxValue: CGFloat) -> String? {
+        return ""
     }
 }

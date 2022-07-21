@@ -9,7 +9,7 @@ import UIKit
 import SwiftyMenu
 
 
-class AddItemVC: UIViewController {
+class AddItemVC: BaseVC {
     
     @IBOutlet weak var viewNavBar: UIView!
     @IBOutlet weak var imgBack: UIImageView!
@@ -42,6 +42,7 @@ class AddItemVC: UIViewController {
     @IBOutlet weak var viewBill: UIView!
     
     @IBOutlet weak var btnAdd: MyButton!
+    @IBOutlet weak var btnAddBill: UIButton!
     
     
     override func viewDidLoad() {
@@ -67,6 +68,7 @@ class AddItemVC: UIViewController {
         btnPurchaseDate.setTitle("", for: .normal)
         btnExpirtyDate.setTitle("", for: .normal)
         btnReplacementDate.setTitle("", for: .normal)
+        btnAddBill.setTitle("", for: .normal)
         btnCategory.setTitle("", for: .normal)
         setDateViewUI(view: viewPurchaseDate)
         setDateViewUI(view: viewExpiryDate)
@@ -115,6 +117,10 @@ class AddItemVC: UIViewController {
 //        }
     }
     
+    override func getPickedImage(img: UIImage) {
+        imgBill.image = img
+    }
+    
     // MARK: - Button tapped methods
     
     @IBAction func btnBackTapped(_ sender: Any) {
@@ -138,6 +144,12 @@ class AddItemVC: UIViewController {
     
     @IBAction func btnAddTapped(_ sender: Any) {
     }
+    
+    @IBAction func btnAddImageTapped(_ sender: Any) {
+        openActionSheetToPickImage()
+    }
+    
+    
 }
 
 extension AddItemVC : SwiftyMenuDelegate {
