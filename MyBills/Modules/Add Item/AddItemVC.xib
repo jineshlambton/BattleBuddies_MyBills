@@ -24,16 +24,16 @@
                 <outlet property="lblPurchaseDate" destination="sVj-UI-I3M" id="9ll-wi-eS1"/>
                 <outlet property="lblReplacementDate" destination="5Mf-6H-KxS" id="jw9-sC-aPh"/>
                 <outlet property="lblTitle" destination="byT-r7-ub5" id="Hzq-VM-PRB"/>
-                <outlet property="txtItemName" destination="MKv-iM-a9O" id="Myy-Ws-umg"/>
-                <outlet property="txtPrice" destination="cJ2-J3-0RQ" id="Oc5-yK-Sle"/>
+                <outlet property="txtItemName" destination="MKv-iM-a9O" id="69Z-o1-Be0"/>
+                <outlet property="txtPrice" destination="cJ2-J3-0RQ" id="M5m-Nw-Oip"/>
                 <outlet property="txtViewDescription" destination="mbv-5K-hvq" id="FAN-yp-Imv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewBill" destination="yyG-9B-lBP" id="Dfr-cp-2S8"/>
-                <outlet property="viewCategory" destination="BOq-kg-WXg" id="GNn-gm-ToY"/>
+                <outlet property="viewCategory1" destination="BOq-kg-WXg" id="bxA-CZ-g8X"/>
                 <outlet property="viewDescription" destination="8Gj-JM-bAX" id="8Eo-GB-gnm"/>
                 <outlet property="viewExpiryDate" destination="HVr-r3-Vec" id="QAc-ZD-Yyg"/>
                 <outlet property="viewNavBar" destination="fu6-m1-foW" id="jjR-BK-I3b"/>
-                <outlet property="viewPurchaseDate" destination="dT7-Mi-XgE" id="yKO-tZ-ulg"/>
+                <outlet property="viewPurchaseDate" destination="dT7-Mi-XgE" id="cNg-3Q-5Rm"/>
                 <outlet property="viewReplacementDate" destination="hM5-EO-Zqt" id="SP9-iI-jUq"/>
             </connections>
         </placeholder>
@@ -85,7 +85,7 @@
                         <constraint firstAttribute="bottom" secondItem="My0-6H-4r1" secondAttribute="bottom" constant="5" id="p5a-xo-CtQ"/>
                     </constraints>
                 </view>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MKv-iM-a9O">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MKv-iM-a9O" customClass="MyTextField" customModule="MyBills" customModuleProvider="target">
                     <rect key="frame" x="20" y="108" width="374" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="WgB-t2-Asw"/>
@@ -213,23 +213,23 @@
                         <constraint firstAttribute="trailing" secondItem="5Yj-oy-sYM" secondAttribute="trailing" id="sfZ-Xt-2G3"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BOq-kg-WXg" userLabel="View category">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BOq-kg-WXg" userLabel="View category" customClass="SwiftyMenu" customModule="SwiftyMenu">
                     <rect key="frame" x="20" y="328" width="374" height="35"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ub7-P4-L2D">
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ub7-P4-L2D">
                             <rect key="frame" x="15" y="0.0" width="359" height="35"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dropdown" translatesAutoresizingMaskIntoConstraints="NO" id="ELm-wv-bXf">
+                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dropdown" translatesAutoresizingMaskIntoConstraints="NO" id="ELm-wv-bXf">
                             <rect key="frame" x="334" y="5" width="25" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="WNc-cN-FXP"/>
                                 <constraint firstAttribute="width" constant="25" id="XM4-di-CxK"/>
                             </constraints>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDn-Jl-ayr">
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDn-Jl-ayr">
                             <rect key="frame" x="0.0" y="0.0" width="374" height="35"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain"/>
@@ -252,8 +252,11 @@
                         <constraint firstItem="JDn-Jl-ayr" firstAttribute="leading" secondItem="BOq-kg-WXg" secondAttribute="leading" id="iT7-Z6-Nxh"/>
                         <constraint firstAttribute="height" constant="35" id="kXa-FL-Be0"/>
                     </constraints>
+                    <connections>
+                        <outlet property="heightConstraint" destination="kXa-FL-Be0" id="utV-eS-ySI"/>
+                    </connections>
                 </view>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cJ2-J3-0RQ">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cJ2-J3-0RQ" customClass="MyTextField" customModule="MyBills" customModuleProvider="target">
                     <rect key="frame" x="20" y="383" width="374" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="nuY-cK-abZ"/>
@@ -346,6 +349,17 @@
             <point key="canvasLocation" x="139" y="96"/>
         </view>
     </objects>
+    <designables>
+        <designable name="MKv-iM-a9O">
+            <size key="intrinsicContentSize" width="32" height="34"/>
+        </designable>
+        <designable name="cJ2-J3-0RQ">
+            <size key="intrinsicContentSize" width="32" height="34"/>
+        </designable>
+        <designable name="ofe-Pl-Gfc">
+            <size key="intrinsicContentSize" width="67" height="31"/>
+        </designable>
+    </designables>
     <resources>
         <image name="backArrow" width="37" height="22"/>
         <image name="calender" width="256" height="256"/>

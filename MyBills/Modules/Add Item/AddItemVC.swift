@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SwiftyMenu
+
 
 class AddItemVC: UIViewController {
     
@@ -14,8 +16,7 @@ class AddItemVC: UIViewController {
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var lblTitle: UILabel!
     
-    
-    @IBOutlet weak var txtItemName: UITextField!
+    @IBOutlet weak var txtItemName: MyTextField!
     
     @IBOutlet weak var lblPurchaseDate: UILabel!
     @IBOutlet weak var btnPurchaseDate: UIButton!
@@ -30,11 +31,10 @@ class AddItemVC: UIViewController {
     @IBOutlet weak var viewReplacementDate: UIView!
     
     @IBOutlet weak var btnCategory: UIButton!
-    @IBOutlet weak var viewCategory: UIView!
+    @IBOutlet weak var viewCategory1: SwiftyMenu!
     @IBOutlet weak var lblCategory: UILabel!
     
-    
-    @IBOutlet weak var txtPrice: UITextField!
+    @IBOutlet weak var txtPrice: MyTextField!
     @IBOutlet weak var txtViewDescription: UITextView!
     @IBOutlet weak var viewDescription: UIView!
     
@@ -42,6 +42,7 @@ class AddItemVC: UIViewController {
     @IBOutlet weak var viewBill: UIView!
     
     @IBOutlet weak var btnAdd: MyButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +73,7 @@ class AddItemVC: UIViewController {
         setDateViewUI(view: viewReplacementDate)
         setDateViewUI(view: viewDescription)
         setDateViewUI(view: viewBill)
-        setDateViewUI(view: viewCategory)
+//        setDateViewUI(view: viewCategory)
         
         txtItemName.placeholder = "TXT_PLACEHOLDER_ITEM_NAME".localizedLanguage()
         txtPrice.placeholder = "TXT_PLACEHOLDER_ITEM_PRICE".localizedLanguage()
@@ -83,8 +84,35 @@ class AddItemVC: UIViewController {
         lblCategory.setLBL(text: "Select Category : ", font: .LBL_SUB_TITLE, textcolor: .black)
         imgBill.image = UIImage(named: "placeholder")
         
+        setUpDropdown()
+    }
+    
+    private func showDatePicker(date: Date?) {
+        let alert = UIAlertController(title: "My Bills", message: "Select Date", preferredStyle: .alert)
+        alert.addDatePicker(mode: .date, date: date, minimumDate: Date(), maximumDate: Date()) { date in
+            print("Date : \(date)")
+        }
+        alert.addAction(title: "Ok", color: .black, style: .cancel)
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func setUpDropdown() {
+        var codeMenuAttributes = SwiftyMenuAttributes()
+        codeMenuAttributes.multiSelect = .disabled
+        codeMenuAttributes.separatorStyle = .value(color: .white, isBlured: false, style: .none)
+        codeMenuAttributes.border = .value(color: MyColor.textFieldBorder.color, width: 1.0)
+        codeMenuAttributes.roundCorners = .all(radius: 10)
+        codeMenuAttributes.arrowStyle = .value(isEnabled: true, image: UIImage(named: "dropdown"))
         
-        
+        self.viewCategory1.delegate = self
+        self.viewCategory1.configure(with: codeMenuAttributes)
+        let obj1 = MyCategory(id: 1, name: "Category 1")
+        let obj2 = MyCategory(id: 2, name: "Category 2")
+        self.viewCategory1.items = [obj1, obj2]
+//        DispatchQueue.main.async {
+//            self.viewCategory1.selectedIndex = 1
+//        }
     }
     
     // MARK: - Button tapped methods
@@ -94,17 +122,57 @@ class AddItemVC: UIViewController {
     }
     
     @IBAction func btnPurchaseDateTapped(_ sender: Any) {
+        self.showDatePicker(date: Date())
     }
     
     @IBAction func btnExpirtyDateTapped(_ sender: Any) {
+        self.showDatePicker(date: Date())
     }
     
     @IBAction func btnReplacementDateTapped(_ sender: Any) {
+        self.showDatePicker(date: Date())
     }
     
     @IBAction func btnCategoryTapped(_ sender: Any) {
     }
     
     @IBAction func btnAddTapped(_ sender: Any) {
+    }
+}
+
+extension AddItemVC : SwiftyMenuDelegate {
+    func swiftyMenu(_ swiftyMenu: SwiftyMenu, didSelectItem item: SwiftyMenuDisplayable, atIndex index: Int) {
+        print("didSelectItem : \(item.displayableValue), index : \(index)")
+    }
+    
+    func swiftyMenu(willExpand swiftyMenu: SwiftyMenu) {
+        print("willExpand")
+    }
+    
+    func swiftyMenu(didExpand swiftyMenu: SwiftyMenu) {
+        print("didExpand")
+    }
+    
+    func swiftyMenu(willCollapse swiftyMenu: SwiftyMenu) {
+        print("willCollapse")
+    }
+    
+    func swiftyMenu(didCollapse swiftyMenu: SwiftyMenu) {
+        print("didCollapse")
+    }
+}
+
+struct MyCategory {
+    let id: Int
+    let name: String
+}
+
+extension MyCategory: SwiftyMenuDisplayable {
+    public var displayableValue: String {
+        return self.name
+    }
+
+    public var retrievableValue: Any {
+        return self.id
     }
 }

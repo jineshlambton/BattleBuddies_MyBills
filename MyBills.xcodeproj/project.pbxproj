@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3402826EA9B9DC159052D9C4 /* Pods_MyBills.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1602778314D15C3B8995073 /* Pods_MyBills.framework */; };
 		AC460ABF288480FD00EA55D2 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460ABD288480FD00EA55D2 /* SignUpVC.swift */; };
 		AC460AC0288480FD00EA55D2 /* SignUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC460ABE288480FD00EA55D2 /* SignUpVC.xib */; };
 		AC460AC328848A5B00EA55D2 /* MyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460AC228848A5B00EA55D2 /* MyLabel.swift */; };
@@ -66,6 +67,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		737DD5114A3261D822FD4270 /* Pods-MyBills.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBills.release.xcconfig"; path = "Target Support Files/Pods-MyBills/Pods-MyBills.release.xcconfig"; sourceTree = "<group>"; };
+		83A7E1ECA480BCDA4FCE559F /* Pods-MyBills.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBills.debug.xcconfig"; path = "Target Support Files/Pods-MyBills/Pods-MyBills.debug.xcconfig"; sourceTree = "<group>"; };
 		AC460ABD288480FD00EA55D2 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		AC460ABE288480FD00EA55D2 /* SignUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpVC.xib; sourceTree = "<group>"; };
 		AC460AC228848A5B00EA55D2 /* MyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLabel.swift; sourceTree = "<group>"; };
@@ -124,6 +127,7 @@
 		AC55D40D28847916000CF810 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC55D40F28847967000CF810 /* MyString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyString.swift; sourceTree = "<group>"; };
 		AC55D411288479FB000CF810 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
+		F1602778314D15C3B8995073 /* Pods_MyBills.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBills.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3402826EA9B9DC159052D9C4 /* Pods_MyBills.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +232,8 @@
 			children = (
 				AC55D3BD28821C20000CF810 /* MyBills */,
 				AC55D3BC28821C20000CF810 /* Products */,
+				B19059408714949D4EECD500 /* Pods */,
+				D2633C131E49D29035D7E341 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -281,6 +288,7 @@
 		AC55D3D928846EAC000CF810 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				ACAC1F09288913A3003F81C8 /* Library */,
 				AC460AC728849C7700EA55D2 /* General */,
 				AC55D40928847901000CF810 /* Localize */,
 				AC55D40428847770000CF810 /* Color */,
@@ -345,6 +353,30 @@
 			path = Localize;
 			sourceTree = "<group>";
 		};
+		ACAC1F09288913A3003F81C8 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		B19059408714949D4EECD500 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				83A7E1ECA480BCDA4FCE559F /* Pods-MyBills.debug.xcconfig */,
+				737DD5114A3261D822FD4270 /* Pods-MyBills.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D2633C131E49D29035D7E341 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1602778314D15C3B8995073 /* Pods_MyBills.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -352,9 +384,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC55D3CF28821C23000CF810 /* Build configuration list for PBXNativeTarget "MyBills" */;
 			buildPhases = (
+				4E9CC63424BCED46E99A185B /* [CP] Check Pods Manifest.lock */,
 				AC55D3B728821C20000CF810 /* Sources */,
 				AC55D3B828821C20000CF810 /* Frameworks */,
 				AC55D3B928821C20000CF810 /* Resources */,
+				2321AAA9D4EB05F340D308F7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -439,6 +473,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2321AAA9D4EB05F340D308F7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyBills/Pods-MyBills-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyBills/Pods-MyBills-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyBills/Pods-MyBills-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E9CC63424BCED46E99A185B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyBills-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AC55D3B728821C20000CF810 /* Sources */ = {
@@ -618,6 +694,7 @@
 		};
 		AC55D3D028821C23000CF810 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83A7E1ECA480BCDA4FCE559F /* Pods-MyBills.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -630,6 +707,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -645,6 +723,7 @@
 		};
 		AC55D3D128821C23000CF810 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 737DD5114A3261D822FD4270 /* Pods-MyBills.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -657,6 +736,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
