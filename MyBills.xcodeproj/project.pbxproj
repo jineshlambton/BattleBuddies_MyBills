@@ -64,6 +64,8 @@
 		AC55D40C28847916000CF810 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC55D40E28847916000CF810 /* Localizable.strings */; };
 		AC55D41028847967000CF810 /* MyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D40F28847967000CF810 /* MyString.swift */; };
 		AC55D412288479FB000CF810 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D411288479FB000CF810 /* MyButton.swift */; };
+		ACA3DEAA28892A88008FD96B /* ExpiryAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3DEA828892A88008FD96B /* ExpiryAlertVC.swift */; };
+		ACA3DEAB28892A88008FD96B /* ExpiryAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACA3DEA928892A88008FD96B /* ExpiryAlertVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +129,8 @@
 		AC55D40D28847916000CF810 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC55D40F28847967000CF810 /* MyString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyString.swift; sourceTree = "<group>"; };
 		AC55D411288479FB000CF810 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
+		ACA3DEA828892A88008FD96B /* ExpiryAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiryAlertVC.swift; sourceTree = "<group>"; };
+		ACA3DEA928892A88008FD96B /* ExpiryAlertVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpiryAlertVC.xib; sourceTree = "<group>"; };
 		F1602778314D15C3B8995073 /* Pods_MyBills.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBills.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -264,6 +268,7 @@
 		AC55D3D228846BC7000CF810 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				ACA3DEA728892A72008FD96B /* Expiry Alert */,
 				AC460AF12887BBD900EA55D2 /* Add Item */,
 				AC460AEC2887B60500EA55D2 /* Change Password */,
 				AC460AE328864C7700EA55D2 /* Settings */,
@@ -351,6 +356,15 @@
 				AC55D40E28847916000CF810 /* Localizable.strings */,
 			);
 			path = Localize;
+			sourceTree = "<group>";
+		};
+		ACA3DEA728892A72008FD96B /* Expiry Alert */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3DEA828892A88008FD96B /* ExpiryAlertVC.swift */,
+				ACA3DEA928892A88008FD96B /* ExpiryAlertVC.xib */,
+			);
+			path = "Expiry Alert";
 			sourceTree = "<group>";
 		};
 		ACAC1F09288913A3003F81C8 /* Library */ = {
@@ -469,6 +483,7 @@
 				AC460ACE28849F4700EA55D2 /* HomeVC.xib in Resources */,
 				AC55D3F62884758D000CF810 /* Poppins-Regular.ttf in Resources */,
 				AC55D3F82884758D000CF810 /* Poppins-MediumItalic.ttf in Resources */,
+				ACA3DEAB28892A88008FD96B /* ExpiryAlertVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +550,7 @@
 				AC460AE12884DFFB00EA55D2 /* HomeDetailVC.swift in Sources */,
 				AC460AD62884D0E500EA55D2 /* FilterVC.swift in Sources */,
 				AC55D3E328847533000CF810 /* MyFont.swift in Sources */,
+				ACA3DEAA28892A88008FD96B /* ExpiryAlertVC.swift in Sources */,
 				AC460AEF2887B61F00EA55D2 /* ChangePasswordVC.swift in Sources */,
 				AC460AC928849C8200EA55D2 /* Enums.swift in Sources */,
 				AC460AC628848F8800EA55D2 /* BaseVC.swift in Sources */,
