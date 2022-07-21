@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3402826EA9B9DC159052D9C4 /* Pods_MyBills.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1602778314D15C3B8995073 /* Pods_MyBills.framework */; };
 		AC460ABF288480FD00EA55D2 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460ABD288480FD00EA55D2 /* SignUpVC.swift */; };
 		AC460AC0288480FD00EA55D2 /* SignUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC460ABE288480FD00EA55D2 /* SignUpVC.xib */; };
 		AC460AC328848A5B00EA55D2 /* MyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460AC228848A5B00EA55D2 /* MyLabel.swift */; };
@@ -29,6 +30,8 @@
 		AC460AEB28864DA400EA55D2 /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC460AE928864DA400EA55D2 /* SettingsCell.xib */; };
 		AC460AEF2887B61F00EA55D2 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460AED2887B61F00EA55D2 /* ChangePasswordVC.swift */; };
 		AC460AF02887B61F00EA55D2 /* ChangePasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC460AEE2887B61F00EA55D2 /* ChangePasswordVC.xib */; };
+		AC460AF42887BBEB00EA55D2 /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460AF22887BBEB00EA55D2 /* AddItemVC.swift */; };
+		AC460AF52887BBEB00EA55D2 /* AddItemVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC460AF32887BBEB00EA55D2 /* AddItemVC.xib */; };
 		AC55D3BF28821C20000CF810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3BE28821C20000CF810 /* AppDelegate.swift */; };
 		AC55D3C128821C20000CF810 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3C028821C20000CF810 /* SceneDelegate.swift */; };
 		AC55D3C328821C20000CF810 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3C228821C20000CF810 /* ViewController.swift */; };
@@ -64,6 +67,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		737DD5114A3261D822FD4270 /* Pods-MyBills.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBills.release.xcconfig"; path = "Target Support Files/Pods-MyBills/Pods-MyBills.release.xcconfig"; sourceTree = "<group>"; };
+		83A7E1ECA480BCDA4FCE559F /* Pods-MyBills.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBills.debug.xcconfig"; path = "Target Support Files/Pods-MyBills/Pods-MyBills.debug.xcconfig"; sourceTree = "<group>"; };
 		AC460ABD288480FD00EA55D2 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		AC460ABE288480FD00EA55D2 /* SignUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpVC.xib; sourceTree = "<group>"; };
 		AC460AC228848A5B00EA55D2 /* MyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLabel.swift; sourceTree = "<group>"; };
@@ -86,6 +91,8 @@
 		AC460AE928864DA400EA55D2 /* SettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
 		AC460AED2887B61F00EA55D2 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		AC460AEE2887B61F00EA55D2 /* ChangePasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordVC.xib; sourceTree = "<group>"; };
+		AC460AF22887BBEB00EA55D2 /* AddItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
+		AC460AF32887BBEB00EA55D2 /* AddItemVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddItemVC.xib; sourceTree = "<group>"; };
 		AC55D3BB28821C20000CF810 /* MyBills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBills.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC55D3BE28821C20000CF810 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC55D3C028821C20000CF810 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +127,7 @@
 		AC55D40D28847916000CF810 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC55D40F28847967000CF810 /* MyString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyString.swift; sourceTree = "<group>"; };
 		AC55D411288479FB000CF810 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
+		F1602778314D15C3B8995073 /* Pods_MyBills.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBills.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3402826EA9B9DC159052D9C4 /* Pods_MyBills.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,11 +218,22 @@
 			path = "Change Password";
 			sourceTree = "<group>";
 		};
+		AC460AF12887BBD900EA55D2 /* Add Item */ = {
+			isa = PBXGroup;
+			children = (
+				AC460AF22887BBEB00EA55D2 /* AddItemVC.swift */,
+				AC460AF32887BBEB00EA55D2 /* AddItemVC.xib */,
+			);
+			path = "Add Item";
+			sourceTree = "<group>";
+		};
 		AC55D3B228821C20000CF810 = {
 			isa = PBXGroup;
 			children = (
 				AC55D3BD28821C20000CF810 /* MyBills */,
 				AC55D3BC28821C20000CF810 /* Products */,
+				B19059408714949D4EECD500 /* Pods */,
+				D2633C131E49D29035D7E341 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -244,6 +264,7 @@
 		AC55D3D228846BC7000CF810 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				AC460AF12887BBD900EA55D2 /* Add Item */,
 				AC460AEC2887B60500EA55D2 /* Change Password */,
 				AC460AE328864C7700EA55D2 /* Settings */,
 				AC460ADE2884DFEB00EA55D2 /* Home Detail */,
@@ -267,6 +288,7 @@
 		AC55D3D928846EAC000CF810 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				ACAC1F09288913A3003F81C8 /* Library */,
 				AC460AC728849C7700EA55D2 /* General */,
 				AC55D40928847901000CF810 /* Localize */,
 				AC55D40428847770000CF810 /* Color */,
@@ -331,6 +353,30 @@
 			path = Localize;
 			sourceTree = "<group>";
 		};
+		ACAC1F09288913A3003F81C8 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		B19059408714949D4EECD500 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				83A7E1ECA480BCDA4FCE559F /* Pods-MyBills.debug.xcconfig */,
+				737DD5114A3261D822FD4270 /* Pods-MyBills.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D2633C131E49D29035D7E341 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1602778314D15C3B8995073 /* Pods_MyBills.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -338,9 +384,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC55D3CF28821C23000CF810 /* Build configuration list for PBXNativeTarget "MyBills" */;
 			buildPhases = (
+				4E9CC63424BCED46E99A185B /* [CP] Check Pods Manifest.lock */,
 				AC55D3B728821C20000CF810 /* Sources */,
 				AC55D3B828821C20000CF810 /* Frameworks */,
 				AC55D3B928821C20000CF810 /* Resources */,
+				2321AAA9D4EB05F340D308F7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -404,6 +452,7 @@
 				AC55D3F72884758D000CF810 /* Poppins-ExtraBold.ttf in Resources */,
 				AC55D3F92884758D000CF810 /* Poppins-Medium.ttf in Resources */,
 				AC55D3DF288473C9000CF810 /* Poppins-Black.ttf in Resources */,
+				AC460AF52887BBEB00EA55D2 /* AddItemVC.xib in Resources */,
 				AC460AC0288480FD00EA55D2 /* SignUpVC.xib in Resources */,
 				AC55D3CB28821C23000CF810 /* LaunchScreen.storyboard in Resources */,
 				AC55D3F52884758D000CF810 /* Poppins-ExtraBoldItalic.ttf in Resources */,
@@ -424,6 +473,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2321AAA9D4EB05F340D308F7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyBills/Pods-MyBills-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyBills/Pods-MyBills-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyBills/Pods-MyBills-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E9CC63424BCED46E99A185B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyBills-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AC55D3B728821C20000CF810 /* Sources */ = {
@@ -449,6 +540,7 @@
 				AC460AC628848F8800EA55D2 /* BaseVC.swift in Sources */,
 				AC460AD92884D4C900EA55D2 /* DatePickerViewController.swift in Sources */,
 				AC55D41028847967000CF810 /* MyString.swift in Sources */,
+				AC460AF42887BBEB00EA55D2 /* AddItemVC.swift in Sources */,
 				AC460ABF288480FD00EA55D2 /* SignUpVC.swift in Sources */,
 				AC55D3DC28846EE1000CF810 /* MyTextfield.swift in Sources */,
 				AC460AC328848A5B00EA55D2 /* MyLabel.swift in Sources */,
@@ -602,6 +694,7 @@
 		};
 		AC55D3D028821C23000CF810 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83A7E1ECA480BCDA4FCE559F /* Pods-MyBills.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -614,6 +707,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -629,6 +723,7 @@
 		};
 		AC55D3D128821C23000CF810 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 737DD5114A3261D822FD4270 /* Pods-MyBills.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -641,6 +736,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

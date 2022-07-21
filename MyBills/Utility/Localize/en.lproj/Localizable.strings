@@ -42,3 +42,18 @@
 "TXT_PLACEHOLDER_OLD_PWD" = "Old password";
 "TXT_PLACEHOLDER_NEW_PWD" = "New password";
 "TXT_PLACEHOLDER_CONFIRM_PWD" = "Confirm password";
+
+/// Add item
+"NAV_TITLE_ITEM" = "Add item";
+"BTN_ADD" = "Add";
+"BTN_UPDATE" = "Update";
+"TXT_PLACEHOLDER_ITEM_NAME" = "Please enter item name";
+"TXT_PLACEHOLDER_ITEM_PRICE" = "Please enter price";
+
+/// Base
+"LBL_GET_PHOTO" = "Select Image";
+"LBL_SELECT_IMG_FOR_PROFILE" = "Select bill to add";
+"LBL_TAKE_PHOTO" = "Take photo";
+"LBL_FROM_GALLARY" = "Gallery";
+"LBL_REMOVE_PHOTO" = "Remove photo";
+"LBL_CANCEL" = "Cancel";
