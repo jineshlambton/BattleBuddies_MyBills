@@ -8,6 +8,9 @@ target 'MyBills' do
   
   pod 'SwiftyMenu', '~> 1.0.1'
   pod 'RangeSeekSlider'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+
   # Pods for MyBills
 
 end

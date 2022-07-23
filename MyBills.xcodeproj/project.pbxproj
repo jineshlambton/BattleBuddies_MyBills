@@ -66,6 +66,7 @@
 		AC55D412288479FB000CF810 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D411288479FB000CF810 /* MyButton.swift */; };
 		ACA3DEAA28892A88008FD96B /* ExpiryAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3DEA828892A88008FD96B /* ExpiryAlertVC.swift */; };
 		ACA3DEAB28892A88008FD96B /* ExpiryAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACA3DEA928892A88008FD96B /* ExpiryAlertVC.xib */; };
+		B62256F3288C652A001554D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B62256F2288C652A001554D9 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +132,7 @@
 		AC55D411288479FB000CF810 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		ACA3DEA828892A88008FD96B /* ExpiryAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiryAlertVC.swift; sourceTree = "<group>"; };
 		ACA3DEA928892A88008FD96B /* ExpiryAlertVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpiryAlertVC.xib; sourceTree = "<group>"; };
+		B62256F2288C652A001554D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F1602778314D15C3B8995073 /* Pods_MyBills.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBills.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -293,6 +295,7 @@
 		AC55D3D928846EAC000CF810 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				B62256F1288C47E7001554D9 /* Firebase */,
 				ACAC1F09288913A3003F81C8 /* Library */,
 				AC460AC728849C7700EA55D2 /* General */,
 				AC55D40928847901000CF810 /* Localize */,
@@ -381,6 +384,14 @@
 				737DD5114A3261D822FD4270 /* Pods-MyBills.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		B62256F1288C47E7001554D9 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				B62256F2288C652A001554D9 /* GoogleService-Info.plist */,
+			);
+			name = Firebase;
 			sourceTree = "<group>";
 		};
 		D2633C131E49D29035D7E341 /* Frameworks */ = {
@@ -480,6 +491,7 @@
 				AC460AEB28864DA400EA55D2 /* SettingsCell.xib in Resources */,
 				AC55D4062884777C000CF810 /* ColorAssets.xcassets in Resources */,
 				AC55D3C628821C20000CF810 /* Main.storyboard in Resources */,
+				B62256F3288C652A001554D9 /* GoogleService-Info.plist in Resources */,
 				AC460ACE28849F4700EA55D2 /* HomeVC.xib in Resources */,
 				AC55D3F62884758D000CF810 /* Poppins-Regular.ttf in Resources */,
 				AC55D3F82884758D000CF810 /* Poppins-MediumItalic.ttf in Resources */,
