@@ -248,7 +248,7 @@ extension SwiftyMenu {
     
     private func setupArrowImage() {
         let spacing = self.selectButton.frame.width - 20 // the amount of spacing to appear between image and title
-        var imageEdgeInsets = UIEdgeInsets(top: 0, left: CGFloat(spacing-15), bottom: 0, right: 15)
+        var imageEdgeInsets = UIEdgeInsets(top: 0, left: CGFloat(spacing), bottom: 0, right: 0)
         if UIView.userInterfaceLayoutDirection(for: selectButton.semanticContentAttribute) == .rightToLeft {
             imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: CGFloat(spacing))
         }

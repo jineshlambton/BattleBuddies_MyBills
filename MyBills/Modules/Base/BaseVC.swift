@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class BaseVC: UIViewController {
 
@@ -59,6 +60,16 @@ class BaseVC: UIViewController {
     
     func removePhotoTapped() {
         print("Remove photo tapped at basevc")
+    }
+    
+    func showProgress() {
+        let window = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first
+        MBProgressHUD.showAdded(to: window!, animated: true)
+    }
+    
+    func hideProgress() {
+        let window = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first
+        MBProgressHUD.hide(for: window!, animated: true)
     }
 }
 

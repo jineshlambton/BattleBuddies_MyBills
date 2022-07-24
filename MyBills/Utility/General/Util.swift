@@ -6,8 +6,17 @@
 //
 
 import Foundation
+import Alamofire
+import UIKit
+
+
 
 class Util {
+    
+    static var appDelegate         = UIApplication.shared.delegate as! AppDelegate
+    
+    static let applicationName = Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String
+    
     static func fromDate(year: Int, month: Int, day: Int) -> Date {
         let gregorianCalendar = NSCalendar(calendarIdentifier: .gregorian)!
         
@@ -18,5 +27,13 @@ class Util {
         
         let date = gregorianCalendar.date(from: dateComponents)!
         return date
+    }
+    
+    static func isNetworkAvailable() -> Bool {
+        if (NetworkReachabilityManager()?.isReachable)! {
+            return true
+        } else {
+            return false
+        }
     }
 }

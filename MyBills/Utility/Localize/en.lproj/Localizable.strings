@@ -60,3 +60,18 @@
 
 /// Expiry Alert
 "NAV_TITLE_EXPIRY_ALERT" = "Expiry Alert";
+
+/// Mix
+"OK_BTN_ON_ALERT" = "Ok";
+"ALERT_ENTER_EMAIL_ADDRESS" = "Please enter email address";
+"ALERT_ENTER_VALID_EMAIL_ADDRESS" = "Please enter valid email address";
+"ALERT_ENTER_PASSWORD" = "Pleae enter password";
+"ALERT_INVALID_USER" = "Invalid password";
+"ALERT_USER_NOT_FOUND" = "User not found";
+"ALERT_LOGIN_SUCCESSFUL" = "Login successful";
+"ALERT_ENTER_FIRST_NAME" = "Please enter first name";
+"ALERT_ENTER_LAST_NAME" = "Please enter last name";
+"ALERT_ENTER_CONFIRM_PASSWORD" = "Please enter confirm name";
+"ALERT_PWD_CONFIRM_PWD_NOT_MATCHING" = "Password and confirm password is not matching";
+"ALERT_USER_CREATED_SUCCESSFULLY" = "User created successfuly";
+"ALERT_USER_EXIST" = "User exist. Please try again with different email address";
