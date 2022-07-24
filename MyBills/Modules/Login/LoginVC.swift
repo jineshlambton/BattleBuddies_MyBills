@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginVC: UIViewController {
     
@@ -40,12 +41,46 @@ class LoginVC: UIViewController {
         btnForgotPwd.setTitle("BTN_FORGOT_PASSWORD".localizedLanguage(), for: .normal)
     }
     
+    private func isValidInformation() -> Bool {
+        if (txtUsername.text?.isEmpty)! {
+            showAlert(msg: "ALERT_ENTER_EMAIL_ADDRESS")
+            return false
+        }
+        else if (txtUsername.text?.isValidEmail())! == false {
+            showAlert(msg: "ALERT_ENTER_VALID_EMAIL_ADDRESS")
+            return false
+        }
+        else if (txtPassword.text?.isEmpty)! {
+            showAlert(msg: "ALERT_ENTER_PASSWORD")
+            return false
+        }
+        return true
+    }
+    
+    private func checkUser() {
+        MyFirebaseAuth.instace.delegate = self
+        let user = MyFirebaseUser()
+        user.strEmail = txtUsername.text!
+        user.strPassword = txtPassword.text!
+        MyFirebaseAuth.instace.login(user: user)
+    }
+    
+    private func resetUI() {
+        txtUsername.text = ""
+        txtPassword.text = ""
+    }
+    
     //MARK: - Button tap methods
     
     @IBAction func btnLoginTapped(_ sender: Any) {
         btnLogin.reloadControl()
-        let objHomeVC = HomeVC(nibName: "HomeVC", bundle: nil)
-        self.navigationController?.pushViewController(objHomeVC, animated: true)
+        if isValidInformation() {
+            if Util.isNetworkAvailable() {
+                checkUser()
+            } else {
+                showAlert(msg: Constant.MESSGAE.CHECK_INTERNET_CONECTION)
+            }
+        }
     }
     
     @IBAction func btnForgotPwdTapped(_ sender: Any) {
@@ -55,5 +90,25 @@ class LoginVC: UIViewController {
         btnSignUp.reloadControl()
         let objSignupVC = SignUpVC(nibName: "SignUpVC", bundle: nil)
         self.navigationController?.pushViewController(objSignupVC, animated: true)
+    }
+}
+
+extension LoginVC : MyFirebaseDelegate {
+    func isAuthenticatedUser(user : User) {
+        showAlertWithOk(self, msg: "ALERT_LOGIN_SUCCESSFUL") { [self] okAlert in
+            resetUI()
+            let objHomeVC = HomeVC(nibName: "HomeVC", bundle: nil)
+            self.navigationController?.pushViewController(objHomeVC, animated: true)
+        }
+    }
+    
+    func inValidUserDetails() {
+        resetUI()
+        showAlert(msg: "ALERT_INVALID_USER")
+    }
+     
+    func userNotFound() {
+        resetUI()
+        showAlert(msg: "ALERT_USER_NOT_FOUND")
     }
 }

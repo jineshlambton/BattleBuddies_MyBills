@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3402826EA9B9DC159052D9C4 /* Pods_MyBills.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1602778314D15C3B8995073 /* Pods_MyBills.framework */; };
+		AC14F74D288DB4D80092D285 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC14F74C288DB4D80092D285 /* GoogleService-Info.plist */; };
+		AC14F74F288DB55C0092D285 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14F74E288DB55C0092D285 /* MyViewController.swift */; };
 		AC460ABF288480FD00EA55D2 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460ABD288480FD00EA55D2 /* SignUpVC.swift */; };
 		AC460AC0288480FD00EA55D2 /* SignUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC460ABE288480FD00EA55D2 /* SignUpVC.xib */; };
 		AC460AC328848A5B00EA55D2 /* MyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460AC228848A5B00EA55D2 /* MyLabel.swift */; };
@@ -66,11 +68,15 @@
 		AC55D412288479FB000CF810 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D411288479FB000CF810 /* MyButton.swift */; };
 		ACA3DEAA28892A88008FD96B /* ExpiryAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3DEA828892A88008FD96B /* ExpiryAlertVC.swift */; };
 		ACA3DEAB28892A88008FD96B /* ExpiryAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACA3DEA928892A88008FD96B /* ExpiryAlertVC.xib */; };
+		ACE44E78288DB6B80058C647 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE44E77288DB6B80058C647 /* Constant.swift */; };
+		ACE44E7B288DB73C0058C647 /* MyFirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE44E7A288DB73C0058C647 /* MyFirebaseAuth.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		737DD5114A3261D822FD4270 /* Pods-MyBills.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBills.release.xcconfig"; path = "Target Support Files/Pods-MyBills/Pods-MyBills.release.xcconfig"; sourceTree = "<group>"; };
 		83A7E1ECA480BCDA4FCE559F /* Pods-MyBills.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBills.debug.xcconfig"; path = "Target Support Files/Pods-MyBills/Pods-MyBills.debug.xcconfig"; sourceTree = "<group>"; };
+		AC14F74C288DB4D80092D285 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AC14F74E288DB55C0092D285 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		AC460ABD288480FD00EA55D2 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		AC460ABE288480FD00EA55D2 /* SignUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpVC.xib; sourceTree = "<group>"; };
 		AC460AC228848A5B00EA55D2 /* MyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLabel.swift; sourceTree = "<group>"; };
@@ -131,6 +137,8 @@
 		AC55D411288479FB000CF810 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		ACA3DEA828892A88008FD96B /* ExpiryAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiryAlertVC.swift; sourceTree = "<group>"; };
 		ACA3DEA928892A88008FD96B /* ExpiryAlertVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpiryAlertVC.xib; sourceTree = "<group>"; };
+		ACE44E77288DB6B80058C647 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		ACE44E7A288DB73C0058C647 /* MyFirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFirebaseAuth.swift; sourceTree = "<group>"; };
 		F1602778314D15C3B8995073 /* Pods_MyBills.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBills.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -169,6 +177,7 @@
 				AC460AD82884D4C900EA55D2 /* DatePickerViewController.swift */,
 				AC460AC828849C8200EA55D2 /* Enums.swift */,
 				AC460ADA2884D5A200EA55D2 /* Util.swift */,
+				ACE44E77288DB6B80058C647 /* Constant.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -261,6 +270,7 @@
 				AC55D3C728821C23000CF810 /* Assets.xcassets */,
 				AC55D3C928821C23000CF810 /* LaunchScreen.storyboard */,
 				AC55D3CC28821C23000CF810 /* Info.plist */,
+				AC14F74C288DB4D80092D285 /* GoogleService-Info.plist */,
 			);
 			path = MyBills;
 			sourceTree = "<group>";
@@ -293,6 +303,7 @@
 		AC55D3D928846EAC000CF810 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				ACE44E79288DB7040058C647 /* Helpers */,
 				ACAC1F09288913A3003F81C8 /* Library */,
 				AC460AC728849C7700EA55D2 /* General */,
 				AC55D40928847901000CF810 /* Localize */,
@@ -312,6 +323,7 @@
 				AC55D411288479FB000CF810 /* MyButton.swift */,
 				AC460AC228848A5B00EA55D2 /* MyLabel.swift */,
 				AC460ADC2884DA7F00EA55D2 /* MyDate.swift */,
+				AC14F74E288DB55C0092D285 /* MyViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -372,6 +384,14 @@
 			children = (
 			);
 			path = Library;
+			sourceTree = "<group>";
+		};
+		ACE44E79288DB7040058C647 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ACE44E7A288DB73C0058C647 /* MyFirebaseAuth.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		B19059408714949D4EECD500 /* Pods */ = {
@@ -480,6 +500,7 @@
 				AC460AEB28864DA400EA55D2 /* SettingsCell.xib in Resources */,
 				AC55D4062884777C000CF810 /* ColorAssets.xcassets in Resources */,
 				AC55D3C628821C20000CF810 /* Main.storyboard in Resources */,
+				AC14F74D288DB4D80092D285 /* GoogleService-Info.plist in Resources */,
 				AC460ACE28849F4700EA55D2 /* HomeVC.xib in Resources */,
 				AC55D3F62884758D000CF810 /* Poppins-Regular.ttf in Resources */,
 				AC55D3F82884758D000CF810 /* Poppins-MediumItalic.ttf in Resources */,
@@ -546,6 +567,8 @@
 				AC55D408288477F9000CF810 /* MyColor.swift in Sources */,
 				AC55D3C128821C20000CF810 /* SceneDelegate.swift in Sources */,
 				AC55D412288479FB000CF810 /* MyButton.swift in Sources */,
+				ACE44E7B288DB73C0058C647 /* MyFirebaseAuth.swift in Sources */,
+				AC14F74F288DB55C0092D285 /* MyViewController.swift in Sources */,
 				AC460AEA28864DA400EA55D2 /* SettingsCell.swift in Sources */,
 				AC460AE12884DFFB00EA55D2 /* HomeDetailVC.swift in Sources */,
 				AC460AD62884D0E500EA55D2 /* FilterVC.swift in Sources */,
@@ -555,6 +578,7 @@
 				AC460AC928849C8200EA55D2 /* Enums.swift in Sources */,
 				AC460AC628848F8800EA55D2 /* BaseVC.swift in Sources */,
 				AC460AD92884D4C900EA55D2 /* DatePickerViewController.swift in Sources */,
+				ACE44E78288DB6B80058C647 /* Constant.swift in Sources */,
 				AC55D41028847967000CF810 /* MyString.swift in Sources */,
 				AC460AF42887BBEB00EA55D2 /* AddItemVC.swift in Sources */,
 				AC460ABF288480FD00EA55D2 /* SignUpVC.swift in Sources */,
@@ -729,7 +753,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = battlebuddies.MyBills;
+				PRODUCT_BUNDLE_IDENTIFIER = test.firebasesignupauth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -758,7 +782,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = battlebuddies.MyBills;
+				PRODUCT_BUNDLE_IDENTIFIER = test.firebasesignupauth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
