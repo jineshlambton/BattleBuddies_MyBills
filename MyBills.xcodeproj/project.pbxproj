@@ -69,6 +69,10 @@
 		AC6EF5F1288DC4BC0007491A /* MyFirebaseDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6EF5F0288DC4BC0007491A /* MyFirebaseDataStore.swift */; };
 		ACA3DEAA28892A88008FD96B /* ExpiryAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3DEA828892A88008FD96B /* ExpiryAlertVC.swift */; };
 		ACA3DEAB28892A88008FD96B /* ExpiryAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACA3DEA928892A88008FD96B /* ExpiryAlertVC.xib */; };
+		ACB11306288DF76700216B0C /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB11304288DF76700216B0C /* CategoryVC.swift */; };
+		ACB11307288DF76700216B0C /* CategoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB11305288DF76700216B0C /* CategoryVC.xib */; };
+		ACB1130A288DF89400216B0C /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB11308288DF89400216B0C /* CategoryCell.swift */; };
+		ACB1130B288DF89400216B0C /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB11309288DF89400216B0C /* CategoryCell.xib */; };
 		ACE44E78288DB6B80058C647 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE44E77288DB6B80058C647 /* Constant.swift */; };
 		ACE44E7B288DB73C0058C647 /* MyFirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE44E7A288DB73C0058C647 /* MyFirebaseAuth.swift */; };
 /* End PBXBuildFile section */
@@ -139,6 +143,10 @@
 		AC6EF5F0288DC4BC0007491A /* MyFirebaseDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFirebaseDataStore.swift; sourceTree = "<group>"; };
 		ACA3DEA828892A88008FD96B /* ExpiryAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiryAlertVC.swift; sourceTree = "<group>"; };
 		ACA3DEA928892A88008FD96B /* ExpiryAlertVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpiryAlertVC.xib; sourceTree = "<group>"; };
+		ACB11304288DF76700216B0C /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
+		ACB11305288DF76700216B0C /* CategoryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryVC.xib; sourceTree = "<group>"; };
+		ACB11308288DF89400216B0C /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		ACB11309288DF89400216B0C /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		ACE44E77288DB6B80058C647 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		ACE44E7A288DB73C0058C647 /* MyFirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFirebaseAuth.swift; sourceTree = "<group>"; };
 		F1602778314D15C3B8995073 /* Pods_MyBills.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBills.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -280,6 +288,7 @@
 		AC55D3D228846BC7000CF810 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				ACB11303288DF75700216B0C /* Category */,
 				ACA3DEA728892A72008FD96B /* Expiry Alert */,
 				AC460AF12887BBD900EA55D2 /* Add Item */,
 				AC460AEC2887B60500EA55D2 /* Change Password */,
@@ -388,6 +397,17 @@
 			path = Library;
 			sourceTree = "<group>";
 		};
+		ACB11303288DF75700216B0C /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				ACB11304288DF76700216B0C /* CategoryVC.swift */,
+				ACB11305288DF76700216B0C /* CategoryVC.xib */,
+				ACB11308288DF89400216B0C /* CategoryCell.swift */,
+				ACB11309288DF89400216B0C /* CategoryCell.xib */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		ACE44E79288DB7040058C647 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,6 +500,8 @@
 				AC55D40C28847916000CF810 /* Localizable.strings in Resources */,
 				AC55D4002884758D000CF810 /* Poppins-Light.ttf in Resources */,
 				AC55D3FF2884758D000CF810 /* Poppins-ExtraLight.ttf in Resources */,
+				ACB11307288DF76700216B0C /* CategoryVC.xib in Resources */,
+				ACB1130B288DF89400216B0C /* CategoryCell.xib in Resources */,
 				AC55D3FE2884758D000CF810 /* Poppins-ThinItalic.ttf in Resources */,
 				AC460AD72884D0E500EA55D2 /* FilterVC.xib in Resources */,
 				AC460AD22884C53400EA55D2 /* HomeCell.xib in Resources */,
@@ -560,9 +582,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACB11306288DF76700216B0C /* CategoryVC.swift in Sources */,
 				AC55D3C328821C20000CF810 /* ViewController.swift in Sources */,
 				AC460ADB2884D5A200EA55D2 /* Util.swift in Sources */,
 				AC460ACD28849F4700EA55D2 /* HomeVC.swift in Sources */,
+				ACB1130A288DF89400216B0C /* CategoryCell.swift in Sources */,
 				AC460ADD2884DA7F00EA55D2 /* MyDate.swift in Sources */,
 				AC55D3BF28821C20000CF810 /* AppDelegate.swift in Sources */,
 				AC55D3D828846D10000CF810 /* LoginVC.swift in Sources */,

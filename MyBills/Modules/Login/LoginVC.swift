@@ -21,6 +21,8 @@ class LoginVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
+        txtUsername.text = "jinesh@gmail.com"
+        txtPassword.text = "jinesh"
         // Do any additional setup after loading the view.
     }
     
