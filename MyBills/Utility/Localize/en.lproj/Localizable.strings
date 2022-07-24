@@ -75,3 +75,7 @@
 "ALERT_PWD_CONFIRM_PWD_NOT_MATCHING" = "Password and confirm password is not matching";
 "ALERT_USER_CREATED_SUCCESSFULLY" = "User created successfuly";
 "ALERT_USER_EXIST" = "User exist. Please try again with different email address";
+
+/// Category
+"NAV_TITLE_CATEGORY" = "Category";
+"TXT_PLACEHOLDER_CATEGORY" = "";

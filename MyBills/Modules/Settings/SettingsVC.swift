@@ -17,7 +17,7 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var viewNavBar: UIView!
     @IBOutlet weak var tblView: UITableView!
     
-    var arrSettingsOptions = ["Change Password", "How to use?", "Expiry Alert", "About us"]
+    var arrSettingsOptions = ["Manage category", "Expiry Alert", "Change Password", "How to use?", "About us"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,14 +73,21 @@ extension SettingsVC : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            let objChangePwdVC = ChangePasswordVC(nibName: "ChangePasswordVC", bundle: nil)
-            self.navigationController?.pushViewController(objChangePwdVC, animated: true)
-        case 1:
+            // Manage category
             print("")
-        case 2:
+            let objCategoryVC = CategoryVC(nibName: "CategoryVC", bundle: nil)
+            self.navigationController?.pushViewController(objCategoryVC, animated: true)
+        case 1:
+            // Expiry alert
             let objExpiryAlertVC = ExpiryAlertVC(nibName: "ExpiryAlertVC", bundle: nil)
             self.navigationController?.pushViewController(objExpiryAlertVC, animated: true)
+        case 2:
+            // Chaneg password
+            let objChangePwdVC = ChangePasswordVC(nibName: "ChangePasswordVC", bundle: nil)
+            self.navigationController?.pushViewController(objChangePwdVC, animated: true)
         case 3:
+            print("")
+        case 4:
             print("")
         default:
             print("")
