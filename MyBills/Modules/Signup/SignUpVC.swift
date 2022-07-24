@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SignUpVC: BaseVC {
     
@@ -50,14 +51,108 @@ class SignUpVC: BaseVC {
         txtPassword.setUpPasswordField()
         txtConfirmPassword.setUpPasswordField()
     }
+    
+    private func isValidInformation() -> Bool {
+        if (txtFirstName.text?.isEmpty)! {
+            showAlert(msg: "ALERT_ENTER_FIRST_NAME")
+            return false
+        } else if (txtLastName.text?.isEmpty)! {
+            showAlert(msg: "ALERT_ENTER_LAST_NAME")
+            return false
+        } else if (txtEmailAddress.text?.isEmpty)! {
+            showAlert(msg: "ALERT_ENTER_EMAIL_ADDRESS")
+            return false
+        } else if (txtEmailAddress.text?.isValidEmail())! == false {
+            showAlert(msg: "ALERT_ENTER_VALID_EMAIL_ADDRESS")
+            return false
+        } else if (txtPassword.text?.isEmpty)! {
+            showAlert(msg: "ALERT_ENTER_PASSWORD")
+            return false
+        }
+        else if (txtConfirmPassword.text?.isEmpty)! {
+            showAlert(msg: "ALERT_ENTER_CONFIRM_PASSWORD")
+            return false
+        } else if (txtPassword.text! != txtConfirmPassword.text!) {
+            showAlert(msg: "ALERT_PWD_CONFIRM_PWD_NOT_MATCHING")
+            return false
+        }
+        return true
+    }
 
+    private func createUserOnAuthentication() {
+        MyFirebaseAuth.instace.delegate = self
+        let objUser = MyFirebaseUser()
+        objUser.emailAddress = txtEmailAddress.text!
+        objUser.password = txtPassword.text!
+        MyFirebaseAuth.instace.createUser(user: objUser)
+    }
+    
+    private func createUserApiCall(uId : String) {
+        let objUser = MyFirebaseUser()
+        objUser.firstName = txtFirstName.text!
+        objUser.lastName = txtLastName.text!
+        objUser.emailAddress = txtEmailAddress.text!
+        objUser.uID = uId
+        MyFirebaseDataStore.instace.delegate = self
+        MyFirebaseDataStore.instace.addUser(user: objUser)
+    }
+    
+    private func resetUI() {
+        txtFirstName.text = ""
+        txtLastName.text = ""
+        txtPassword.text = ""
+        txtConfirmPassword.text = ""
+        txtEmailAddress.text = ""
+    }
+    
     //MARK: - Tap methods
     @IBAction func btnSignUpTapped(_ sender: Any) {
+        if isValidInformation() {
+            if Util.isNetworkAvailable() {
+                showProgress()
+                createUserOnAuthentication()
+            } else {
+                showAlert(msg: Constant.MESSGAE.CHECK_INTERNET_CONECTION)
+            }
+        }
         btnSignup.reloadControl()
     }
     
     @IBAction func btnBackTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+}
+
+extension SignUpVC : MyFirebaseDataStoreDelegate {
+    func userAddedSuccessfully() {
+        hideProgress()
+        showAlertWithOk(self, msg: "ALERT_USER_CREATED_SUCCESSFULLY") { okAlert in
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    func userExist() {
+        hideProgress()
+        showAlert(msg: "ALERT_USER_EXIST")
+        txtEmailAddress.text = ""
+    }
+}
+
+extension SignUpVC : MyFirebaseDelegate {
+    func userCreatedSuccessfully(user: User) {
+        createUserApiCall(uId: user.uid)
+    }
+    
+    func inValidUserDetails() {
+        resetUI()
+        hideProgress()
+        showAlert(msg: "ALERT_INVALID_USER")
+    }
+     
+    func userNotFound() {
+        resetUI()
+        hideProgress()
+        showAlert(msg: "ALERT_USER_NOT_FOUND")
     }
 }
 

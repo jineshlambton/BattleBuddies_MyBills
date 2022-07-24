@@ -7,8 +7,13 @@
 
 import Foundation
 import Alamofire
+import UIKit
+
+
 
 class Util {
+    
+    static var appDelegate         = UIApplication.shared.delegate as! AppDelegate
     
     static let applicationName = Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String
     

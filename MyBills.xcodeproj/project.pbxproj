@@ -66,6 +66,7 @@
 		AC55D40C28847916000CF810 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC55D40E28847916000CF810 /* Localizable.strings */; };
 		AC55D41028847967000CF810 /* MyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D40F28847967000CF810 /* MyString.swift */; };
 		AC55D412288479FB000CF810 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D411288479FB000CF810 /* MyButton.swift */; };
+		AC6EF5F1288DC4BC0007491A /* MyFirebaseDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6EF5F0288DC4BC0007491A /* MyFirebaseDataStore.swift */; };
 		ACA3DEAA28892A88008FD96B /* ExpiryAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3DEA828892A88008FD96B /* ExpiryAlertVC.swift */; };
 		ACA3DEAB28892A88008FD96B /* ExpiryAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACA3DEA928892A88008FD96B /* ExpiryAlertVC.xib */; };
 		ACE44E78288DB6B80058C647 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE44E77288DB6B80058C647 /* Constant.swift */; };
@@ -135,6 +136,7 @@
 		AC55D40D28847916000CF810 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC55D40F28847967000CF810 /* MyString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyString.swift; sourceTree = "<group>"; };
 		AC55D411288479FB000CF810 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
+		AC6EF5F0288DC4BC0007491A /* MyFirebaseDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFirebaseDataStore.swift; sourceTree = "<group>"; };
 		ACA3DEA828892A88008FD96B /* ExpiryAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiryAlertVC.swift; sourceTree = "<group>"; };
 		ACA3DEA928892A88008FD96B /* ExpiryAlertVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpiryAlertVC.xib; sourceTree = "<group>"; };
 		ACE44E77288DB6B80058C647 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				ACE44E7A288DB73C0058C647 /* MyFirebaseAuth.swift */,
+				AC6EF5F0288DC4BC0007491A /* MyFirebaseDataStore.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				AC460ABF288480FD00EA55D2 /* SignUpVC.swift in Sources */,
 				AC55D3DC28846EE1000CF810 /* MyTextfield.swift in Sources */,
 				AC460AC328848A5B00EA55D2 /* MyLabel.swift in Sources */,
+				AC6EF5F1288DC4BC0007491A /* MyFirebaseDataStore.swift in Sources */,
 				AC460AE628864C8900EA55D2 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

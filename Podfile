@@ -11,6 +11,8 @@ target 'MyBills' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Alamofire'
+  pod 'Firebase/Firestore'
+  pod 'MBProgressHUD', '~> 1.2.0'
   # Pods for MyBills
 
 end

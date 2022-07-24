@@ -14,6 +14,8 @@ import FirebaseCore
     @objc optional func isAuthenticatedUser(user : User)
     @objc optional func inValidUserDetails()
     @objc optional func userNotFound()
+    @objc optional func userExist()
+    @objc optional func userCreatedSuccessfully(user : User)
 }
 
 final class MyFirebaseAuth : NSObject {
@@ -26,8 +28,8 @@ final class MyFirebaseAuth : NSObject {
     }
     
     func login(user : MyFirebaseUser) {
-        let email = user.strEmail ?? ""
-        let password = user.strPassword ?? ""
+        let email = user.emailAddress ?? ""
+        let password = user.password ?? ""
         
         FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { [self] result, error in
             if error != nil {
@@ -46,9 +48,37 @@ final class MyFirebaseAuth : NSObject {
             }
         }
     }
+    
+    func createUser(user : MyFirebaseUser) {
+        let email = user.emailAddress ?? ""
+        let password = user.password ?? ""
+        
+        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { [self] result, error in
+            if error != nil {
+                print("Error in create user on authentication: \(error)")
+                if let strErr = error?.localizedDescription {
+                    if strErr == "The email address is already in use by another account." {
+                        delegate?.userExist?()
+                    }
+                }
+            }
+            if result != nil {
+                if let res = result  {
+                    delegate?.userCreatedSuccessfully?(user: res.user)
+                }
+            }
+        }
+    }
 }
 
-class MyFirebaseUser {
-    var strEmail : String?
-    var strPassword : String?
+class MyFirebaseUser : JSONSerializable {
+    
+    var emailAddress : String?
+    var password : String?
+    var firstName : String?
+    var lastName : String?
+    var uID : String?
+    
+    var dict : [String : Any] { return ["emailAddress": self.emailAddress ?? "", "firstName": self.firstName ?? "", "lastName" : self.lastName ?? "", "uid" : self.uID ?? ""] }
+    
 }

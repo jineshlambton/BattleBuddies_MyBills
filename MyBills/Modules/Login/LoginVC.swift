@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class LoginVC: UIViewController {
+class LoginVC: BaseVC {
     
     @IBOutlet weak var txtUsername: MyTextField!
     @IBOutlet weak var txtPassword: MyTextField!
@@ -18,8 +18,6 @@ class LoginVC: UIViewController {
     
     @IBOutlet weak var btnSignUp: MyButton!
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
@@ -57,11 +55,12 @@ class LoginVC: UIViewController {
         return true
     }
     
-    private func checkUser() {
+    private func loginApiCall() {
         MyFirebaseAuth.instace.delegate = self
         let user = MyFirebaseUser()
-        user.strEmail = txtUsername.text!
-        user.strPassword = txtPassword.text!
+        user.emailAddress = txtUsername.text!
+        user.password = txtPassword.text!
+        showProgress()
         MyFirebaseAuth.instace.login(user: user)
     }
     
@@ -70,13 +69,22 @@ class LoginVC: UIViewController {
         txtPassword.text = ""
     }
     
+    private func redirectToHome() {
+        let objHomeVC = HomeVC(nibName: "HomeVC", bundle: nil)
+        let window = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first
+        let nav = UINavigationController(rootViewController: objHomeVC)
+        nav.navigationBar.isHidden = true
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
+    }
+    
     //MARK: - Button tap methods
     
     @IBAction func btnLoginTapped(_ sender: Any) {
         btnLogin.reloadControl()
         if isValidInformation() {
             if Util.isNetworkAvailable() {
-                checkUser()
+                loginApiCall()
             } else {
                 showAlert(msg: Constant.MESSGAE.CHECK_INTERNET_CONECTION)
             }
@@ -95,20 +103,22 @@ class LoginVC: UIViewController {
 
 extension LoginVC : MyFirebaseDelegate {
     func isAuthenticatedUser(user : User) {
+        hideProgress()
         showAlertWithOk(self, msg: "ALERT_LOGIN_SUCCESSFUL") { [self] okAlert in
             resetUI()
-            let objHomeVC = HomeVC(nibName: "HomeVC", bundle: nil)
-            self.navigationController?.pushViewController(objHomeVC, animated: true)
+            redirectToHome()
         }
     }
     
     func inValidUserDetails() {
         resetUI()
+        hideProgress()
         showAlert(msg: "ALERT_INVALID_USER")
     }
      
     func userNotFound() {
         resetUI()
+        hideProgress()
         showAlert(msg: "ALERT_USER_NOT_FOUND")
     }
 }
