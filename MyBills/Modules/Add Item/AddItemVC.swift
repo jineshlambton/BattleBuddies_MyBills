@@ -44,6 +44,10 @@ class AddItemVC: BaseVC {
     @IBOutlet weak var btnAdd: MyButton!
     @IBOutlet weak var btnAddBill: UIButton!
     
+    var purchaseDate : Date?
+    var expiryDate : Date?
+    var replacementDate : Date?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,8 +58,8 @@ class AddItemVC: BaseVC {
     // MARK: - Custom methods
     
     private func setDateViewUI(view : UIView) {
-        view.layer.cornerRadius = 8.0
-        view.layer.borderWidth = 0.5
+        view.layer.cornerRadius = 10.0
+        view.layer.borderWidth = 1
         view.layer.borderColor = MyColor.textFieldBorder.color.cgColor
     }
     
@@ -89,13 +93,35 @@ class AddItemVC: BaseVC {
         setUpDropdown()
     }
     
-    private func showDatePicker(date: Date?) {
-        let alert = UIAlertController(title: "My Bills", message: "Select Date", preferredStyle: .alert)
-        alert.addDatePicker(mode: .date, date: date, minimumDate: Date(), maximumDate: Date()) { date in
-            print("Date : \(date)")
+    private func showDatePicker(date: Date?, type : DatePickerType) {
+        var title = ""
+        var minDate = Date()
+        if type == .purchaseDate {
+            title = "Select purchase date".localizedLanguage()
+            minDate = Util.fromDate(year: 1900, month: 1, day: 1)
+        } else if type == .expiryDate {
+            title = "Select expiry date".localizedLanguage()
+            minDate = Date()
+        } else if type == .replacementDate {
+            title = "Select replacement date".localizedLanguage()
+            minDate = Date()
         }
-        alert.addAction(title: "Ok", color: .black, style: .cancel)
-
+        let alert = UIAlertController(title: Util.applicationName, message: title, preferredStyle: .alert)
+        
+        alert.addDatePicker(mode: .date, date: Date(), minimumDate: minDate, maximumDate: date) { [self] date in
+            print("Date : \(date)")
+            if type == .expiryDate {
+                expiryDate = date
+                lblExpiryDate.setLBL(text: "Expiry Date : \(date.dateString())", font: .LBL_SUB_TITLE, textcolor: .black)
+            } else if type == .purchaseDate {
+                purchaseDate = date
+                lblPurchaseDate.setLBL(text: "Purchase Date : \(date.dateString())", font: .LBL_SUB_TITLE, textcolor: .black)
+            } else if type == .replacementDate {
+                replacementDate = date
+                lblReplacementDate.setLBL(text: "Replacement Date : \(date.dateString())", font: .LBL_SUB_TITLE, textcolor: .black)
+            }
+        }
+        alert.addAction(title: "OK_BTN_ON_ALERT".localizedLanguage(), color: .black, style: .cancel)
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -128,15 +154,15 @@ class AddItemVC: BaseVC {
     }
     
     @IBAction func btnPurchaseDateTapped(_ sender: Any) {
-        self.showDatePicker(date: Date())
+        self.showDatePicker(date: Date(),type: .purchaseDate)
     }
     
     @IBAction func btnExpirtyDateTapped(_ sender: Any) {
-        self.showDatePicker(date: Date())
+        self.showDatePicker(date: Util.fromDate(year: 2100, month: 1, day: 1), type: .expiryDate)
     }
     
     @IBAction func btnReplacementDateTapped(_ sender: Any) {
-        self.showDatePicker(date: Date())
+        self.showDatePicker(date: Util.fromDate(year: 2050, month: 1, day: 1), type: .replacementDate)
     }
     
     @IBAction func btnCategoryTapped(_ sender: Any) {

@@ -72,12 +72,12 @@
                     <rect key="frame" x="10" y="98" width="394" height="60"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8SY-rX-uIg" customClass="MyTextField" customModule="MyBills" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="10" width="297" height="40"/>
+                            <rect key="frame" x="0.0" y="10" width="265.5" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmY-ab-ljV">
-                            <rect key="frame" x="307" y="10" width="79" height="40"/>
+                            <rect key="frame" x="275.5" y="10" width="110.5" height="40"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Button"/>
                             <connections>
@@ -87,7 +87,7 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="hmY-ab-ljV" firstAttribute="width" secondItem="tf3-5E-zM2" secondAttribute="width" multiplier="0.2" id="4Tc-xL-1nN"/>
+                        <constraint firstItem="hmY-ab-ljV" firstAttribute="width" secondItem="tf3-5E-zM2" secondAttribute="width" multiplier="0.28" id="4Tc-xL-1nN"/>
                         <constraint firstAttribute="bottom" secondItem="hmY-ab-ljV" secondAttribute="bottom" constant="10" id="IRq-pw-tfs"/>
                         <constraint firstAttribute="bottom" secondItem="8SY-rX-uIg" secondAttribute="bottom" constant="10" id="OS9-Rq-LOO"/>
                         <constraint firstAttribute="height" constant="60" id="Z2H-vF-VxW"/>
@@ -136,6 +136,11 @@
             <point key="canvasLocation" x="131.8840579710145" y="95.758928571428569"/>
         </view>
     </objects>
+    <designables>
+        <designable name="8SY-rX-uIg">
+            <size key="intrinsicContentSize" width="32" height="34"/>
+        </designable>
+    </designables>
     <resources>
         <image name="backArrow" width="37" height="22"/>
         <systemColor name="systemBackgroundColor">

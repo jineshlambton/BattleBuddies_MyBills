@@ -37,3 +37,13 @@ class Util {
         }
     }
 }
+
+protocol JSONSerializable {
+    var dict: [String: Any] { get }
+}
+
+extension JSONSerializable {
+    func json() throws -> Data {
+        try JSONSerialization.data(withJSONObject: self.dict, options: .prettyPrinted)
+    }
+}

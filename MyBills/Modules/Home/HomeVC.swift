@@ -28,9 +28,16 @@ class HomeVC: BaseVC {
         super.viewDidLoad()
         
         setUpUI()
+        syncCategory()
     }
     
     //MARK: - Custom methods
+    
+    func syncCategory() {
+        showProgress()
+        MyFirebaseDataStore.instace.delegate = self
+        MyFirebaseDataStore.instace.getCategories()
+    }
     
     func setUpUI() {
         viewNavBar.backgroundColor = MyColor.theme.color
@@ -79,4 +86,10 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
         self.navigationController?.pushViewController(objHomeDetailVC, animated: true)
     }
     
+}
+
+extension HomeVC : MyFirebaseDataStoreDelegate {
+    func categorySynced() {
+        hideProgress()
+    }
 }

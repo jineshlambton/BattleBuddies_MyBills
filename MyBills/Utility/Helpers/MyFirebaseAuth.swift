@@ -43,6 +43,7 @@ final class MyFirebaseAuth : NSObject {
             }
             if result != nil {
                 if let res = result  {
+                    MyUserDefault.instace.setLoggedInUser(user: res.user)
                     delegate?.isAuthenticatedUser?(user: res.user)
                 }
             }

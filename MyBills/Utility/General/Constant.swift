@@ -8,6 +8,10 @@
 import Foundation
 
 class Constant {
+    struct UserDefaultKey {
+        static let loggedInUser = "kLoggedInUser"
+    }
+    
     struct MESSGAE {
         static let CHECK_INTERNET_CONECTION = "ALERT_CHECK_INTRENET_CONNECT".localizedLanguage()
     }

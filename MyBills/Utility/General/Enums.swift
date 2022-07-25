@@ -6,3 +6,11 @@
 //
 
 import Foundation
+import UIKit
+
+enum DatePickerType : String {
+    case purchaseDate = "purchase";
+    case expiryDate = "expiry";
+    case replacementDate = "replacement";
+    
+}
