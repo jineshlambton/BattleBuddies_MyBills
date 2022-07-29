@@ -7,7 +7,7 @@
 
 import UIKit
 import SwiftyMenu
-
+import DropDown
 
 class AddItemVC: BaseVC {
     
@@ -31,7 +31,9 @@ class AddItemVC: BaseVC {
     @IBOutlet weak var viewReplacementDate: UIView!
     
     @IBOutlet weak var btnCategory: UIButton!
-    @IBOutlet weak var viewCategory1: SwiftyMenu!
+    @IBOutlet weak var viewCategory: UIView!
+//    @IBOutlet weak var viewCategory1: SwiftyMenu!
+    
     @IBOutlet weak var lblCategory: UILabel!
     
     @IBOutlet weak var txtPrice: MyTextField!
@@ -44,18 +46,82 @@ class AddItemVC: BaseVC {
     @IBOutlet weak var btnAdd: MyButton!
     @IBOutlet weak var btnAddBill: UIButton!
     
+    var purchaseDate : Date?
+    var expiryDate : Date?
+    var replacementDate : Date?
+    
+    private let dropDown = DropDown()
+    private var arrCategoryTitle : [String] = [String]()
+    private var selectedCategoryId : String?
+    private var arrCategoryId : [String] = [String]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpUI()
+        getCategoryAPICall()
+        
     }
 
     // MARK: - Custom methods
     
+    private func addItemApiCall() {
+        let objItem = MyFirebaseItem()
+        objItem.name = txtItemName.text!
+        objItem.price = txtPrice.text!
+        objItem.purchaseDate = purchaseDate
+        objItem.description = txtViewDescription.text!
+        objItem.categoryId = selectedCategoryId!
+        if let objRDate = replacementDate {
+            objItem.replacementDate = objRDate
+        }
+        if let objEDate = expiryDate {
+            objItem.expiryDate = objEDate
+        }
+        objItem.createDate = Date()
+        objItem.uid = MyUserDefault.instace.getLoggedInUser() ?? ""
+        
+        MyFirebaseDataStore.instace.addItem(item: objItem)
+    }
+    
+    private func isValidInformation() -> Bool {
+        if (txtItemName.text?.isEmpty)! {
+            showAlert(msg: "ALERT_ENTER_ITEM_NAME")
+            return false
+        }  else if (purchaseDate == nil) {
+            showAlert(msg: "ALERT_SELECT_PURCHASE_DATE")
+            return false
+        } else if (selectedCategoryId == nil) {
+            showAlert(msg: "ALERT_SELECT_CATEGORY")
+            return false
+        } else if (txtPrice.text?.isEmpty)! {
+            showAlert(msg: "ALERT_ENTER_PRICE")
+            return false
+        } else if (txtViewDescription.text?.isEmpty)! {
+            showAlert(msg: "ALERT_ENTER_DESCRIPTION")
+            return false
+        }
+        return true
+    }
+
+    
+    private func sortCategoryTitle() {
+        arrCategoryTitle.removeAll()
+        arrCategoryTitle = MyFirebaseDataStore.instace.arrCategory.map { $0.name! }
+        arrCategoryId = MyFirebaseDataStore.instace.arrCategory.map { $0.documentID! }
+        dropDown.dataSource = arrCategoryTitle
+    }
+    
+    private func getCategoryAPICall() {
+        showProgress()
+        MyFirebaseDataStore.instace.delegate = self
+        MyFirebaseDataStore.instace.getCategories()
+    }
+    
     private func setDateViewUI(view : UIView) {
-        view.layer.cornerRadius = 8.0
-        view.layer.borderWidth = 0.5
+        view.layer.cornerRadius = 10.0
+        view.layer.borderWidth = 1
         view.layer.borderColor = MyColor.textFieldBorder.color.cgColor
     }
     
@@ -75,7 +141,7 @@ class AddItemVC: BaseVC {
         setDateViewUI(view: viewReplacementDate)
         setDateViewUI(view: viewDescription)
         setDateViewUI(view: viewBill)
-//        setDateViewUI(view: viewCategory)
+        setDateViewUI(view: viewCategory)
         
         txtItemName.placeholder = "TXT_PLACEHOLDER_ITEM_NAME".localizedLanguage()
         txtPrice.placeholder = "TXT_PLACEHOLDER_ITEM_PRICE".localizedLanguage()
@@ -89,32 +155,46 @@ class AddItemVC: BaseVC {
         setUpDropdown()
     }
     
-    private func showDatePicker(date: Date?) {
-        let alert = UIAlertController(title: "My Bills", message: "Select Date", preferredStyle: .alert)
-        alert.addDatePicker(mode: .date, date: date, minimumDate: Date(), maximumDate: Date()) { date in
-            print("Date : \(date)")
+    private func showDatePicker(date: Date?, type : DatePickerType) {
+        var title = ""
+        var minDate = Date()
+        if type == .purchaseDate {
+            title = "Select purchase date".localizedLanguage()
+            minDate = Util.fromDate(year: 1900, month: 1, day: 1)
+        } else if type == .expiryDate {
+            title = "Select expiry date".localizedLanguage()
+            minDate = Date()
+        } else if type == .replacementDate {
+            title = "Select replacement date".localizedLanguage()
+            minDate = Date()
         }
-        alert.addAction(title: "Ok", color: .black, style: .cancel)
-
+        let alert = UIAlertController(title: Util.applicationName, message: title, preferredStyle: .alert)
+        
+        alert.addDatePicker(mode: .date, date: Date(), minimumDate: minDate, maximumDate: date) { [self] date in
+            print("Date : \(date)")
+            if type == .expiryDate {
+                expiryDate = date
+                lblExpiryDate.setLBL(text: "Expiry Date : \(date.dateString())", font: .LBL_SUB_TITLE, textcolor: .black)
+            } else if type == .purchaseDate {
+                purchaseDate = date
+                lblPurchaseDate.setLBL(text: "Purchase Date : \(date.dateString())", font: .LBL_SUB_TITLE, textcolor: .black)
+            } else if type == .replacementDate {
+                replacementDate = date
+                lblReplacementDate.setLBL(text: "Replacement Date : \(date.dateString())", font: .LBL_SUB_TITLE, textcolor: .black)
+            }
+        }
+        alert.addAction(title: "OK_BTN_ON_ALERT".localizedLanguage(), color: .black, style: .cancel)
         self.present(alert, animated: true, completion: nil)
     }
     
     private func setUpDropdown() {
-        var codeMenuAttributes = SwiftyMenuAttributes()
-        codeMenuAttributes.multiSelect = .disabled
-        codeMenuAttributes.separatorStyle = .value(color: .white, isBlured: false, style: .none)
-        codeMenuAttributes.border = .value(color: MyColor.textFieldBorder.color, width: 1.0)
-        codeMenuAttributes.roundCorners = .all(radius: 10)
-        codeMenuAttributes.arrowStyle = .value(isEnabled: true, image: UIImage(named: "dropdown"))
-        
-        self.viewCategory1.delegate = self
-        self.viewCategory1.configure(with: codeMenuAttributes)
-        let obj1 = MyCategory(id: 1, name: "Category 1")
-        let obj2 = MyCategory(id: 2, name: "Category 2")
-        self.viewCategory1.items = [obj1, obj2]
-//        DispatchQueue.main.async {
-//            self.viewCategory1.selectedIndex = 1
-//        }
+        dropDown.anchorView = viewCategory
+        dropDown.dataSource = arrCategoryTitle
+        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+          print("Selected item: \(item) at index: \(index)")
+            lblCategory.text = item
+            selectedCategoryId = arrCategoryId[index]
+        }
     }
     
     override func getPickedImage(img: UIImage) {
@@ -128,21 +208,31 @@ class AddItemVC: BaseVC {
     }
     
     @IBAction func btnPurchaseDateTapped(_ sender: Any) {
-        self.showDatePicker(date: Date())
+        self.showDatePicker(date: Date(),type: .purchaseDate)
     }
     
     @IBAction func btnExpirtyDateTapped(_ sender: Any) {
-        self.showDatePicker(date: Date())
+        self.showDatePicker(date: Util.fromDate(year: 2100, month: 1, day: 1), type: .expiryDate)
     }
     
     @IBAction func btnReplacementDateTapped(_ sender: Any) {
-        self.showDatePicker(date: Date())
+        self.showDatePicker(date: Util.fromDate(year: 2050, month: 1, day: 1), type: .replacementDate)
     }
     
     @IBAction func btnCategoryTapped(_ sender: Any) {
+        dropDown.show()
     }
     
     @IBAction func btnAddTapped(_ sender: Any) {
+        
+        if isValidInformation() {
+            if Util.isNetworkAvailable() {
+                showProgress()
+                addItemApiCall()
+            } else {
+                showAlert(msg: Constant.MESSGAE.CHECK_INTERNET_CONECTION)
+            }
+        }
     }
     
     @IBAction func btnAddImageTapped(_ sender: Any) {
@@ -186,5 +276,16 @@ extension MyCategory: SwiftyMenuDisplayable {
 
     public var retrievableValue: Any {
         return self.id
+    }
+}
+extension AddItemVC : MyFirebaseDataStoreDelegate {
+    func categorySynced() {
+        hideProgress()
+        sortCategoryTitle()
+    }
+    
+    func itemAddedSuccessfully() {
+        hideProgress()
+        self.navigationController?.popViewController(animated: true)
     }
 }

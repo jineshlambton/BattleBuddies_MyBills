@@ -39,7 +39,20 @@ class HomeCell: UITableViewCell {
         viewCard.backgroundColor = MyColor.cardView.color
         viewCard.layer.cornerRadius = 15.0
         imgBill.image = UIImage(named: "placeholder")
-        
+    }
+    
+    func setData(data : MyItemsInformation) {
+        var strCreatedDate = ""
+        var strExpiryDate = ""
+        if let _ = data.createDate?.seconds {
+            strCreatedDate = Date(timeIntervalSince1970: Double(data.createDate!.seconds)).dateString()
+        }
+        if let _ = data.expiryDate?.seconds {
+            strExpiryDate = Date(timeIntervalSince1970: Double(data.expiryDate!.seconds)).dateString()
+        }
+        lblDate.text = strCreatedDate
+        lblItem.text = data.name ?? ""
+        lblExpiryDate.text = "Expiry Date : " + strExpiryDate
     }
     
 }

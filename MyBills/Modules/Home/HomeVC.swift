@@ -28,9 +28,23 @@ class HomeVC: BaseVC {
         super.viewDidLoad()
         
         setUpUI()
+        syncCategory()
+        syncItems()
     }
     
     //MARK: - Custom methods
+    
+    func syncCategory() {
+        showProgress()
+        MyFirebaseDataStore.instace.delegate = self
+        MyFirebaseDataStore.instace.getCategories()
+    }
+    
+    func syncItems() {
+        showProgress()
+        MyFirebaseDataStore.instace.delegate = self
+        MyFirebaseDataStore.instace.getItems()
+    }
     
     func setUpUI() {
         viewNavBar.backgroundColor = MyColor.theme.color
@@ -64,13 +78,14 @@ class HomeVC: BaseVC {
 
 extension HomeVC : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return MyFirebaseDataStore.instace.arrItem.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell") as! HomeCell
         cell.selectionStyle = .none
         cell.setUpUI()
+        cell.setData(data: MyFirebaseDataStore.instace.arrItem[indexPath.row])
         return cell
     }
     
@@ -79,4 +94,15 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate {
         self.navigationController?.pushViewController(objHomeDetailVC, animated: true)
     }
     
+}
+
+extension HomeVC : MyFirebaseDataStoreDelegate {
+    func categorySynced() {
+        hideProgress()
+    }
+    
+    func itemsSynced() {
+        hideProgress()
+        tblView.reloadData()
+    }
 }

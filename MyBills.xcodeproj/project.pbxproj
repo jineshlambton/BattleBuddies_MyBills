@@ -73,6 +73,7 @@
 		ACB11307288DF76700216B0C /* CategoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB11305288DF76700216B0C /* CategoryVC.xib */; };
 		ACB1130A288DF89400216B0C /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB11308288DF89400216B0C /* CategoryCell.swift */; };
 		ACB1130B288DF89400216B0C /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB11309288DF89400216B0C /* CategoryCell.xib */; };
+		ACB1130D288E14EA00216B0C /* MyUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB1130C288E14E900216B0C /* MyUserDefault.swift */; };
 		ACE44E78288DB6B80058C647 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE44E77288DB6B80058C647 /* Constant.swift */; };
 		ACE44E7B288DB73C0058C647 /* MyFirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE44E7A288DB73C0058C647 /* MyFirebaseAuth.swift */; };
 /* End PBXBuildFile section */
@@ -147,6 +148,7 @@
 		ACB11305288DF76700216B0C /* CategoryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryVC.xib; sourceTree = "<group>"; };
 		ACB11308288DF89400216B0C /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		ACB11309288DF89400216B0C /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
+		ACB1130C288E14E900216B0C /* MyUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUserDefault.swift; sourceTree = "<group>"; };
 		ACE44E77288DB6B80058C647 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		ACE44E7A288DB73C0058C647 /* MyFirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFirebaseAuth.swift; sourceTree = "<group>"; };
 		F1602778314D15C3B8995073 /* Pods_MyBills.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBills.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -413,6 +415,7 @@
 			children = (
 				ACE44E7A288DB73C0058C647 /* MyFirebaseAuth.swift */,
 				AC6EF5F0288DC4BC0007491A /* MyFirebaseDataStore.swift */,
+				ACB1130C288E14E900216B0C /* MyUserDefault.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				AC460AC628848F8800EA55D2 /* BaseVC.swift in Sources */,
 				AC460AD92884D4C900EA55D2 /* DatePickerViewController.swift in Sources */,
 				ACE44E78288DB6B80058C647 /* Constant.swift in Sources */,
+				ACB1130D288E14EA00216B0C /* MyUserDefault.swift in Sources */,
 				AC55D41028847967000CF810 /* MyString.swift in Sources */,
 				AC460AF42887BBEB00EA55D2 /* AddItemVC.swift in Sources */,
 				AC460ABF288480FD00EA55D2 /* SignUpVC.swift in Sources */,
