@@ -13,6 +13,7 @@ target 'MyBills' do
   pod 'Alamofire'
   pod 'Firebase/Firestore'
   pod 'MBProgressHUD', '~> 1.2.0'
+  pod 'DropDown'
   # Pods for MyBills
 
 end

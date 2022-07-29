@@ -78,6 +78,11 @@
 "ALERT_CATEGORY_EMPTY" = "Please enter category or select category from list to update";
 "ALERT_CATEGORY_ADDED" = "Category added";
 "ALERT_CATEGORY_DELETED" = "Deleted category";
+"ALERT_ENTER_ITEM_NAME" = "Please enter item name";
+"ALERT_SELECT_PURCHASE_DATE" = "Please select purchase date";
+"ALERT_SELECT_CATEGORY" = "Please select category";
+"ALERT_ENTER_PRICE" = "Please enter price";
+"ALERT_ENTER_DESCRIPTION" = "Please enter description";
 
 /// Category
 "NAV_TITLE_CATEGORY" = "Category";
