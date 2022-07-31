@@ -14,6 +14,8 @@ target 'MyBills' do
   pod 'Firebase/Firestore'
   pod 'MBProgressHUD', '~> 1.2.0'
   pod 'DropDown'
+  pod 'GoogleSignIn', '~> 6.0'
+
   # Pods for MyBills
 
 end

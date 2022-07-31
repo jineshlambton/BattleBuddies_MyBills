@@ -7,8 +7,12 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import GoogleSignIn
 
 class LoginVC: BaseVC {
+    
+    let signInConfig = GIDConfiguration(clientID:"926505038198-gji4fuobkfrm2aggp1kq9jkl099eoli9.apps.googleusercontent.com")
     
     @IBOutlet weak var txtUsername: MyTextField!
     @IBOutlet weak var txtPassword: MyTextField!
@@ -18,12 +22,19 @@ class LoginVC: BaseVC {
     
     @IBOutlet weak var btnSignUp: MyButton!
     
+    @IBOutlet weak var btnGoogleLogin: GIDSignInButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
         txtUsername.text = "jinesh@gmail.com"
         txtPassword.text = "jinesh"
         // Do any additional setup after loading the view.
+        if GIDSignIn.sharedInstance.hasPreviousSignIn() {
+           GIDSignIn.sharedInstance.restorePreviousSignIn()
+            print("already Login")
+            redirectToHome()
+         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,7 +112,41 @@ class LoginVC: BaseVC {
         let objSignupVC = SignUpVC(nibName: "SignUpVC", bundle: nil)
         self.navigationController?.pushViewController(objSignupVC, animated: true)
     }
+    @IBAction func btnGoogleTapped(_ sender: Any) {
+        
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        let config = GIDConfiguration(clientID: clientID)
+
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
+
+          if let error = error {
+              print(error)
+            return
+          }
+            guard
+            let authentication = user?.authentication,
+            let idToken = authentication.idToken
+          else {
+            return
+          }
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                         accessToken: authentication.accessToken)
+            Auth.auth().signIn(with: credential) { result, error in
+                    if let error = error {
+                        print(error)
+                        return
+                        
+                    }
+            print("login success")
+                self.redirectToHome()
+        }
+        
+    }
+        
+    }
 }
+
+
 
 extension LoginVC : MyFirebaseDelegate {
     func isAuthenticatedUser(user : User) {

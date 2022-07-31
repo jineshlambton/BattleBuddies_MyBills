@@ -8,9 +8,10 @@
 import UIKit
 import Firebase
 import FirebaseCore
+import GoogleSignIn
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate{
 
 
 
@@ -18,7 +19,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         UIApplication.shared.statusBarStyle = .lightContent
         FirebaseApp.configure()
+        GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
+            if error != nil || user == nil {
+              // Show the app's signed-out state.
+            } else {
+              // Show the app's signed-in state.
+            }
+          }
+        
         return true
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+        print(error.localizedDescription)
+        return
+        }
+        guard let auth = user?.authentication else { return }
+        let credentials = GoogleAuthProvider.credential(withIDToken: auth.idToken!, accessToken: auth.accessToken)
+        Auth.auth().signIn(with: credentials) { (authResult, error) in
+        if let error = error {
+        print(error.localizedDescription)
+        } else {
+        print("Login Successful.")
+        //This is where you should add the functionality of successful login
+        //i.e. dismissing this view or push the home view controller etc
+        }
+    }
+    }
+    
+    func application(_ app: UIApplication,open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool
+    {
+      var handled: Bool
+        handled = GIDSignIn.sharedInstance.handle(url)
+      if handled {
+        return true
+      }
+      return false
     }
 
     // MARK: UISceneSession Lifecycle

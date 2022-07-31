@@ -97,7 +97,10 @@
                                             <constraint firstAttribute="height" constant="50" id="Zs3-XP-yj0"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Continue with Facebook"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Continue with Google"/>
+                                        <connections>
+                                            <action selector="btnGoogleTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n5R-Mh-p7f"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIQ-BP-W3v" customClass="MyButton" customModule="MyBills" customModuleProvider="target">
                                         <rect key="frame" x="20" y="90" width="374" height="50"/>
@@ -142,6 +145,7 @@
                     <navigationItem key="navigationItem" id="Aje-sa-wdJ"/>
                     <connections>
                         <outlet property="btnForgotPwd" destination="D9c-l5-t3k" id="YNi-0U-iJc"/>
+                        <outlet property="btnGoogleLogin" destination="kcZ-Pc-zbH" id="tRd-mu-jXY"/>
                         <outlet property="btnLogin" destination="Srh-h9-iCy" id="b6I-MW-ig7"/>
                         <outlet property="btnSignUp" destination="vIQ-BP-W3v" id="2cs-rY-YLT"/>
                         <outlet property="txtPassword" destination="1Ir-gf-0lJ" id="IFx-QS-mS9"/>
