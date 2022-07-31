@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsVC: UIViewController {
+class SettingsVC: BaseVC {
 
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var imgBack: UIImageView!
@@ -39,12 +39,18 @@ class SettingsVC: UIViewController {
     // MARK: - Button tap methods
     
     @IBAction func btnLogoutTapped(_ sender: Any) {
-        let objLoginVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-        let window = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first
-        let nav = UINavigationController(rootViewController: objLoginVc)
-        nav.navigationBar.isHidden = true
-        window?.rootViewController = nav
-        window?.makeKeyAndVisible()
+        MyUserDefault.instace.setLoggedInUser()
+        showProgress()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.hideProgress()
+            let objLoginVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+            let window = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first
+            let nav = UINavigationController(rootViewController: objLoginVc)
+            nav.navigationBar.isHidden = true
+            window?.rootViewController = nav
+            window?.makeKeyAndVisible()
+        }
+        
     }
     
     @IBAction func btnBackTapped(_ sender: Any) {

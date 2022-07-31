@@ -10,7 +10,7 @@
 "TXT_PLACEHOLDER_USERNAME" = "Please enter username";
 "TXT_PLACEHOLDER_PASSWORD" = "Please enter password";
 "BTN_LOGIN" = "Login";
-"BTN_FORGOT_PASSWORD" = "Request password";
+"BTN_FORGOT_PASSWORD" = "Forgot password";
 "BTN_SIGNUP" = "Sign up";
 
 /// Sign up
@@ -85,8 +85,18 @@
 "ALERT_ENTER_DESCRIPTION" = "Please enter description";
 "ALERT_SOMETHING_WENT_WRONG" = "Something went wrong, please try again after some time.";
 "ALERT_ITEM_DELETED_SUCCESSFULLY" = "Item deleted successfully";
+"ALERT_ITEM_ADDED_SUCCESSFULLY" = "Item added successfully";
+"ALERT_PASSWORD_CHANGE_SUCCESS" = "Password changed successfully";
+"ALERT_RECOVER_PWD_EMAIL_SENT" = "We have sent an email to reset your password, please check your email and reset your password by tapping on reset link.";
+"ALERT_ITEM_UPDATED_SUCCESSFULLY" = "Item updated successfully";
+"ALERT_CATEGORY_UPDATED_SUCCESSFULLY" = "Category updated successfully";
+"ALERT_CATEGORY_CAN_NOT_DELETE" = "This category can not be deleted, because some tasks are binded with this category.";
 
 /// Category
 "NAV_TITLE_CATEGORY" = "Category";
 "TXT_PLACEHOLDER_CATEGORY" = "Enter/select category to add/update";
+"LBL_CHANGE_PWD_LOGIN_INFO" = "To change your password, please authenticate yourself again.";
 
+/// Forgot pwd
+"NAV_TITLE_FORGOT_PWD" = "Forgot password";
+"BTN_SUBMIT" = "Submit";

@@ -16,6 +16,8 @@ import FirebaseCore
     @objc optional func userNotFound()
     @objc optional func userExist()
     @objc optional func userCreatedSuccessfully(user : User)
+    @objc optional func passwordChangedSuccessfully()
+    @objc optional func passwordResetSentSuccessfully()
 }
 
 final class MyFirebaseAuth : NSObject {
@@ -56,7 +58,7 @@ final class MyFirebaseAuth : NSObject {
         
         FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { [self] result, error in
             if error != nil {
-                print("Error in create user on authentication: \(error)")
+                print("Error in create user on authentication: \(String(describing: error))")
                 if let strErr = error?.localizedDescription {
                     if strErr == "The email address is already in use by another account." {
                         delegate?.userExist?()
@@ -67,6 +69,28 @@ final class MyFirebaseAuth : NSObject {
                 if let res = result  {
                     delegate?.userCreatedSuccessfully?(user: res.user)
                 }
+            }
+        }
+    }
+    
+    func changePwd(pwd : String) {
+        FirebaseAuth.Auth.auth().currentUser?.updatePassword(to: pwd, completion: { [self] error in
+            if error != nil {
+                print("Error in change pwd: \(String(describing: error))")
+            } else {
+                print("Success")
+                delegate?.passwordChangedSuccessfully?()
+            }
+        })
+    }
+    
+    func forgetPwd(email : String) {
+        FirebaseAuth.Auth.auth().sendPasswordReset(withEmail: email) { [self] error in
+            if error != nil {
+                print("Error in forget pwd: \(String(describing: error))")
+            } else {
+                print("Success")
+                delegate?.passwordResetSentSuccessfully?()
             }
         }
     }

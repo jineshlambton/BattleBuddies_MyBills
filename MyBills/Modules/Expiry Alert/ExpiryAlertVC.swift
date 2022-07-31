@@ -19,11 +19,15 @@ class ExpiryAlertVC: UIViewController {
     
     @IBOutlet weak var viewNavBar: UIView!
     
+    var expiryVm = ExpiryVM()
+    var arrItems = [MyItemsInformation]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpUI()
+        
+        arrItems = expiryVm.currentWeekExpiryItems()
     }
     
     //MARK: - Custom methods
@@ -31,7 +35,7 @@ class ExpiryAlertVC: UIViewController {
     private func setUpUI() {
         viewNavBar.backgroundColor = MyColor.theme.color
         lblTitle.setLBL(text: "NAV_TITLE_EXPIRY_ALERT".localizedLanguage(), font: .LBL_TITLE, textcolor: .white)
-        lblHeader.setLBL(text: "New Week Dues".localizedLanguage(), font: .LBL_SUB_TITLE, textcolor: .black)
+        lblHeader.setLBL(text: "Date :- \(Date().mondayOfTheSameWeek.addDays(numberOfDays: 7).dateString()) - \(Date().mondayOfTheSameWeek.addDays(numberOfDays: 14).dateString())".localizedLanguage(), font: .LBL_SUB_TITLE, textcolor: .black)
         btnBack.setTitle("", for: .normal)
         tblView.register(UINib(nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "HomeCell")
     }
@@ -46,18 +50,21 @@ class ExpiryAlertVC: UIViewController {
 
 extension ExpiryAlertVC : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return arrItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell") as! HomeCell
         cell.selectionStyle = .none
         cell.setUpUI()
+        cell.setData(data: arrItems[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let objHomeDetailVC = HomeDetailVC(nibName: "HomeDetailVC", bundle: nil)
+        objHomeDetailVC.objMyItemInfo = arrItems[indexPath.row]
+        objHomeDetailVC.isFromExpiryAlert = true
         self.navigationController?.pushViewController(objHomeDetailVC, animated: true)
     }
     

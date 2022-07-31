@@ -17,8 +17,14 @@ final class MyUserDefault : NSObject {
     
     private let userDefault = UserDefaults.standard
     
-    func setLoggedInUser(user : User) {
-        userDefault.set(user.uid, forKey: Constant.UserDefaultKey.loggedInUser)
+    func setLoggedInUser(user : User? = nil) {
+        if let objUser = user {
+            userDefault.set(objUser.uid, forKey: Constant.UserDefaultKey.loggedInUser)
+            userDefault.synchronize()
+        } else {
+            userDefault.set(nil, forKey: Constant.UserDefaultKey.loggedInUser)
+            userDefault.synchronize()
+        }
     }
     
     func getLoggedInUser() -> String? {

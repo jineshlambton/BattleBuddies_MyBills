@@ -20,6 +20,7 @@ import UIKit
     @objc optional func updatedCategorySuccessfully()
     @objc optional func deletedItemSuccessfully()
     @objc optional func deletedItemFailed()
+    @objc optional func itemUpdatedSuccessfully()
 }
 
 class MyFirebaseDataStore : NSObject {
@@ -71,6 +72,16 @@ class MyFirebaseDataStore : NSObject {
                 print("Item added : Ref id : \(String(describing: ref?.documentID))")
             }
         })
+    }
+    
+    func updateItem(id : String, item : MyFirebaseItem) {
+        db.collection("Items").document(id).setData(item.dict) { [self] error in
+            if let err = error {
+                print("Error adding category : \(err)")
+            } else {
+                delegate?.itemUpdatedSuccessfully?()
+            }
+        }
     }
     
     func getCategories() {
@@ -143,6 +154,18 @@ class MyFirebaseDataStore : NSObject {
                 delegate?.itemsSynced?()
             }
         })
+    }
+    
+    func isCategoryUsed(catId : String) -> Bool {
+        var isFound = false
+        for i in 0 ..< arrItem.count {
+            var item = arrItem[i]
+            if item.categoryId == catId {
+                isFound = true
+                break
+            }
+        }
+        return isFound
     }
     
     private func sortItemArray() {
