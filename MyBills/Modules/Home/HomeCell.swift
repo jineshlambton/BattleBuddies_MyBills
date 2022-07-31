@@ -43,7 +43,7 @@ class HomeCell: UITableViewCell {
     
     func setData(data : MyItemsInformation) {
         var strCreatedDate = ""
-        var strExpiryDate = ""
+        var strExpiryDate = "-"
         if let _ = data.createDate?.seconds {
             strCreatedDate = Date(timeIntervalSince1970: Double(data.createDate!.seconds)).dateString()
         }
@@ -53,6 +53,9 @@ class HomeCell: UITableViewCell {
         lblDate.text = strCreatedDate
         lblItem.text = data.name ?? ""
         lblExpiryDate.text = "Expiry Date : " + strExpiryDate
+        let strCategory = MyFirebaseDataStore.instace.getCategoryName(id: data.categoryId!)
+        lblCategory.text = "Category : " + strCategory
+        
     }
     
 }

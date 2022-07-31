@@ -83,6 +83,8 @@
 "ALERT_SELECT_CATEGORY" = "Please select category";
 "ALERT_ENTER_PRICE" = "Please enter price";
 "ALERT_ENTER_DESCRIPTION" = "Please enter description";
+"ALERT_SOMETHING_WENT_WRONG" = "Something went wrong, please try again after some time.";
+"ALERT_ITEM_DELETED_SUCCESSFULLY" = "Item deleted successfully";
 
 /// Category
 "NAV_TITLE_CATEGORY" = "Category";
