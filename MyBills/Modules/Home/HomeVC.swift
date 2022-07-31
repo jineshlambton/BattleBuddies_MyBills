@@ -36,6 +36,7 @@ class HomeVC: BaseVC {
         homeVm.delegate = self
         showProgress()
         setUpUI()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateList(notication: )), name: Notification.Name("updateItemList"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +48,10 @@ class HomeVC: BaseVC {
     }
     
     //MARK: - Custom methods
+    
+    @objc func updateList(notication : Notification) {
+        homeVm.getItems()
+    }
     
     func setUpUI() {
         viewNavBar.backgroundColor = MyColor.theme.color
@@ -76,6 +81,7 @@ class HomeVC: BaseVC {
     
     @IBAction func btnFlotingTapped(_ sender: Any) {
         let objAddItemVC = AddItemVC(nibName: "AddItemVC", bundle: nil)
+        objAddItemVC.delegate = self
         self.navigationController?.pushViewController(objAddItemVC, animated: true)
     }
     
@@ -180,4 +186,10 @@ extension HomeVC : UISearchBarDelegate {
     }
     
     
+}
+
+extension HomeVC : AddItemVCDelegate {
+    func newItemAdded() {
+        homeVm.getItems()
+    }
 }

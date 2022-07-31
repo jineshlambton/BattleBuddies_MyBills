@@ -23,7 +23,7 @@ class LoginVC: BaseVC {
         setUpUI()
         txtUsername.text = "jinesh@gmail.com"
         txtPassword.text = "jinesh"
-        // Do any additional setup after loading the view.
+        isLoggedInUser()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +31,12 @@ class LoginVC: BaseVC {
         btnSignUp.reloadControl()
     }
     //MARK: - Custom methods
+    
+    private func isLoggedInUser() {
+        if let _ = MyUserDefault.instace.getLoggedInUser() {
+            redirectToHome()
+        }
+    }
     
     private func setUpUI() {
         txtUsername.placeholder = "TXT_PLACEHOLDER_USERNAME".localizedLanguage()
@@ -94,6 +100,8 @@ class LoginVC: BaseVC {
     }
     
     @IBAction func btnForgotPwdTapped(_ sender: Any) {
+        let objForgotPwdVC = ForgotPwdVC(nibName: "ForgotPwdVC", bundle: nil)
+        self.navigationController?.pushViewController(objForgotPwdVC, animated: true)
     }
     
     @IBAction func btnSignUpTapped(_ sender: Any) {

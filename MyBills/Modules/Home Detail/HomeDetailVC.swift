@@ -40,6 +40,7 @@ class HomeDetailVC: BaseVC {
     
     var objMyItemInfo : MyItemsInformation?
     weak var delegate : HomeDetailVCDelegate?
+    var isFromExpiryAlert = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,9 +89,18 @@ class HomeDetailVC: BaseVC {
         lblPurchaseDate.setLBL(text: "Purchase date : -", font: .LBL_SUB_TITLE, textcolor: .black)
         lblExpiryDate.setLBL(text: "Expiry date : -", font: .LBL_SUB_TITLE, textcolor: .black)
         lblReplacementDate.setLBL(text: "Replacement date : -", font: .LBL_SUB_TITLE, textcolor: .black)
+        if isFromExpiryAlert {
+            btnDelete.isHidden = true
+            btnEdir.isHidden = true
+            imgEdir.isHidden = true
+        }
     }
     
     @IBAction func btnEditTapped(_ sender: Any) {
+        let objAddItemVC = AddItemVC(nibName: "AddItemVC", bundle: nil)
+        objAddItemVC.isEdit = true
+        objAddItemVC.objItemInfo = objMyItemInfo!
+        self.navigationController?.pushViewController(objAddItemVC, animated: true)
     }
     
     @IBAction func btnDeleteTapped(_ sender: Any) {

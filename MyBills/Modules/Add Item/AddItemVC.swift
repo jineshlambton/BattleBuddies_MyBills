@@ -9,6 +9,10 @@ import UIKit
 import SwiftyMenu
 import DropDown
 
+@objc protocol AddItemVCDelegate : NSObjectProtocol {
+    @objc optional func newItemAdded()
+}
+
 class AddItemVC: BaseVC {
     
     @IBOutlet weak var viewNavBar: UIView!
@@ -46,25 +50,62 @@ class AddItemVC: BaseVC {
     @IBOutlet weak var btnAdd: MyButton!
     @IBOutlet weak var btnAddBill: UIButton!
     
+    weak var delegate : AddItemVCDelegate?
     var purchaseDate : Date?
     var expiryDate : Date?
     var replacementDate : Date?
+    
+    var isEdit = false
     
     private let dropDown = DropDown()
     private var arrCategoryTitle : [String] = [String]()
     private var selectedCategoryId : String?
     private var arrCategoryId : [String] = [String]()
-    
+    var objItemInfo : MyItemsInformation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpUI()
         getCategoryAPICall()
-        
+        if isEdit {
+            btnAdd.setTitle("BTN_UPDATE".localizedLanguage(), for: .normal)
+            setData()
+        }
     }
 
     // MARK: - Custom methods
+    
+    private func setData() {
+        if let item = objItemInfo {
+            if let name = item.name {
+                txtItemName.text = name
+            }
+            if let categoryId = item.categoryId {
+                let name = MyFirebaseDataStore.instace.getCategoryName(id: categoryId)
+                lblCategory.text = name
+                selectedCategoryId = categoryId
+            }
+            if let pDate = item.purchaseDate {
+                lblPurchaseDate.text = "Purchase Date : \(pDate.dateValue().dateString())"
+                purchaseDate = pDate.dateValue()
+            }
+            if let eDate = item.expiryDate {
+                lblExpiryDate.text = "Expiry Date : \(eDate.dateValue().dateString())"
+                expiryDate = eDate.dateValue()
+            }
+            if let rDate = item.replacementDate {
+                lblReplacementDate.text = "Replacement date : \(rDate.dateValue().dateString())"
+                replacementDate = rDate.dateValue()
+            }
+            if let price = item.price {
+                txtPrice.text = price
+            }
+            if let description = item.description1 {
+                txtViewDescription.text = description
+            }
+        }
+    }
     
     private func addItemApiCall() {
         let objItem = MyFirebaseItem()
@@ -83,6 +124,25 @@ class AddItemVC: BaseVC {
         objItem.uid = MyUserDefault.instace.getLoggedInUser() ?? ""
         
         MyFirebaseDataStore.instace.addItem(item: objItem)
+    }
+    
+    private func updateItemApiCall() {
+        let objItem = MyFirebaseItem()
+        objItem.name = txtItemName.text!
+        objItem.price = txtPrice.text!
+        objItem.purchaseDate = purchaseDate
+        objItem.description = txtViewDescription.text!
+        objItem.categoryId = selectedCategoryId!
+        if let objRDate = replacementDate {
+            objItem.replacementDate = objRDate
+        }
+        if let objEDate = expiryDate {
+            objItem.expiryDate = objEDate
+        }
+        objItem.createDate = Date()
+        objItem.uid = MyUserDefault.instace.getLoggedInUser() ?? ""
+        
+        MyFirebaseDataStore.instace.updateItem(id: objItemInfo!.documentID!, item: objItem)
     }
     
     private func isValidInformation() -> Bool {
@@ -228,7 +288,11 @@ class AddItemVC: BaseVC {
         if isValidInformation() {
             if Util.isNetworkAvailable() {
                 showProgress()
-                addItemApiCall()
+                if isEdit {
+                    updateItemApiCall()
+                } else {
+                    addItemApiCall()
+                }
             } else {
                 showAlert(msg: Constant.MESSGAE.CHECK_INTERNET_CONECTION)
             }
@@ -286,6 +350,17 @@ extension AddItemVC : MyFirebaseDataStoreDelegate {
     
     func itemAddedSuccessfully() {
         hideProgress()
-        self.navigationController?.popViewController(animated: true)
+        showAlertWithOk(self, msg: "ALERT_ITEM_ADDED_SUCCESSFULLY") { [self] okAction in
+            delegate?.newItemAdded?()
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    func itemUpdatedSuccessfully() {
+        hideProgress()
+        NotificationCenter.default.post(name: Notification.Name("updateItemList"), object: nil)
+        showAlertWithOk(self, msg: "ALERT_ITEM_UPDATED_SUCCESSFULLY") { [self] okAction in
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
 }

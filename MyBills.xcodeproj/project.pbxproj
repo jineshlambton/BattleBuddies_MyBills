@@ -75,6 +75,9 @@
 		ACB1130A288DF89400216B0C /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB11308288DF89400216B0C /* CategoryCell.swift */; };
 		ACB1130B288DF89400216B0C /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB11309288DF89400216B0C /* CategoryCell.xib */; };
 		ACB1130D288E14EA00216B0C /* MyUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB1130C288E14E900216B0C /* MyUserDefault.swift */; };
+		ACC3CD0C2896CC680001AA9B /* ExpiryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC3CD0B2896CC680001AA9B /* ExpiryVM.swift */; };
+		ACC3CD102896E0230001AA9B /* ForgotPwdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC3CD0E2896E0230001AA9B /* ForgotPwdVC.swift */; };
+		ACC3CD112896E0230001AA9B /* ForgotPwdVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACC3CD0F2896E0230001AA9B /* ForgotPwdVC.xib */; };
 		ACE44E78288DB6B80058C647 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE44E77288DB6B80058C647 /* Constant.swift */; };
 		ACE44E7B288DB73C0058C647 /* MyFirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE44E7A288DB73C0058C647 /* MyFirebaseAuth.swift */; };
 /* End PBXBuildFile section */
@@ -151,6 +154,9 @@
 		ACB11308288DF89400216B0C /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		ACB11309288DF89400216B0C /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		ACB1130C288E14E900216B0C /* MyUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUserDefault.swift; sourceTree = "<group>"; };
+		ACC3CD0B2896CC680001AA9B /* ExpiryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiryVM.swift; sourceTree = "<group>"; };
+		ACC3CD0E2896E0230001AA9B /* ForgotPwdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPwdVC.swift; sourceTree = "<group>"; };
+		ACC3CD0F2896E0230001AA9B /* ForgotPwdVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPwdVC.xib; sourceTree = "<group>"; };
 		ACE44E77288DB6B80058C647 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		ACE44E7A288DB73C0058C647 /* MyFirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFirebaseAuth.swift; sourceTree = "<group>"; };
 		F1602778314D15C3B8995073 /* Pods_MyBills.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBills.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -293,6 +299,7 @@
 		AC55D3D228846BC7000CF810 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				ACC3CD0D2896E0100001AA9B /* Forgot password */,
 				ACB11303288DF75700216B0C /* Category */,
 				ACA3DEA728892A72008FD96B /* Expiry Alert */,
 				AC460AF12887BBD900EA55D2 /* Add Item */,
@@ -391,6 +398,7 @@
 			children = (
 				ACA3DEA828892A88008FD96B /* ExpiryAlertVC.swift */,
 				ACA3DEA928892A88008FD96B /* ExpiryAlertVC.xib */,
+				ACC3CD0B2896CC680001AA9B /* ExpiryVM.swift */,
 			);
 			path = "Expiry Alert";
 			sourceTree = "<group>";
@@ -411,6 +419,15 @@
 				ACB11309288DF89400216B0C /* CategoryCell.xib */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		ACC3CD0D2896E0100001AA9B /* Forgot password */ = {
+			isa = PBXGroup;
+			children = (
+				ACC3CD0E2896E0230001AA9B /* ForgotPwdVC.swift */,
+				ACC3CD0F2896E0230001AA9B /* ForgotPwdVC.xib */,
+			);
+			path = "Forgot password";
 			sourceTree = "<group>";
 		};
 		ACE44E79288DB7040058C647 /* Helpers */ = {
@@ -507,6 +524,7 @@
 				AC55D4002884758D000CF810 /* Poppins-Light.ttf in Resources */,
 				AC55D3FF2884758D000CF810 /* Poppins-ExtraLight.ttf in Resources */,
 				ACB11307288DF76700216B0C /* CategoryVC.xib in Resources */,
+				ACC3CD112896E0230001AA9B /* ForgotPwdVC.xib in Resources */,
 				ACB1130B288DF89400216B0C /* CategoryCell.xib in Resources */,
 				AC55D3FE2884758D000CF810 /* Poppins-ThinItalic.ttf in Resources */,
 				AC460AD72884D0E500EA55D2 /* FilterVC.xib in Resources */,
@@ -596,9 +614,11 @@
 				AC460ADD2884DA7F00EA55D2 /* MyDate.swift in Sources */,
 				AC55D3BF28821C20000CF810 /* AppDelegate.swift in Sources */,
 				AC55D3D828846D10000CF810 /* LoginVC.swift in Sources */,
+				ACC3CD102896E0230001AA9B /* ForgotPwdVC.swift in Sources */,
 				AC460AD12884C53400EA55D2 /* HomeCell.swift in Sources */,
 				AC55D408288477F9000CF810 /* MyColor.swift in Sources */,
 				AC55D3C128821C20000CF810 /* SceneDelegate.swift in Sources */,
+				ACC3CD0C2896CC680001AA9B /* ExpiryVM.swift in Sources */,
 				AC55D412288479FB000CF810 /* MyButton.swift in Sources */,
 				AC49D7E02895A89B00DD5C71 /* HomeVM.swift in Sources */,
 				ACE44E7B288DB73C0058C647 /* MyFirebaseAuth.swift in Sources */,

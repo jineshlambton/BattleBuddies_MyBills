@@ -104,7 +104,14 @@ extension CategoryVC : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             print("Tapped at : \(indexPath.row)")
-            MyFirebaseDataStore.instace.deleteCategory(id: MyFirebaseDataStore.instace.arrCategory[indexPath.row].documentID!)
+            let isFound = MyFirebaseDataStore.instace.isCategoryUsed(catId: MyFirebaseDataStore.instace.arrCategory[indexPath.row].documentID!)
+            if isFound == true {
+                showAlertWithOk(self, msg: "ALERT_CATEGORY_CAN_NOT_DELETE") { okAction in
+                    
+                }
+            } else {
+                MyFirebaseDataStore.instace.deleteCategory(id: MyFirebaseDataStore.instace.arrCategory[indexPath.row].documentID!)
+            }
         }
     }
     
@@ -137,6 +144,10 @@ extension CategoryVC : MyFirebaseDataStoreDelegate {
         tblView.reloadData()
         btnAdd.setTitle("BTN_ADD".localizedLanguage(), for: .normal)
         getCategoryAPICall()
+        NotificationCenter.default.post(name: Notification.Name("updateItemList"), object: nil)
+        showAlertWithOk(self, msg: "ALERT_CATEGORY_UPDATED_SUCCESSFULLY".localizedLanguage()) { okAction in
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
 }
 
