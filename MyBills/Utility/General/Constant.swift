@@ -14,5 +14,6 @@ class Constant {
     
     struct MESSGAE {
         static let CHECK_INTERNET_CONECTION = "ALERT_CHECK_INTRENET_CONNECT".localizedLanguage()
+        static let SOMETHING_WENT_WRONG = "ALERT_SOMETHING_WENT_WRONG".localizedLanguage()
     }
 }

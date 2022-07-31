@@ -19,6 +19,7 @@
                 <outlet property="btnReset" destination="Qfm-Sw-mTV" id="0dh-t1-17l"/>
                 <outlet property="imgBack" destination="9BJ-hZ-6bl" id="V2e-5R-vST"/>
                 <outlet property="imgDone" destination="BEj-Uw-btc" id="ALB-Iy-AP9"/>
+                <outlet property="lblCategory" destination="n4H-EP-v0f" id="mZt-mm-AcM"/>
                 <outlet property="lblDate1" destination="VfZ-DG-QfF" id="pzy-bZ-hZ8"/>
                 <outlet property="lblDate2" destination="wTX-28-tO5" id="ogE-aF-qw1"/>
                 <outlet property="lblMaxValue" destination="O10-Eu-57S" id="fkC-N9-u0L"/>
@@ -28,7 +29,7 @@
                 <outlet property="navBarView" destination="ufR-MX-BnG" id="xmr-g7-I7G"/>
                 <outlet property="priceRange" destination="udu-zW-nby" id="exE-ha-LLd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="viewCategory" destination="9QW-fo-0KN" id="gvE-yV-rgj"/>
+                <outlet property="viewCategory" destination="9QW-fo-0KN" id="hnD-II-eSi"/>
                 <outlet property="viewDate1" destination="tYF-2V-3XR" id="K4x-dd-B1U"/>
                 <outlet property="viewDate2" destination="BLk-nj-qym" id="fWh-G8-fvb"/>
             </connections>
@@ -181,9 +182,22 @@
                         <constraint firstAttribute="trailing" secondItem="wTX-28-tO5" secondAttribute="trailing" id="xht-uW-IGL"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9QW-fo-0KN" userLabel="View category" customClass="SwiftyMenu" customModule="SwiftyMenu">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9QW-fo-0KN" userLabel="View category">
                     <rect key="frame" x="20" y="223" width="374" height="35"/>
                     <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n4H-EP-v0f">
+                            <rect key="frame" x="10" y="0.0" width="364" height="35"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dropdown" translatesAutoresizingMaskIntoConstraints="NO" id="Uab-53-6Ah">
+                            <rect key="frame" x="339" y="5" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="JTm-X1-iPL"/>
+                                <constraint firstAttribute="height" constant="25" id="hWc-OB-81N"/>
+                            </constraints>
+                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1YU-hl-mIx">
                             <rect key="frame" x="0.0" y="0.0" width="374" height="35"/>
                             <state key="normal" title="Button"/>
@@ -195,15 +209,18 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstItem="n4H-EP-v0f" firstAttribute="top" secondItem="9QW-fo-0KN" secondAttribute="top" id="4fg-k5-xZV"/>
                         <constraint firstItem="1YU-hl-mIx" firstAttribute="top" secondItem="9QW-fo-0KN" secondAttribute="top" id="AxL-KL-r0o"/>
                         <constraint firstAttribute="trailing" secondItem="1YU-hl-mIx" secondAttribute="trailing" id="Gy9-63-tBw"/>
                         <constraint firstAttribute="height" constant="35" id="HFM-Mj-c5Z"/>
+                        <constraint firstItem="Uab-53-6Ah" firstAttribute="centerY" secondItem="9QW-fo-0KN" secondAttribute="centerY" id="I9t-4j-sIv"/>
                         <constraint firstAttribute="bottom" secondItem="1YU-hl-mIx" secondAttribute="bottom" id="R3F-bJ-vFv"/>
                         <constraint firstItem="1YU-hl-mIx" firstAttribute="leading" secondItem="9QW-fo-0KN" secondAttribute="leading" id="ef2-qd-r2v"/>
+                        <constraint firstItem="n4H-EP-v0f" firstAttribute="leading" secondItem="9QW-fo-0KN" secondAttribute="leading" constant="10" id="ehS-cG-jWN"/>
+                        <constraint firstAttribute="bottom" secondItem="n4H-EP-v0f" secondAttribute="bottom" id="o4W-UM-Oh1"/>
+                        <constraint firstAttribute="trailing" secondItem="n4H-EP-v0f" secondAttribute="trailing" id="t1d-0V-i0V"/>
+                        <constraint firstAttribute="trailing" secondItem="Uab-53-6Ah" secondAttribute="trailing" constant="10" id="y17-Tp-cAn"/>
                     </constraints>
-                    <connections>
-                        <outlet property="heightConstraint" destination="HFM-Mj-c5Z" id="0Jd-OZ-4NR"/>
-                    </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oiz-bH-KjD" userLabel="View category">
                     <rect key="frame" x="20" y="278" width="374" height="120"/>
@@ -319,10 +336,14 @@
         <designable name="Qfm-Sw-mTV">
             <size key="intrinsicContentSize" width="67" height="31"/>
         </designable>
+        <designable name="udu-zW-nby">
+            <size key="intrinsicContentSize" width="-1" height="65"/>
+        </designable>
     </designables>
     <resources>
         <image name="backArrow" width="37" height="22"/>
         <image name="doneIcon" width="68" height="60"/>
+        <image name="dropdown" width="384" height="384"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

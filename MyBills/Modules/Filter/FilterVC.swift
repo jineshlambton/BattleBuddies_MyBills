@@ -8,6 +8,11 @@
 import UIKit
 import SwiftyMenu
 import RangeSeekSlider
+import DropDown
+
+@objc protocol FilterVCDelegate : NSObjectProtocol {
+    @objc optional func appliedFilter(filter : FilterParameter?)
+}
 
 class FilterVC: BaseVC {
     
@@ -34,21 +39,59 @@ class FilterVC: BaseVC {
     @IBOutlet weak var btnDate2: UIButton!
     @IBOutlet weak var btnCategory: UIButton!
     
-    @IBOutlet weak var viewCategory: SwiftyMenu!
+    @IBOutlet weak var viewCategory: UIView!
     @IBOutlet weak var priceRange: RangeSeekSlider!
     
     @IBOutlet weak var lblMinValue: UILabel!
     @IBOutlet weak var lblMaxValue: UILabel!
+    @IBOutlet weak var lblCategory: UILabel!
     
+    weak var delegate : FilterVCDelegate?
     
+    var purchaseDate : Date?
+    var expiryDate : Date?
+    var minPrice : Int?
+    var maxPrice : Int?
+    private let dropDown = DropDown()
+    private var arrCategoryTitle : [String] = [String]()
+    private var selectedCategoryId : String?
+    private var arrCategoryId : [String] = [String]()
+    
+    var objFilter : FilterParameter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        getCategoryAPICall()
         setUpUI()
+        setData()
     }
     
     //MARK: - Custom methods
+    
+    func setData() {
+        if objFilter != nil {
+            if let catId = objFilter?.categoryId {
+                let name = MyFirebaseDataStore.instace.getCategoryName(id: catId)
+                lblCategory.text = name
+                selectedCategoryId = catId
+            }
+            if let pDate = objFilter?.purchaseDate {
+                purchaseDate = pDate
+                lblDate1.setLBL(text: "Purchase Date : \(pDate.dateString())", font: .LBL_SUB_TITLE, textcolor: .black)
+            }
+            if let eDate = objFilter?.expiryDate {
+                expiryDate = eDate
+                lblDate2.setLBL(text: "Expiry Date : \(eDate.dateString())", font: .LBL_SUB_TITLE, textcolor: .black)
+            }
+            if let mnPrice = objFilter?.minPrice {
+                minPrice = Int(mnPrice)
+            }
+            if let mxPrice = objFilter?.maxPrice {
+                maxPrice = Int(mxPrice)
+            }
+        }
+    }
     
     private func setUpUI() {
         navBarView.backgroundColor = MyColor.theme.color
@@ -61,11 +104,13 @@ class FilterVC: BaseVC {
         lblMaxValue.setLBL(text: "", font: .LBL_SUB_TITLE, textcolor: .black)
         lblDate1.setLBL(text: "Purchase Date : -", font: .LBL_SUB_TITLE, textcolor: .black)
         lblDate2.setLBL(text: "Expiry Date : -", font: .LBL_SUB_TITLE, textcolor: .black)
+        lblCategory.setLBL(text: "Select Category : ", font: .LBL_SUB_TITLE, textcolor: .black)
         btnDate1.setTitle("", for: .normal)
         btnDate2.setTitle("", for: .normal)
         btnCategory.setTitle("", for: .normal)
         curveView(view: viewDate1)
         curveView(view: viewDate2)
+        curveView(view: viewCategory)
         
         setUpDropdown()
         DispatchQueue.main.async {
@@ -74,10 +119,49 @@ class FilterVC: BaseVC {
         
     }
     
+    private func getCategoryAPICall() {
+        showProgress()
+        MyFirebaseDataStore.instace.delegate = self
+        MyFirebaseDataStore.instace.getCategories()
+    }
+    
     func curveView(view : UIView) {
         view.layer.borderColor = MyColor.textFieldBorder.color.cgColor
         view.layer.borderWidth = 1.0
         view.layer.cornerRadius = 10.0
+    }
+    
+    private func sortCategoryTitle() {
+        arrCategoryTitle.removeAll()
+        arrCategoryTitle = MyFirebaseDataStore.instace.arrCategory.map { $0.name! }
+        arrCategoryId = MyFirebaseDataStore.instace.arrCategory.map { $0.documentID! }
+        dropDown.dataSource = arrCategoryTitle
+    }
+    
+    private func showDatePicker(date: Date?, type : DatePickerType) {
+        var title = ""
+        var minDate = Date()
+        if type == .purchaseDate {
+            title = "Select purchase date".localizedLanguage()
+            minDate = Util.fromDate(year: 1900, month: 1, day: 1)
+        } else if type == .expiryDate {
+            title = "Select expiry date".localizedLanguage()
+            minDate = Date()
+        }
+        let alert = UIAlertController(title: Util.applicationName, message: title, preferredStyle: .alert)
+        
+        alert.addDatePicker(mode: .date, date: Date(), minimumDate: minDate, maximumDate: date) { [self] date in
+            print("Date : \(date)")
+            if type == .purchaseDate {
+                purchaseDate = date
+                lblDate1.setLBL(text: "Purchase Date : \(date.dateString())", font: .LBL_SUB_TITLE, textcolor: .black)
+            } else if type == .expiryDate {
+                expiryDate = date
+                lblDate2.setLBL(text: "Expiry Date : \(date.dateString())", font: .LBL_SUB_TITLE, textcolor: .black)
+            }
+        }
+        alert.addAction(title: "OK_BTN_ON_ALERT".localizedLanguage(), color: .black, style: .cancel)
+        self.present(alert, animated: true, completion: nil)
     }
     
     private func showDatePicker1(date: Date?) {
@@ -101,37 +185,40 @@ class FilterVC: BaseVC {
     }
     
     private func setUpDropdown() {
-        var codeMenuAttributes = SwiftyMenuAttributes()
-        codeMenuAttributes.multiSelect = .disabled
-        codeMenuAttributes.separatorStyle = .value(color: .white, isBlured: false, style: .none)
-        codeMenuAttributes.border = .value(color: MyColor.textFieldBorder.color, width: 1.0)
-        codeMenuAttributes.roundCorners = .all(radius: 10)
-        codeMenuAttributes.arrowStyle = .value(isEnabled: true, image: UIImage(named: "dropdown"))
-        
-        self.viewCategory.delegate = self
-        self.viewCategory.configure(with: codeMenuAttributes)
-        let obj1 = MyCategory(id: 1, name: "Category 1")
-        let obj2 = MyCategory(id: 2, name: "Category 2")
-        self.viewCategory.items = [obj1, obj2]
-//        DispatchQueue.main.async {
-//            self.viewCategory1.selectedIndex = 1
-//        }
+        dropDown.anchorView = viewCategory
+        dropDown.dataSource = arrCategoryTitle
+        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+            print("Selected item: \(item) at index: \(index)")
+            lblCategory.text = item
+            selectedCategoryId = arrCategoryId[index]
+        }
     }
     
     private func setUpPriceRange() {
+        let mn = MyFirebaseDataStore.instace.minPriceValue()
+        let mx = MyFirebaseDataStore.instace.maxPriceValue()
+        
         priceRange.delegate = self
-        priceRange.minValue = 10
-        priceRange.maxValue = 100
-        priceRange.selectedMinValue = 20
-        priceRange.selectedMaxValue = 80
+        priceRange.minValue = mn
+        priceRange.maxValue = mx
+        priceRange.selectedMinValue = minPrice == nil ? mn + ((mn * 20) / 100) : CGFloat(minPrice!)
+        priceRange.selectedMaxValue = maxPrice == nil ? mx - ((mx * 20 / 100)) : CGFloat(maxPrice!)
         priceRange.hideLabels = false
         priceRange.labelsFixed = false
         priceRange.minLabelFont = .LBL_TITLE
         priceRange.maxLabelFont = .LBL_TITLE
         priceRange.disableRange = false
-        lblMinValue.text = "Min : \(Int(priceRange.selectedMinValue))"
-        lblMaxValue.text = "Max : \(Int(priceRange.selectedMaxValue))"
-        
+        lblMinValue.text = minPrice == nil ? "Min : -" : "Min : \(minPrice!)"
+        lblMaxValue.text = maxPrice == nil ? "Max : -" : "Max : \(maxPrice!)"
+    }
+    
+    func validation() -> Bool {
+        if purchaseDate == nil && expiryDate == nil && selectedCategoryId == nil && minPrice == nil && maxPrice == nil {
+            self.showAlert(msg: "Please select filter option")
+            return false
+        } else {
+            return true
+        }
     }
     
     //MARK: - Button tap methods
@@ -141,22 +228,33 @@ class FilterVC: BaseVC {
     }
     
     @IBAction func btnDoneTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        if validation() {
+            objFilter = FilterParameter()
+            objFilter?.purchaseDate = purchaseDate
+            objFilter?.expiryDate = expiryDate
+            objFilter?.categoryId = selectedCategoryId
+            objFilter?.maxPrice = maxPrice == nil ? nil : String(maxPrice!)
+            objFilter?.minPrice = minPrice == nil ? nil : String(minPrice!)
+            self.delegate?.appliedFilter?(filter: objFilter)
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     @IBAction func btnResetTapped(_ sender: Any) {
-        showDatePicker1(date: nil)
+        self.delegate?.appliedFilter?(filter: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func btnDatePicker1Tapped(_ sender: Any) {
-        showDatePicker1(date: nil)
+        showDatePicker(date: Date(), type: .purchaseDate)
     }
     
     @IBAction func btnDatePicker2Tapped(_ sender: Any) {
-        showDatePicker2(date: nil)
+        showDatePicker(date: Util.fromDate(year: 2100, month: 1, day: 1), type: .expiryDate)
     }
     
     @IBAction func btnCategoryTapped(_ sender: Any) {
+        dropDown.show()
     }
 }
 
@@ -187,6 +285,8 @@ extension FilterVC : RangeSeekSliderDelegate {
         print("didChange : \(minValue), : \(maxValue)")
         lblMinValue.text = "Min : \(Int(minValue))"
         lblMaxValue.text = "Max : \(Int(maxValue))"
+        self.minPrice = Int(minValue)
+        self.maxPrice = Int(maxValue)
     }
     
     func didStartTouches(in slider: RangeSeekSlider) {
@@ -203,5 +303,12 @@ extension FilterVC : RangeSeekSliderDelegate {
     
     func rangeSeekSlider(_ slider: RangeSeekSlider, stringForMaxValue: CGFloat) -> String? {
         return ""
+    }
+}
+
+extension FilterVC : MyFirebaseDataStoreDelegate {
+    func categorySynced() {
+        hideProgress()
+        sortCategoryTitle()
     }
 }

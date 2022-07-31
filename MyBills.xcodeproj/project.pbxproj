@@ -34,6 +34,7 @@
 		AC460AF02887B61F00EA55D2 /* ChangePasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC460AEE2887B61F00EA55D2 /* ChangePasswordVC.xib */; };
 		AC460AF42887BBEB00EA55D2 /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC460AF22887BBEB00EA55D2 /* AddItemVC.swift */; };
 		AC460AF52887BBEB00EA55D2 /* AddItemVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC460AF32887BBEB00EA55D2 /* AddItemVC.xib */; };
+		AC49D7E02895A89B00DD5C71 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49D7DF2895A89B00DD5C71 /* HomeVM.swift */; };
 		AC55D3BF28821C20000CF810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3BE28821C20000CF810 /* AppDelegate.swift */; };
 		AC55D3C128821C20000CF810 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3C028821C20000CF810 /* SceneDelegate.swift */; };
 		AC55D3C328821C20000CF810 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D3C228821C20000CF810 /* ViewController.swift */; };
@@ -107,6 +108,7 @@
 		AC460AEE2887B61F00EA55D2 /* ChangePasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordVC.xib; sourceTree = "<group>"; };
 		AC460AF22887BBEB00EA55D2 /* AddItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
 		AC460AF32887BBEB00EA55D2 /* AddItemVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddItemVC.xib; sourceTree = "<group>"; };
+		AC49D7DF2895A89B00DD5C71 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		AC55D3BB28821C20000CF810 /* MyBills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBills.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC55D3BE28821C20000CF810 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC55D3C028821C20000CF810 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				AC460ACC28849F4700EA55D2 /* HomeVC.xib */,
 				AC460ACF2884C53400EA55D2 /* HomeCell.swift */,
 				AC460AD02884C53400EA55D2 /* HomeCell.xib */,
+				AC49D7DF2895A89B00DD5C71 /* HomeVM.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				AC55D408288477F9000CF810 /* MyColor.swift in Sources */,
 				AC55D3C128821C20000CF810 /* SceneDelegate.swift in Sources */,
 				AC55D412288479FB000CF810 /* MyButton.swift in Sources */,
+				AC49D7E02895A89B00DD5C71 /* HomeVM.swift in Sources */,
 				ACE44E7B288DB73C0058C647 /* MyFirebaseAuth.swift in Sources */,
 				AC14F74F288DB55C0092D285 /* MyViewController.swift in Sources */,
 				AC460AEA28864DA400EA55D2 /* SettingsCell.swift in Sources */,
