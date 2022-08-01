@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseCore
+import GoogleSignIn
 
 class SettingsVC: BaseVC {
 

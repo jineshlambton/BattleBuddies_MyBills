@@ -8,6 +8,10 @@
 import UIKit
 import SwiftyMenu
 import DropDown
+import Firebase
+import FirebaseAuth
+import FirebaseCore
+import FirebaseFirestore
 
 @objc protocol AddItemVCDelegate : NSObjectProtocol {
     @objc optional func newItemAdded()
