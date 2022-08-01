@@ -7,6 +7,7 @@
 
 import UIKit
 import MBProgressHUD
+import FirebaseStorage
 
 class BaseVC: UIViewController {
 
@@ -71,7 +72,11 @@ class BaseVC: UIViewController {
         let window = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first
         MBProgressHUD.hide(for: window!, animated: true)
     }
+    
+   
 }
+    
+    
 
 
 extension BaseVC:UIGestureRecognizerDelegate {
@@ -83,10 +88,32 @@ extension BaseVC:UIGestureRecognizerDelegate {
 extension BaseVC : UIImagePickerControllerDelegate , UINavigationControllerDelegate {
     // MARK: - Image picker delegate methods
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let selectedPhoto = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        guard let selectedPhoto = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else{
+            return
+        }
         
-        getPickedImage(img: selectedPhoto)
-        self.dismiss(animated: true, completion: nil)
+        guard let selectedPhotoData = selectedPhoto.pngData() else{
+            return
+        }
+        let storageRef = Storage.storage().reference()
+        let imagenode = storageRef.child("\(UUID().uuidString)")
+        imagenode.putData(selectedPhotoData, metadata: nil, completion: { _, error in
+            guard error == nil else{
+                print("Failed To Upload")
+                return
+            }
+            imagenode.downloadURL(completion: { url , error in
+                guard let url = url , error == nil else {
+                    return
+                }
+                let urlString = url.absoluteString
+                print("Download URL : \(urlString)")
+                UserDefaults.standard.set(urlString, forKey: "url")
+            })
+        })
+            getPickedImage(img: selectedPhoto)
+            self.dismiss(animated: true, completion: nil)
+        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

@@ -76,7 +76,7 @@
 		ACB1130D288E14EA00216B0C /* MyUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB1130C288E14E900216B0C /* MyUserDefault.swift */; };
 		ACE44E78288DB6B80058C647 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE44E77288DB6B80058C647 /* Constant.swift */; };
 		ACE44E7B288DB73C0058C647 /* MyFirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE44E7A288DB73C0058C647 /* MyFirebaseAuth.swift */; };
-		B61A61292896313400274FD5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B61A61282896313400274FD5 /* GoogleService-Info.plist */; };
+		B61A612B2897693B00274FD5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B61A612A2897693B00274FD5 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,7 +152,7 @@
 		ACB1130C288E14E900216B0C /* MyUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUserDefault.swift; sourceTree = "<group>"; };
 		ACE44E77288DB6B80058C647 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		ACE44E7A288DB73C0058C647 /* MyFirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFirebaseAuth.swift; sourceTree = "<group>"; };
-		B61A61282896313400274FD5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B61A612A2897693B00274FD5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F1602778314D15C3B8995073 /* Pods_MyBills.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBills.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -285,7 +285,7 @@
 				AC55D3C728821C23000CF810 /* Assets.xcassets */,
 				AC55D3C928821C23000CF810 /* LaunchScreen.storyboard */,
 				AC55D3CC28821C23000CF810 /* Info.plist */,
-				B61A61282896313400274FD5 /* GoogleService-Info.plist */,
+				B61A612A2897693B00274FD5 /* GoogleService-Info.plist */,
 			);
 			path = MyBills;
 			sourceTree = "<group>";
@@ -506,7 +506,6 @@
 				AC55D40C28847916000CF810 /* Localizable.strings in Resources */,
 				AC55D4002884758D000CF810 /* Poppins-Light.ttf in Resources */,
 				AC55D3FF2884758D000CF810 /* Poppins-ExtraLight.ttf in Resources */,
-				B61A61292896313400274FD5 /* GoogleService-Info.plist in Resources */,
 				ACB11307288DF76700216B0C /* CategoryVC.xib in Resources */,
 				ACB1130B288DF89400216B0C /* CategoryCell.xib in Resources */,
 				AC55D3FE2884758D000CF810 /* Poppins-ThinItalic.ttf in Resources */,
@@ -530,6 +529,7 @@
 				AC55D3FB2884758D000CF810 /* Poppins-ExtraLightItalic.ttf in Resources */,
 				AC55D3C828821C23000CF810 /* Assets.xcassets in Resources */,
 				AC460AEB28864DA400EA55D2 /* SettingsCell.xib in Resources */,
+				B61A612B2897693B00274FD5 /* GoogleService-Info.plist in Resources */,
 				AC55D4062884777C000CF810 /* ColorAssets.xcassets in Resources */,
 				AC55D3C628821C20000CF810 /* Main.storyboard in Resources */,
 				AC460ACE28849F4700EA55D2 /* HomeVC.xib in Resources */,

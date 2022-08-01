@@ -12,7 +12,7 @@ import GoogleSignIn
 
 class LoginVC: BaseVC {
     
-    let signInConfig = GIDConfiguration(clientID:"926505038198-gji4fuobkfrm2aggp1kq9jkl099eoli9.apps.googleusercontent.com")
+    let GooglesignInConfig = GIDConfiguration(clientID:"735837895236-grtola98mi08i4h073tb3ohgbee2200s.apps.googleusercontent.com")
     
     @IBOutlet weak var txtUsername: MyTextField!
     @IBOutlet weak var txtPassword: MyTextField!
@@ -30,11 +30,11 @@ class LoginVC: BaseVC {
         txtUsername.text = "jinesh@gmail.com"
         txtPassword.text = "jinesh"
         // Do any additional setup after loading the view.
-        if GIDSignIn.sharedInstance.hasPreviousSignIn() {
-           GIDSignIn.sharedInstance.restorePreviousSignIn()
-            print("already Login")
-            redirectToHome()
-         }
+//        if GIDSignIn.sharedInstance.hasPreviousSignIn() {
+//           GIDSignIn.sharedInstance.restorePreviousSignIn()
+//            print("already Login")
+//            redirectToHome()
+//         }
     }
     
     override func viewWillAppear(_ animated: Bool) {

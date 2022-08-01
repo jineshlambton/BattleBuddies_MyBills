@@ -8,6 +8,12 @@
 import UIKit
 import SwiftyMenu
 import DropDown
+import GoogleSignIn
+import Firebase
+import FirebaseAuth
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseStorage
 
 class AddItemVC: BaseVC {
     
@@ -196,6 +202,13 @@ class AddItemVC: BaseVC {
             selectedCategoryId = arrCategoryId[index]
         }
     }
+
+//    public func ImageUpload(image: UIImage){
+//        let storageref = Storage.storage().reference(forURL: "gs://testauth-69795.appspot.com")
+//        let imagenode = storageref.child("\(UUID().uuidString)")
+//        
+//        imagenode.putData(image.pngData()!)
+//    }
     
     override func getPickedImage(img: UIImage) {
         imgBill.image = img

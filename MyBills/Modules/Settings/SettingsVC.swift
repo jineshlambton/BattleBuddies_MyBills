@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
+import FirebaseAuth
+import FirebaseCore
 
 class SettingsVC: UIViewController {
 
@@ -39,12 +43,14 @@ class SettingsVC: UIViewController {
     // MARK: - Button tap methods
     
     @IBAction func btnLogoutTapped(_ sender: Any) {
+        try! Auth.auth().signOut()
         let objLoginVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
         let window = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first
         let nav = UINavigationController(rootViewController: objLoginVc)
         nav.navigationBar.isHidden = true
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
+        
     }
     
     @IBAction func btnBackTapped(_ sender: Any) {
