@@ -98,6 +98,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Continue with Facebook"/>
+                                        <connections>
+                                            <action selector="btnGoogleTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DFx-45-ld1"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIQ-BP-W3v" customClass="MyButton" customModule="MyBills" customModuleProvider="target">
                                         <rect key="frame" x="20" y="90" width="374" height="50"/>
@@ -142,6 +145,7 @@
                     <navigationItem key="navigationItem" id="Aje-sa-wdJ"/>
                     <connections>
                         <outlet property="btnForgotPwd" destination="D9c-l5-t3k" id="YNi-0U-iJc"/>
+                        <outlet property="btnGoogleLogin" destination="kcZ-Pc-zbH" id="uIA-Ns-iE1"/>
                         <outlet property="btnLogin" destination="Srh-h9-iCy" id="b6I-MW-ig7"/>
                         <outlet property="btnSignUp" destination="vIQ-BP-W3v" id="2cs-rY-YLT"/>
                         <outlet property="txtPassword" destination="1Ir-gf-0lJ" id="IFx-QS-mS9"/>

@@ -7,8 +7,12 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
 
 class LoginVC: BaseVC {
+    
+    let GooglesignInConfig = GIDConfiguration(clientID:"735837895236-grtola98mi08i4h073tb3ohgbee2200s.apps.googleusercontent.com")
+        
     
     @IBOutlet weak var txtUsername: MyTextField!
     @IBOutlet weak var txtPassword: MyTextField!
@@ -17,6 +21,8 @@ class LoginVC: BaseVC {
     @IBOutlet weak var btnForgotPwd: UIButton!
     
     @IBOutlet weak var btnSignUp: MyButton!
+    
+    @IBOutlet weak var btnGoogleLogin: GIDSignInButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,6 +114,41 @@ class LoginVC: BaseVC {
         btnSignUp.reloadControl()
         let objSignupVC = SignUpVC(nibName: "SignUpVC", bundle: nil)
         self.navigationController?.pushViewController(objSignupVC, animated: true)
+    }
+    @IBAction func btnGoogleTapped(_ sender: Any) {
+        
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        let config = GIDConfiguration(clientID: clientID)
+        
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
+            
+            if let error = error {
+                print(error)
+                return
+            }
+            guard
+                let authentication = user?.authentication,
+                let idToken = authentication.idToken
+            else {
+                return
+            }
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                           accessToken: authentication.accessToken)
+            Auth.auth().signIn(with: credential) { result, error in
+                if let error = error {
+                    print(error)
+                    return
+                    
+                }
+                if let objResult = result {
+                    MyUserDefault.instace.setLoggedInUser(user: objResult.user)
+                    print("login success")
+                    self.redirectToHome()
+                }
+            }
+            
+        }
+        
     }
 }
 
