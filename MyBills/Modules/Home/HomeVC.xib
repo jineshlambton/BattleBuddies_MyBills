@@ -16,6 +16,7 @@
                 <outlet property="btnSetting" destination="6Kc-oa-oPo" id="dOF-S4-Ngo"/>
                 <outlet property="imgFilter" destination="GHA-Rt-mlj" id="Lv9-fl-YXI"/>
                 <outlet property="imgSetting" destination="p9Y-05-Rnd" id="qVX-4b-ZF5"/>
+                <outlet property="lblNoData" destination="QtV-Me-vwO" id="laa-Xc-d72"/>
                 <outlet property="lblTitle" destination="U62-48-8KK" id="8gz-T5-lv5"/>
                 <outlet property="searchBar" destination="z8S-CX-tgN" id="f8C-5v-Mwi"/>
                 <outlet property="tblView" destination="u9X-fY-N2Z" id="85b-hv-wzo"/>
@@ -119,6 +120,12 @@
                         <constraint firstItem="Uk0-hk-CXq" firstAttribute="top" secondItem="qD8-b2-SYM" secondAttribute="top" id="yte-ok-gQX"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QtV-Me-vwO">
+                    <rect key="frame" x="0.0" y="172" width="414" height="690"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="u9X-fY-N2Z">
                     <rect key="frame" x="0.0" y="172" width="414" height="690"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -163,15 +170,19 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="u9X-fY-N2Z" secondAttribute="trailing" id="41X-pm-OJj"/>
                 <constraint firstItem="lOb-60-Lnk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="-50" id="4o5-y9-Shv"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="u9X-fY-N2Z" secondAttribute="bottom" id="8fb-Nm-Fx6"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="QtV-Me-vwO" secondAttribute="bottom" id="A8n-HT-2ZI"/>
+                <constraint firstItem="QtV-Me-vwO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Ba9-M1-3GK"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="fOL-q1-j7d" secondAttribute="bottom" constant="20" id="BsY-CI-frb"/>
                 <constraint firstItem="qD8-b2-SYM" firstAttribute="top" secondItem="lOb-60-Lnk" secondAttribute="bottom" constant="20" id="GPB-SG-lSk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fOL-q1-j7d" secondAttribute="trailing" constant="20" id="Lg7-yi-MZZ"/>
                 <constraint firstItem="u9X-fY-N2Z" firstAttribute="top" secondItem="qD8-b2-SYM" secondAttribute="bottom" constant="20" id="Qik-9a-fIV"/>
+                <constraint firstItem="QtV-Me-vwO" firstAttribute="top" secondItem="qD8-b2-SYM" secondAttribute="bottom" constant="20" id="R9n-En-QJP"/>
                 <constraint firstItem="u9X-fY-N2Z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="TtG-TC-RVp"/>
                 <constraint firstItem="lOb-60-Lnk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Xs0-v2-qgg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qD8-b2-SYM" secondAttribute="trailing" id="pRn-AG-e8G"/>
                 <constraint firstItem="qD8-b2-SYM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="sNU-Vh-hXx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lOb-60-Lnk" secondAttribute="trailing" id="uvw-aZ-Upw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="QtV-Me-vwO" secondAttribute="trailing" id="xAA-KC-QrQ"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="71.651785714285708"/>
         </view>

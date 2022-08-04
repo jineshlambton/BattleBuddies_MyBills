@@ -48,6 +48,7 @@ class LoginVC: BaseVC {
         txtUsername.placeholder = "TXT_PLACEHOLDER_USERNAME".localizedLanguage()
         txtPassword.placeholder = "TXT_PLACEHOLDER_PASSWORD".localizedLanguage()
         txtUsername.setUpUsernameField()
+        txtPassword.setUpPasswordField()
         btnLogin.setTitle("BTN_LOGIN".localizedLanguage(), for: .normal)
         btnSignUp.setTitle("BTN_SIGNUP".localizedLanguage(), for: .normal)
         btnForgotPwd.setTitle("BTN_FORGOT_PASSWORD".localizedLanguage(), for: .normal)
@@ -85,6 +86,7 @@ class LoginVC: BaseVC {
     
     private func redirectToHome() {
         let objHomeVC = HomeVC(nibName: "HomeVC", bundle: nil)
+        objHomeVC.isFromLogin = true
         let window = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first
         let nav = UINavigationController(rootViewController: objHomeVC)
         nav.navigationBar.isHidden = true

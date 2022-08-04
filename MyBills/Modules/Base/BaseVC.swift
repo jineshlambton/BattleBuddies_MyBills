@@ -13,7 +13,8 @@ class BaseVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        hideKeyboardWhenTappedAround()
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
@@ -98,6 +99,18 @@ class BaseVC: UIViewController {
     
     func uploadedImageURL(url : String) {
         
+    }
+    
+    // MARK: - Dismiss keyboard when tap around
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboardView))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboardView() {
+        view.endEditing(true)
     }
 }
 

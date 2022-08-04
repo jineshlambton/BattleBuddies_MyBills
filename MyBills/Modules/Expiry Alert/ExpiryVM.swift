@@ -24,6 +24,9 @@ class ExpiryVM : NSObject {
     
     func currentWeekExpiryItems() -> [MyItemsInformation] {
         let monday = Date().mondayOfTheSameWeek.addDays(numberOfDays: 7)
+        arrItem = arrItem.filter({ item in
+            return item.expiryDate != nil
+        })
         let filteredArray = arrItem.filter { item in
             
             return item.expiryDate!.dateValue() > monday && item.expiryDate!.dateValue() < monday.addDays(numberOfDays: 7)

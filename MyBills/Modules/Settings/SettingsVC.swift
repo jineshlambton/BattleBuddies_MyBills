@@ -100,6 +100,8 @@ extension SettingsVC : UITableViewDataSource, UITableViewDelegate {
             print("")
         case 4:
             print("")
+            let objAboutUsVC = AboutUsVC(nibName: "AboutUsVC", bundle: nil)
+            self.navigationController?.pushViewController(objAboutUsVC, animated: true)
         default:
             print("")
             

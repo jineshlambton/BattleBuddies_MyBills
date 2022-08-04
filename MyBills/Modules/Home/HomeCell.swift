@@ -14,6 +14,7 @@ class HomeCell: UITableViewCell {
     @IBOutlet weak var lblItem: UILabel!
     @IBOutlet weak var lblExpiryDate: UILabel!
     @IBOutlet weak var lblCategory: UILabel!
+    @IBOutlet weak var lblPrice: UILabel!
     
     
     @IBOutlet weak var viewCard: UIView!
@@ -38,6 +39,7 @@ class HomeCell: UITableViewCell {
         lblCategory.setLBL(text: "Category : Work", font: .LBL_SUB_DATE, textcolor: .black)
         viewCard.backgroundColor = MyColor.cardView.color
         viewCard.layer.cornerRadius = 15.0
+        lblPrice.setLBL(text: "-", font: .TXT_MAIN_TEXT, textcolor: .black)
         imgBill.image = UIImage(named: "placeholder")
     }
     
@@ -49,6 +51,9 @@ class HomeCell: UITableViewCell {
         }
         if let _ = data.expiryDate?.seconds {
             strExpiryDate = Date(timeIntervalSince1970: Double(data.expiryDate!.seconds)).dateString()
+        }
+        if let price = data.price {
+            lblPrice.text = "$\(price)"
         }
         lblDate.text = strCreatedDate
         lblItem.text = data.name ?? ""

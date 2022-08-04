@@ -22,6 +22,7 @@ class HomeVC: BaseVC {
     
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var viewFloting: UIView!
+    @IBOutlet weak var lblNoData: UILabel!
     @IBOutlet weak var btnFloting: UIButton!
     
     var homeVm = HomeVM()
@@ -29,6 +30,8 @@ class HomeVC: BaseVC {
     var arrItemSearched = [MyItemsInformation]()
     var appliedFilter : FilterParameter?
     var isSearchActive : Bool = false
+    var isFromLogin = false
+    var expiryVm : ExpiryVM?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +40,10 @@ class HomeVC: BaseVC {
         showProgress()
         setUpUI()
         NotificationCenter.default.addObserver(self, selector: #selector(updateList(notication: )), name: Notification.Name("updateItemList"), object: nil)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        isFromLogin = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,11 +56,52 @@ class HomeVC: BaseVC {
     
     //MARK: - Custom methods
     
+    func checkNoDataFound() {
+        lblNoData.setLBL(text: "LBL_NO_DATA_FOUND".localizedLanguage(), font: .LBL_SUB_TITLE, textcolor: .black)
+        if isSearchActive {
+            if arrItemSearched.count == 0 {
+                tblView.isHidden = true
+                lblNoData.isHidden = false
+            } else {
+                tblView.isHidden = false
+                lblNoData.isHidden = true
+            }
+        } else {
+            if arrItem.count == 0 {
+                tblView.isHidden = true
+                lblNoData.isHidden = false
+            } else {
+                tblView.isHidden = false
+                lblNoData.isHidden = true
+            }
+        }
+    }
+    
     @objc func updateList(notication : Notification) {
         homeVm.getItems()
     }
     
-    func setUpUI() {
+    private func checkExpiryAlert() {
+        if isFromLogin {
+            expiryVm = ExpiryVM()
+            let arrItems = expiryVm?.currentWeekExpiryItems()
+            if arrItems!.count > 0 {
+                let objExpiryAlertVC = ExpiryAlertVC(nibName: "ExpiryAlertVC", bundle: nil)
+                self.navigationController?.pushViewController(objExpiryAlertVC, animated: true)
+            }
+        }
+    }
+    
+    private func manageCategoryForNewUser() {
+        if MyFirebaseDataStore.instace.arrCategory.count == 0 {
+            let objCategory = MyFirebaseCategory()
+            objCategory.name = "Personal"
+            objCategory.uId = MyUserDefault.instace.getLoggedInUser() ?? ""
+            MyFirebaseDataStore.instace.addCategory(category: objCategory)
+        }
+    }
+    
+    private func setUpUI() {
         viewNavBar.backgroundColor = MyColor.theme.color
         lblTitle.setLBL(text: "NAV_TITLE_HOME".localizedLanguage(), font: .LBL_TITLE, textcolor: .white)
         btnFilter.setTitle("", for: .normal)
@@ -61,6 +109,7 @@ class HomeVC: BaseVC {
         btnSetting.setTitle("", for: .normal)
         searchBar.backgroundImage = UIImage()
         
+        searchBar.searchTextField.placeholder = "Search your bill here.."
         tblView.register(UINib(nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "HomeCell")
         searchBar.delegate = self
     }
@@ -113,17 +162,21 @@ extension HomeVC : HomeVMDelegate {
     func itemSynced(arr: [MyItemsInformation]) {
         arrItem = arr
         arrItemSearched = arr
+        checkNoDataFound()
         hideProgress()
+        checkExpiryAlert()
         self.tblView.reloadData()
     }
     
     func itemFiltered(arr: [MyItemsInformation]) {
         arrItem.removeAll()
         arrItem = arr
+        checkNoDataFound()
         self.tblView.reloadData()
     }
     
     func categorySynced() {
+        manageCategoryForNewUser()
         self.tblView.reloadData()
     }
 }
@@ -132,11 +185,13 @@ extension HomeVC : FilterVCDelegate {
     func appliedFilter(filter: FilterParameter?) {
         if filter != nil {
             appliedFilter = filter
+            checkNoDataFound()
             homeVm.filteredItems(filter: filter!)
         } else {
             arrItem = MyFirebaseDataStore.instace.arrItem
             arrItemSearched = MyFirebaseDataStore.instace.arrItem
             appliedFilter = nil
+            checkNoDataFound()
             tblView.reloadData()
         }
     }
@@ -155,17 +210,20 @@ extension HomeVC : UISearchBarDelegate {
 //        arrItemSearched = arrItem.filter{ $0.name?.rangeOfCharacter(from: CharacterSet(charactersIn: searchText)) != nil }
         
         arrItemSearched = arrItem.filter { $0.name?.range(of: searchText) != nil}
+        checkNoDataFound()
         tblView.reloadData()
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = true
         isSearchActive = true
+        checkNoDataFound()
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
         isSearchActive = false
+        checkNoDataFound()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -174,11 +232,13 @@ extension HomeVC : UISearchBarDelegate {
         self.searchBar.resignFirstResponder()
         tblView.resignFirstResponder()
         self.searchBar.showsCancelButton = false
+        checkNoDataFound()
         tblView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         isSearchActive = false
+        checkNoDataFound()
     }
     
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {

@@ -67,6 +67,8 @@
 		AC55D40C28847916000CF810 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC55D40E28847916000CF810 /* Localizable.strings */; };
 		AC55D41028847967000CF810 /* MyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D40F28847967000CF810 /* MyString.swift */; };
 		AC55D412288479FB000CF810 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D411288479FB000CF810 /* MyButton.swift */; };
+		AC6996DD289B6A5F0025D27F /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6996DB289B6A5F0025D27F /* AboutUsVC.swift */; };
+		AC6996DE289B6A5F0025D27F /* AboutUsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC6996DC289B6A5F0025D27F /* AboutUsVC.xib */; };
 		AC6EF5F1288DC4BC0007491A /* MyFirebaseDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6EF5F0288DC4BC0007491A /* MyFirebaseDataStore.swift */; };
 		ACA3DEAA28892A88008FD96B /* ExpiryAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3DEA828892A88008FD96B /* ExpiryAlertVC.swift */; };
 		ACA3DEAB28892A88008FD96B /* ExpiryAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACA3DEA928892A88008FD96B /* ExpiryAlertVC.xib */; };
@@ -146,6 +148,8 @@
 		AC55D40D28847916000CF810 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC55D40F28847967000CF810 /* MyString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyString.swift; sourceTree = "<group>"; };
 		AC55D411288479FB000CF810 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
+		AC6996DB289B6A5F0025D27F /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
+		AC6996DC289B6A5F0025D27F /* AboutUsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutUsVC.xib; sourceTree = "<group>"; };
 		AC6EF5F0288DC4BC0007491A /* MyFirebaseDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFirebaseDataStore.swift; sourceTree = "<group>"; };
 		ACA3DEA828892A88008FD96B /* ExpiryAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiryAlertVC.swift; sourceTree = "<group>"; };
 		ACA3DEA928892A88008FD96B /* ExpiryAlertVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpiryAlertVC.xib; sourceTree = "<group>"; };
@@ -299,6 +303,7 @@
 		AC55D3D228846BC7000CF810 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				AC6996DA289B6A4F0025D27F /* About us */,
 				ACC3CD0D2896E0100001AA9B /* Forgot password */,
 				ACB11303288DF75700216B0C /* Category */,
 				ACA3DEA728892A72008FD96B /* Expiry Alert */,
@@ -391,6 +396,15 @@
 				AC55D40E28847916000CF810 /* Localizable.strings */,
 			);
 			path = Localize;
+			sourceTree = "<group>";
+		};
+		AC6996DA289B6A4F0025D27F /* About us */ = {
+			isa = PBXGroup;
+			children = (
+				AC6996DB289B6A5F0025D27F /* AboutUsVC.swift */,
+				AC6996DC289B6A5F0025D27F /* AboutUsVC.xib */,
+			);
+			path = "About us";
 			sourceTree = "<group>";
 		};
 		ACA3DEA728892A72008FD96B /* Expiry Alert */ = {
@@ -545,6 +559,7 @@
 				AC55D3FA2884758D000CF810 /* Poppins-LightItalic.ttf in Resources */,
 				AC55D3FD2884758D000CF810 /* Poppins-Thin.ttf in Resources */,
 				AC55D3FB2884758D000CF810 /* Poppins-ExtraLightItalic.ttf in Resources */,
+				AC6996DE289B6A5F0025D27F /* AboutUsVC.xib in Resources */,
 				AC55D3C828821C23000CF810 /* Assets.xcassets in Resources */,
 				AC460AEB28864DA400EA55D2 /* SettingsCell.xib in Resources */,
 				AC55D4062884777C000CF810 /* ColorAssets.xcassets in Resources */,
@@ -628,6 +643,7 @@
 				AC460AD62884D0E500EA55D2 /* FilterVC.swift in Sources */,
 				AC55D3E328847533000CF810 /* MyFont.swift in Sources */,
 				ACA3DEAA28892A88008FD96B /* ExpiryAlertVC.swift in Sources */,
+				AC6996DD289B6A5F0025D27F /* AboutUsVC.swift in Sources */,
 				AC460AEF2887B61F00EA55D2 /* ChangePasswordVC.swift in Sources */,
 				AC460AC928849C8200EA55D2 /* Enums.swift in Sources */,
 				AC460AC628848F8800EA55D2 /* BaseVC.swift in Sources */,
