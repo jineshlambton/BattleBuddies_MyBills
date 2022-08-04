@@ -7,6 +7,7 @@
 
 import UIKit
 import MBProgressHUD
+import FirebaseStorage
 
 class BaseVC: UIViewController {
 
@@ -71,6 +72,33 @@ class BaseVC: UIViewController {
         let window = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first
         MBProgressHUD.hide(for: window!, animated: true)
     }
+    
+    func uploadImage(img : UIImage) {
+        guard let selectedPhotoData = img.pngData() else{
+            return
+        }
+        let storageRef = Storage.storage().reference()
+        let imagenode = storageRef.child("\(UUID().uuidString)")
+        imagenode.putData(selectedPhotoData, metadata: nil, completion: { _, error in
+            guard error == nil else{
+                print("Failed To Upload")
+                return
+            }
+            imagenode.downloadURL(completion: { url , error in
+                guard let url = url , error == nil else {
+                    return
+                }
+                let urlString = url.absoluteString
+                print("Download URL : \(urlString)")
+                self.uploadedImageURL(url: urlString)
+                UserDefaults.standard.set(urlString, forKey: "url")
+            })
+        })
+    }
+    
+    func uploadedImageURL(url : String) {
+        
+    }
 }
 
 
@@ -87,25 +115,25 @@ extension BaseVC : UIImagePickerControllerDelegate , UINavigationControllerDeleg
             return
         }
         
-//        guard let selectedPhotoData = selectedPhoto.pngData() else{
-//            return
-//        }
-//        let storageRef = Storage.storage().reference()
-//        let imagenode = storageRef.child("\(UUID().uuidString)")
-//        imagenode.putData(selectedPhotoData, metadata: nil, completion: { _, error in
-//            guard error == nil else{
-//                print("Failed To Upload")
-//                return
-//            }
-//            imagenode.downloadURL(completion: { url , error in
-//                guard let url = url , error == nil else {
-//                    return
-//                }
-//                let urlString = url.absoluteString
-//                print("Download URL : \(urlString)")
-//                UserDefaults.standard.set(urlString, forKey: "url")
-//            })
-//        })
+        guard let selectedPhotoData = selectedPhoto.pngData() else{
+            return
+        }
+        let storageRef = Storage.storage().reference()
+        let imagenode = storageRef.child("\(UUID().uuidString)")
+        imagenode.putData(selectedPhotoData, metadata: nil, completion: { _, error in
+            guard error == nil else{
+                print("Failed To Upload")
+                return
+            }
+            imagenode.downloadURL(completion: { url , error in
+                guard let url = url , error == nil else {
+                    return
+                }
+                let urlString = url.absoluteString
+                print("Download URL : \(urlString)")
+                UserDefaults.standard.set(urlString, forKey: "url")
+            })
+        })
             getPickedImage(img: selectedPhoto)
             self.dismiss(animated: true, completion: nil)
         

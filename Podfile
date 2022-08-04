@@ -12,10 +12,11 @@ target 'MyBills' do
   pod 'Firebase/Auth'
   pod 'Alamofire'
   pod 'Firebase/Firestore'
-#  pod 'Firebase/Storage'
+  pod 'Firebase/Storage'
   pod 'MBProgressHUD', '~> 1.2.0'
   pod 'DropDown'
   pod 'GoogleSignIn', '~> 6.0'
+  pod 'Kingfisher'
   # Pods for MyBills
 
 end
