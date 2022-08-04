@@ -108,16 +108,27 @@ class AddItemVC: BaseVC {
             if let description = item.description1 {
                 txtViewDescription.text = description
             }
+            if let url = item.imgBill {
+                let uurl = URL(string: url)
+                if url == "" {
+                    imgBill.image = UIImage(named: "placeholder")
+                } else {
+                    imgBill.kf.setImage(with: uurl)
+                }
+            }
         }
     }
     
-    private func addItemApiCall() {
+    private func addItemApiCall(imgUrl : String? = nil) {
         let objItem = MyFirebaseItem()
         objItem.name = txtItemName.text!
         objItem.price = txtPrice.text!
         objItem.purchaseDate = purchaseDate
         objItem.description = txtViewDescription.text!
         objItem.categoryId = selectedCategoryId!
+        if let url = imgUrl {
+            objItem.imgBill = url
+        }
         if let objRDate = replacementDate {
             objItem.replacementDate = objRDate
         }
@@ -130,20 +141,24 @@ class AddItemVC: BaseVC {
         MyFirebaseDataStore.instace.addItem(item: objItem)
     }
     
-    private func updateItemApiCall() {
+    private func updateItemApiCall(imgUrl : String? = nil) {
         let objItem = MyFirebaseItem()
         objItem.name = txtItemName.text!
         objItem.price = txtPrice.text!
         objItem.purchaseDate = purchaseDate
         objItem.description = txtViewDescription.text!
         objItem.categoryId = selectedCategoryId!
+        if let url = imgUrl {
+            objItem.imgBill = url
+        }
         if let objRDate = replacementDate {
             objItem.replacementDate = objRDate
         }
         if let objEDate = expiryDate {
             objItem.expiryDate = objEDate
         }
-        objItem.createDate = Date()
+        objItem.createDate = objItemInfo?.createDate?.dateValue()
+//        objItem.createDate = Date()
         objItem.uid = MyUserDefault.instace.getLoggedInUser() ?? ""
         
         MyFirebaseDataStore.instace.updateItem(id: objItemInfo!.documentID!, item: objItem)
@@ -265,6 +280,14 @@ class AddItemVC: BaseVC {
         imgBill.image = img
     }
     
+    override func uploadedImageURL(url: String) {
+        if isEdit {
+            updateItemApiCall(imgUrl: url)
+        } else {
+            addItemApiCall(imgUrl: url)
+        }
+    }
+    
     // MARK: - Button tapped methods
     
     @IBAction func btnBackTapped(_ sender: Any) {
@@ -293,9 +316,17 @@ class AddItemVC: BaseVC {
             if Util.isNetworkAvailable() {
                 showProgress()
                 if isEdit {
-                    updateItemApiCall()
+                    if imgBill.image != UIImage(named: "placeholder") {
+                        uploadImage(img: imgBill.image!)
+                    } else {
+                        updateItemApiCall()
+                    }
                 } else {
-                    addItemApiCall()
+                    if imgBill.image != UIImage(named: "placeholder") {
+                        uploadImage(img: imgBill.image!)
+                    } else {
+                        addItemApiCall()
+                    }
                 }
             } else {
                 showAlert(msg: Constant.MESSGAE.CHECK_INTERNET_CONECTION)

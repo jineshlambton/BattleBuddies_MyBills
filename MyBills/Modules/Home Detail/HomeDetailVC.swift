@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 @objc protocol HomeDetailVCDelegate : NSObjectProtocol {
     @objc optional func deletedItemSuccessfully()
@@ -68,6 +69,14 @@ class HomeDetailVC: BaseVC {
                 let strCreatedDate = Date(timeIntervalSince1970: Double(seconds)).dateString()
                 lblReplacementDate.text = "Replacement Date : " + strCreatedDate
             }
+            if let url = objItem.imgBill {
+                let uurl = URL(string: url)
+                if url == "" {
+                    imgBill.image = UIImage(named: "placeholder")
+                } else {
+                    imgBill.kf.setImage(with: uurl)
+                }
+            }
         } else {
             showAlertWithOk(self, msg: Constant.MESSGAE.SOMETHING_WENT_WRONG) { okAction in
                 self.navigationController?.popViewController(animated: true)
@@ -89,6 +98,8 @@ class HomeDetailVC: BaseVC {
         lblPurchaseDate.setLBL(text: "Purchase date : -", font: .LBL_SUB_TITLE, textcolor: .black)
         lblExpiryDate.setLBL(text: "Expiry date : -", font: .LBL_SUB_TITLE, textcolor: .black)
         lblReplacementDate.setLBL(text: "Replacement date : -", font: .LBL_SUB_TITLE, textcolor: .black)
+        imgBill.layer.borderColor = UIColor.black.cgColor
+        imgBill.layer.borderWidth = 1.5
         if isFromExpiryAlert {
             btnDelete.isHidden = true
             btnEdir.isHidden = true

@@ -43,6 +43,7 @@ class SettingsVC: BaseVC {
     // MARK: - Button tap methods
     
     @IBAction func btnLogoutTapped(_ sender: Any) {
+        try! Auth.auth().signOut()
         MyUserDefault.instace.setLoggedInUser()
         showProgress()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {

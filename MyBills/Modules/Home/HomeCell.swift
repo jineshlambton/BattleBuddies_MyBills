@@ -55,7 +55,14 @@ class HomeCell: UITableViewCell {
         lblExpiryDate.text = "Expiry Date : " + strExpiryDate
         let strCategory = MyFirebaseDataStore.instace.getCategoryName(id: data.categoryId!)
         lblCategory.text = "Category : " + strCategory
-        
+        if let url = data.imgBill {
+            let uurl = URL(string: url)
+            if url == "" {
+                imgBill.image = UIImage(named: "placeholder")
+            } else {
+                imgBill.kf.setImage(with: uurl)
+            }
+        }
     }
     
 }
