@@ -17,6 +17,7 @@ class LoginVC: BaseVC {
     @IBOutlet weak var txtUsername: MyTextField!
     @IBOutlet weak var txtPassword: MyTextField!
     
+    @IBOutlet weak var viewGoogle: GIDSignInButton!
     @IBOutlet weak var btnLogin: MyButton!
     @IBOutlet weak var btnForgotPwd: UIButton!
     
@@ -30,6 +31,9 @@ class LoginVC: BaseVC {
         txtUsername.text = "jinesh@gmail.com"
         txtPassword.text = "jinesh"
         isLoggedInUser()
+//        viewGoogle.layer.cornerRadius = viewGoogle.frame.height / 2
+//        viewGoogle.layer.borderColor = UIColor.lightGray.cgColor
+//        viewGoogle.layer.borderWidth = 1.0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +52,7 @@ class LoginVC: BaseVC {
         txtUsername.placeholder = "TXT_PLACEHOLDER_USERNAME".localizedLanguage()
         txtPassword.placeholder = "TXT_PLACEHOLDER_PASSWORD".localizedLanguage()
         txtUsername.setUpUsernameField()
+        txtPassword.setUpPasswordField()
         btnLogin.setTitle("BTN_LOGIN".localizedLanguage(), for: .normal)
         btnSignUp.setTitle("BTN_SIGNUP".localizedLanguage(), for: .normal)
         btnForgotPwd.setTitle("BTN_FORGOT_PASSWORD".localizedLanguage(), for: .normal)
@@ -85,6 +90,7 @@ class LoginVC: BaseVC {
     
     private func redirectToHome() {
         let objHomeVC = HomeVC(nibName: "HomeVC", bundle: nil)
+        objHomeVC.isFromLogin = true
         let window = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first
         let nav = UINavigationController(rootViewController: objHomeVC)
         nav.navigationBar.isHidden = true

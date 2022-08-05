@@ -59,13 +59,19 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABx-Fe-psj" userLabel="Label2">
-                                                        <rect key="frame" x="0.0" y="36.5" width="214" height="21.5"/>
+                                                        <rect key="frame" x="0.0" y="36.5" width="134" height="21.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESB-Co-cBo" userLabel="Label3">
-                                                        <rect key="frame" x="0.0" y="58" width="214" height="22"/>
+                                                        <rect key="frame" x="0.0" y="58" width="134" height="22"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nyj-Sw-dHD">
+                                                        <rect key="frame" x="134" y="36.5" width="80" height="43.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -74,15 +80,19 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="EM5-Oa-aCY" firstAttribute="top" secondItem="Xsc-GG-NFx" secondAttribute="top" id="6DC-iF-eAN"/>
+                                                    <constraint firstItem="Nyj-Sw-dHD" firstAttribute="leading" secondItem="ABx-Fe-psj" secondAttribute="trailing" id="7dr-Pr-Eky"/>
                                                     <constraint firstAttribute="bottom" secondItem="ESB-Co-cBo" secondAttribute="bottom" id="8M2-t1-yyt"/>
-                                                    <constraint firstAttribute="trailing" secondItem="ESB-Co-cBo" secondAttribute="trailing" id="B80-V2-1cM"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ESB-Co-cBo" secondAttribute="trailing" constant="80" id="B80-V2-1cM"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Nyj-Sw-dHD" secondAttribute="trailing" id="IvK-hR-eQ8"/>
                                                     <constraint firstItem="ABx-Fe-psj" firstAttribute="leading" secondItem="Xsc-GG-NFx" secondAttribute="leading" id="OaU-29-BLv"/>
                                                     <constraint firstItem="ESB-Co-cBo" firstAttribute="height" secondItem="EM5-Oa-aCY" secondAttribute="height" multiplier="0.6" id="S3V-8g-nQk"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Nyj-Sw-dHD" secondAttribute="bottom" id="SIP-vU-hhG"/>
                                                     <constraint firstAttribute="height" constant="80" id="XZn-iD-C31"/>
+                                                    <constraint firstItem="Nyj-Sw-dHD" firstAttribute="top" secondItem="EM5-Oa-aCY" secondAttribute="bottom" id="bEN-Hw-3dO"/>
                                                     <constraint firstAttribute="trailing" secondItem="EM5-Oa-aCY" secondAttribute="trailing" id="gyk-mc-oUy"/>
                                                     <constraint firstItem="ABx-Fe-psj" firstAttribute="top" secondItem="EM5-Oa-aCY" secondAttribute="bottom" id="jdy-JP-9cW"/>
                                                     <constraint firstItem="EM5-Oa-aCY" firstAttribute="leading" secondItem="Xsc-GG-NFx" secondAttribute="leading" id="nKf-zM-LuX"/>
-                                                    <constraint firstAttribute="trailing" secondItem="ABx-Fe-psj" secondAttribute="trailing" id="oJ3-9z-Kwm"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ABx-Fe-psj" secondAttribute="trailing" constant="80" id="oJ3-9z-Kwm"/>
                                                     <constraint firstItem="ESB-Co-cBo" firstAttribute="top" secondItem="ABx-Fe-psj" secondAttribute="bottom" id="q0C-Df-gr8"/>
                                                     <constraint firstItem="ABx-Fe-psj" firstAttribute="height" secondItem="EM5-Oa-aCY" secondAttribute="height" multiplier="0.6" id="rfO-4Z-DDy"/>
                                                     <constraint firstItem="ESB-Co-cBo" firstAttribute="leading" secondItem="Xsc-GG-NFx" secondAttribute="leading" id="uYx-EI-ukp"/>
@@ -138,6 +148,7 @@
                 <outlet property="lblDate" destination="puV-rI-vId" id="7kN-sA-ksR"/>
                 <outlet property="lblExpiryDate" destination="ABx-Fe-psj" id="xJj-SV-Twd"/>
                 <outlet property="lblItem" destination="EM5-Oa-aCY" id="gDB-kg-Muy"/>
+                <outlet property="lblPrice" destination="Nyj-Sw-dHD" id="yy4-96-JYF"/>
                 <outlet property="viewCard" destination="q1y-ij-ebj" id="DTK-OC-xMa"/>
                 <outlet property="viewImageBill" destination="f93-ih-QZK" id="h1a-Rl-BlD"/>
             </connections>

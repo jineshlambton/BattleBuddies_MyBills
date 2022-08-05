@@ -37,4 +37,6 @@ extension UIFont {
     
     static let LBL_DATE = UIFont(name: FONT_BOLD, size: 13.0)!
     static let LBL_SUB_DATE = UIFont(name: FONT_SEMI_BOLD, size: 10.0)!
+    
+    static let TXT_MAIN_TEXT = UIFont(name: FONT_BOLD, size: 14.0)!
 }

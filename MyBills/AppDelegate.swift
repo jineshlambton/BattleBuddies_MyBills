@@ -13,7 +13,7 @@ import GoogleSignIn
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    let notificationCenter = UNUserNotificationCenter.current()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -24,6 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // Show the app's signed-out state.
             } else {
                 // Show the app's signed-in state.
+            }
+        }
+        
+        notificationCenter.requestAuthorization(options: [.alert, .sound]) { permissionGranted, error in
+            if !(permissionGranted) {
+                print("Permission denied")
             }
         }
         return true
@@ -72,6 +78,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    // MARK: - Push notification
+    
+    func createDate(weekday: Int, hour: Int, minute: Int, year: Int)->Date{
+        
+        var components = DateComponents()
+        components.hour = hour
+        components.minute = minute
+        components.year = year
+        components.weekday = weekday // sunday = 1 ... saturday = 7
+        components.weekdayOrdinal = 10
+        components.timeZone = .current
+        
+        let calendar = Calendar(identifier: .gregorian)
+        return calendar.date(from: components)!
+    }
+    
+    func scheduleNotification(at date: Date, body: String, titles:String) {
+        
+        let triggerWeekly = Calendar.current.dateComponents([.weekday,.hour,.minute,.second,], from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerWeekly, repeats: true)
+        
+        let content = UNMutableNotificationContent()
+        content.title = titles
+        content.body = body
+        content.sound = UNNotificationSound.default
+        content.categoryIdentifier = "todoList"
+        
+        let request = UNNotificationRequest(identifier: "textNotification", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().delegate = self
+        //UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UNUserNotificationCenter.current().add(request) {(error) in
+            if let error = error {
+                print("Uh oh! We had an error: \(error)")
+            }
+        }
+    }
+    
+    func scheduleNotificationEveryMonday() {
+        let dt = createDate(weekday: 2, hour: 9, minute: 0, year: 2022)
+        scheduleNotification(at: dt, body: "Check your bills!", titles: "Couple of items are going to expire in this week. You should check before it get expires.")
+    }
 
+}
+
+extension AppDelegate : UNUserNotificationCenterDelegate {
+    
 }
 

@@ -195,13 +195,13 @@ class MyFirebaseDataStore : NSObject {
     }
     
     func minPriceValue() -> CGFloat {
-        let minValue1 = MyFirebaseDataStore.instace.arrItem.min(by: { Int($0.price!)! < Int($1.price!)! })
-        return CGFloat(Int(minValue1!.price!)!)
+        let minValue1 = MyFirebaseDataStore.instace.arrItem.min(by: { Double($0.price!)! < Double($1.price!)! })
+        return CGFloat(Double(minValue1!.price!)!)
     }
     
     func maxPriceValue() -> CGFloat {
-        let maxValue1 = MyFirebaseDataStore.instace.arrItem.max(by: { Int($0.price!)! < Int($1.price!)! })
-        return CGFloat(Int(maxValue1!.price!)!)
+        let maxValue1 = MyFirebaseDataStore.instace.arrItem.max(by: { Double($0.price!)! < Double($1.price!)! })
+        return CGFloat(Double(maxValue1!.price!)!)
     }
 }
 

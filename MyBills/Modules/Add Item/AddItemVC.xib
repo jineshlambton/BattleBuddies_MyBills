@@ -260,7 +260,7 @@
                         <constraint firstAttribute="height" constant="35" id="nuY-cK-abZ"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Gj-JM-bAX">
                     <rect key="frame" x="20" y="432" width="374" height="70"/>
