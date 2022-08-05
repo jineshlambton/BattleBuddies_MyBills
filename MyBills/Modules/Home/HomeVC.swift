@@ -86,6 +86,11 @@ class HomeVC: BaseVC {
             expiryVm = ExpiryVM()
             let arrItems = expiryVm?.currentWeekExpiryItems()
             if arrItems!.count > 0 {
+                
+                if UIApplication.shared.scheduledLocalNotifications?.count == 0 {
+                    Util.appDelegate.scheduleNotificationEveryMonday()
+                }
+                
                 let objExpiryAlertVC = ExpiryAlertVC(nibName: "ExpiryAlertVC", bundle: nil)
                 self.navigationController?.pushViewController(objExpiryAlertVC, animated: true)
             }
@@ -217,13 +222,18 @@ extension HomeVC : UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = true
         isSearchActive = true
+        if searchBar.text == "" {
+            isSearchActive = false
+        }
         checkNoDataFound()
+        tblView.reloadData()
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
         isSearchActive = false
         checkNoDataFound()
+        tblView.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -232,7 +242,7 @@ extension HomeVC : UISearchBarDelegate {
         self.searchBar.resignFirstResponder()
         tblView.resignFirstResponder()
         self.searchBar.showsCancelButton = false
-        checkNoDataFound()
+//        checkNoDataFound()
         tblView.reloadData()
     }
     
