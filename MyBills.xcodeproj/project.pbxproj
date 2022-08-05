@@ -69,10 +69,10 @@
 		AC55D412288479FB000CF810 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55D411288479FB000CF810 /* MyButton.swift */; };
 		AC6996DD289B6A5F0025D27F /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6996DB289B6A5F0025D27F /* AboutUsVC.swift */; };
 		AC6996DE289B6A5F0025D27F /* AboutUsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC6996DC289B6A5F0025D27F /* AboutUsVC.xib */; };
-		AC6996E1289B7A170025D27F /* Sample.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AC6996E0289B7A160025D27F /* Sample.pdf */; };
 		AC6996E5289B7A610025D27F /* HowToUseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6996E3289B7A610025D27F /* HowToUseVC.swift */; };
 		AC6996E6289B7A610025D27F /* HowToUseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC6996E4289B7A610025D27F /* HowToUseVC.xib */; };
 		AC6EF5F1288DC4BC0007491A /* MyFirebaseDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6EF5F0288DC4BC0007491A /* MyFirebaseDataStore.swift */; };
+		AC79DB36289CD8DE00061FC7 /* Sample.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AC79DB35289CD8DE00061FC7 /* Sample.pdf */; };
 		ACA3DEAA28892A88008FD96B /* ExpiryAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3DEA828892A88008FD96B /* ExpiryAlertVC.swift */; };
 		ACA3DEAB28892A88008FD96B /* ExpiryAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACA3DEA928892A88008FD96B /* ExpiryAlertVC.xib */; };
 		ACB11306288DF76700216B0C /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB11304288DF76700216B0C /* CategoryVC.swift */; };
@@ -153,10 +153,10 @@
 		AC55D411288479FB000CF810 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		AC6996DB289B6A5F0025D27F /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
 		AC6996DC289B6A5F0025D27F /* AboutUsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutUsVC.xib; sourceTree = "<group>"; };
-		AC6996E0289B7A160025D27F /* Sample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Sample.pdf; sourceTree = "<group>"; };
 		AC6996E3289B7A610025D27F /* HowToUseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToUseVC.swift; sourceTree = "<group>"; };
 		AC6996E4289B7A610025D27F /* HowToUseVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HowToUseVC.xib; sourceTree = "<group>"; };
 		AC6EF5F0288DC4BC0007491A /* MyFirebaseDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFirebaseDataStore.swift; sourceTree = "<group>"; };
+		AC79DB35289CD8DE00061FC7 /* Sample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Sample.pdf; sourceTree = "<group>"; };
 		ACA3DEA828892A88008FD96B /* ExpiryAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiryAlertVC.swift; sourceTree = "<group>"; };
 		ACA3DEA928892A88008FD96B /* ExpiryAlertVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpiryAlertVC.xib; sourceTree = "<group>"; };
 		ACB11304288DF76700216B0C /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
@@ -418,7 +418,7 @@
 		AC6996DF289B7A080025D27F /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
-				AC6996E0289B7A160025D27F /* Sample.pdf */,
+				AC79DB35289CD8DE00061FC7 /* Sample.pdf */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -559,7 +559,6 @@
 				AC460AE728864C8900EA55D2 /* SettingsVC.xib in Resources */,
 				AC55D3F42884758D000CF810 /* Poppins-Italic.ttf in Resources */,
 				AC55D4032884758D000CF810 /* Poppins-BlackItalic.ttf in Resources */,
-				AC6996E1289B7A170025D27F /* Sample.pdf in Resources */,
 				AC55D40C28847916000CF810 /* Localizable.strings in Resources */,
 				AC55D4002884758D000CF810 /* Poppins-Light.ttf in Resources */,
 				AC55D3FF2884758D000CF810 /* Poppins-ExtraLight.ttf in Resources */,
@@ -585,6 +584,7 @@
 				AC460AF02887B61F00EA55D2 /* ChangePasswordVC.xib in Resources */,
 				AC55D3FA2884758D000CF810 /* Poppins-LightItalic.ttf in Resources */,
 				AC55D3FD2884758D000CF810 /* Poppins-Thin.ttf in Resources */,
+				AC79DB36289CD8DE00061FC7 /* Sample.pdf in Resources */,
 				AC55D3FB2884758D000CF810 /* Poppins-ExtraLightItalic.ttf in Resources */,
 				AC6996DE289B6A5F0025D27F /* AboutUsVC.xib in Resources */,
 				AC55D3C828821C23000CF810 /* Assets.xcassets in Resources */,

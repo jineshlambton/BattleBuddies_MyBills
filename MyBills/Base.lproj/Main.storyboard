@@ -91,13 +91,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="51V-9n-me4">
                                 <rect key="frame" x="0.0" y="589.5" width="414" height="272.5"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wc2-1y-M8h" customClass="GIDSignInButton">
+                                        <rect key="frame" x="20" y="20" width="374" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="glg-E3-sfC"/>
+                                        </constraints>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kcZ-Pc-zbH">
                                         <rect key="frame" x="20" y="20" width="374" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Zs3-XP-yj0"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Continue with Facebook"/>
+                                        <buttonConfiguration key="configuration" style="plain" title=" "/>
                                         <connections>
                                             <action selector="btnGoogleTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DFx-45-ld1"/>
                                         </connections>
@@ -117,9 +124,12 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="vIQ-BP-W3v" firstAttribute="top" secondItem="kcZ-Pc-zbH" secondAttribute="bottom" constant="20" id="5Ky-0L-RwN"/>
+                                    <constraint firstItem="Wc2-1y-M8h" firstAttribute="top" secondItem="51V-9n-me4" secondAttribute="top" constant="20" id="fK3-64-P7v"/>
                                     <constraint firstAttribute="trailing" secondItem="kcZ-Pc-zbH" secondAttribute="trailing" constant="20" id="h9W-pj-b7B"/>
                                     <constraint firstItem="kcZ-Pc-zbH" firstAttribute="leading" secondItem="51V-9n-me4" secondAttribute="leading" constant="20" id="hft-4h-vaH"/>
                                     <constraint firstItem="kcZ-Pc-zbH" firstAttribute="top" secondItem="51V-9n-me4" secondAttribute="top" constant="20" id="lH0-Hx-jnm"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wc2-1y-M8h" secondAttribute="trailing" constant="20" id="rQs-Ck-c1n"/>
+                                    <constraint firstItem="Wc2-1y-M8h" firstAttribute="leading" secondItem="51V-9n-me4" secondAttribute="leading" constant="20" id="rXc-7c-T6D"/>
                                     <constraint firstItem="vIQ-BP-W3v" firstAttribute="leading" secondItem="51V-9n-me4" secondAttribute="leading" constant="20" symbolic="YES" id="tEd-Cv-1mh"/>
                                     <constraint firstAttribute="trailing" secondItem="vIQ-BP-W3v" secondAttribute="trailing" constant="20" id="wib-yc-XpD"/>
                                 </constraints>
